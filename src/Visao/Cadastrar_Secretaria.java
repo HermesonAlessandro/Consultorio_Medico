@@ -7,6 +7,7 @@ import DAO.Conexao;
 import DAO.SecretariaDAO;
 import Modelo.Secretaria;
 import javax.swing.JOptionPane;
+import java.sql.*;
 
 
 public class Cadastrar_Secretaria extends javax.swing.JInternalFrame {
@@ -175,6 +176,16 @@ public class Cadastrar_Secretaria extends javax.swing.JInternalFrame {
        String nome = jTextField2.getText();
        int rg = Integer.valueOf(jTextField3.getText());
        int tel = Integer.valueOf(jTextField4.getText());
+       String end = jtxt5.getText();
+       String sexo = jComboBox1.getSelectedItem().toString();
+       String senha = jPasswordField1.getText();
+       
+       
+       
+       Secretaria s = new Secretaria(cpf, nome, rg, tel, end, sexo, senha, 285654);
+       Connection con = Conexao.AbrirConexao();
+       SecretariaDAO dao = new SecretariaDAO(con);
+       dao.Cadastrar_Secretaria(s);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

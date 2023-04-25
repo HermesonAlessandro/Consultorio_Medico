@@ -8,9 +8,9 @@ public class Paciente {
     private String sexo;
     private String convenio;
     private int fk_cpf_sec;
-    private int fk_cnpj_conevnio;
+    private int fk_cnpj_convenio;
 
-    public Paciente(int cpf, String nome, String end, int tel, int rg, String sexo, String convenio, int fk_cpf_sec, int fk_cnpj_conevnio) {
+    public Paciente(int cpf, String nome, String end, int tel, int rg, String sexo, String convenio, int fk_cpf_sec, int fk_cnpj_convenio) {
         this.cpf = cpf;
         this.nome = nome;
         this.end = end;
@@ -19,7 +19,7 @@ public class Paciente {
         this.sexo = sexo;
         this.convenio = convenio;
         this.fk_cpf_sec = fk_cpf_sec;
-        this.fk_cnpj_conevnio = fk_cnpj_conevnio;
+        this.fk_cnpj_convenio = fk_cnpj_convenio;
     }
 
     public Paciente() {
@@ -31,7 +31,7 @@ public class Paciente {
         this.sexo = "";
         this.convenio = "";
         this.fk_cpf_sec = 0;
-        this.fk_cnpj_conevnio = 0;
+        this.fk_cnpj_convenio = 0;
     
     
     }
@@ -104,12 +104,12 @@ public class Paciente {
         this.fk_cpf_sec = fk_cpf_sec;
     }
 
-    public int getFk_cnpj_conevnio() {
-        return fk_cnpj_conevnio;
+    public int getFk_cnpj_convenio() {
+        return fk_cnpj_convenio;
     }
 
-    public void setFk_cnpj_conevnio(int fk_cnpj_conevnio) {
-        this.fk_cnpj_conevnio = fk_cnpj_conevnio;
+    public void setFk_cnpj_convenio(int fk_cnpj_convenio) {
+        this.fk_cnpj_convenio = fk_cnpj_convenio;
     }
     
     

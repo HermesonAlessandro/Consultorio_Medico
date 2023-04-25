@@ -23,7 +23,7 @@ public class PacienteDAO extends ExecuteSQL{
             ps.setString(6,p.getSexo());
             ps.setString(7,p.getConvenio());
             ps.setInt(8,p.getFk_cpf_sec());
-            ps.setInt(9,p.getFk_cnpj_conevnio());
+            ps.setInt(9,p.getFk_cnpj_convenio());
             
             if(ps.executeUpdate()>0){
                 JOptionPane.showMessageDialog(null, "cadastrado com Sucesso!");
