@@ -162,8 +162,8 @@ public class Cadastrar_Doença extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       int capitulo = Integer.valueOf(jtxt1.getText());
       String descricao = jtxt2.getText();
-      String cod_cid_10 = jtxt3.getText();
-      int cod = Integer.valueOf(jtxt4.getText());
+      String cod_cid_10 = jtxt4.getText();
+      int cod = Integer.valueOf(jtxt3.getText());
       
        Cid ci = new Cid(cod, capitulo, descricao, cod_cid_10);
        Connection con = Conexao.AbrirConexao();

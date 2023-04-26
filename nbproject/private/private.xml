@@ -3,19 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/RCR%20-%202022/Documents/NetBeansProjects/consultorio_medico/src/Visao/Buscar_Pacientes.java</file>
-            <file>file:/C:/Users/RCR%20-%202022/Documents/NetBeansProjects/consultorio_medico/src/Visao/Cadastrar_Doença.java</file>
-            <file>file:/C:/Users/RCR%20-%202022/Documents/NetBeansProjects/consultorio_medico/src/Visao/Cadastrar_Secretaria.java</file>
-            <file>file:/C:/Users/RCR%20-%202022/Documents/NetBeansProjects/consultorio_medico/src/Visao/Buscar_Consultas.java</file>
-            <file>file:/C:/Users/RCR%20-%202022/Documents/NetBeansProjects/consultorio_medico/src/Visao/Cadastrar_Paciente.java</file>
-            <file>file:/C:/Users/RCR%20-%202022/Documents/NetBeansProjects/consultorio_medico/src/Visao/Cadastrar_Medico.java</file>
-            <file>file:/C:/Users/RCR%20-%202022/Documents/NetBeansProjects/consultorio_medico/src/Visao/Cadastrar_Infor_Clinica.java</file>
-            <file>file:/C:/Users/RCR%20-%202022/Documents/NetBeansProjects/consultorio_medico/src/Visao/Buscar_Medico.java</file>
-            <file>file:/C:/Users/RCR%20-%202022/Documents/NetBeansProjects/consultorio_medico/src/Visao/Cadastrar_Convenio.java</file>
-            <file>file:/C:/Users/RCR%20-%202022/Documents/NetBeansProjects/consultorio_medico/src/Visao/Alterar_Medico.java</file>
-            <file>file:/C:/Users/RCR%20-%202022/Documents/NetBeansProjects/consultorio_medico/src/Visao/Alterar_Paciente.java</file>
-            <file>file:/C:/Users/RCR%20-%202022/Documents/NetBeansProjects/consultorio_medico/src/DAO/ConvenioDAO.java</file>
-            <file>file:/C:/Users/RCR%20-%202022/Documents/NetBeansProjects/consultorio_medico/src/Visao/Buscar_Convenio.java</file>
+            <file>file:/C:/Users/RCR%20-%202022/Documents/NetBeansProjects/Consultorio_Medico/src/DAO/CidDAO.java</file>
+            <file>file:/C:/Users/RCR%20-%202022/Documents/NetBeansProjects/Consultorio_Medico/src/Visao/Cadastrar_Secretaria.java</file>
+            <file>file:/C:/Users/RCR%20-%202022/Documents/NetBeansProjects/Consultorio_Medico/src/DAO/SecretariaDAO.java</file>
+            <file>file:/C:/Users/RCR%20-%202022/Documents/NetBeansProjects/Consultorio_Medico/src/Visao/Cadastrar_Doença.java</file>
         </group>
     </open-files>
 </project-private>

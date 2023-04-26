@@ -180,6 +180,13 @@ public class Cadastrar_Paciente extends javax.swing.JInternalFrame {
        String sexo = jComboBox1.getSelectedItem().toString();
        String convenio = jTextField6.getText();
        
+       Paciente p = new Paciente(cpf, nome, end, tel, rg, sexo, convenio, 1234589, 123456789);
+       Connection con = Conexao.AbrirConexao();
+       PacienteDAO dao = new PacienteDAO(con);
+       dao.Cadastrar_Paciente(p);
+       
+       
+       
        
 
     }//GEN-LAST:event_jButton1ActionPerformed

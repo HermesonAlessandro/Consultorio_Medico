@@ -11,7 +11,7 @@ public class SecretariaDAO extends ExecuteSQL{
     
     
     public void Cadastrar_Secretaria(Secretaria s){
-        String sql = "insert into secretaria values(?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "insert into secretaria values(?, ?, ?, ?, ?, ?, ?)";
         try{
             PreparedStatement ps = getCon().prepareStatement(sql);
             ps.setInt(1,s.getCpf());

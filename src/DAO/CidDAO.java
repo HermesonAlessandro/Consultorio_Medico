@@ -12,13 +12,16 @@ public class CidDAO extends ExecuteSQL{
     }
    
     public void Cadastrar_Cid(Cid ci){
-        String sql = "insert into cid values(?, ?, ?, 0)";
+        String sql = "insert into cid values(?, ?, ?, ?)";
         try{
             PreparedStatement ps = getCon().prepareStatement(sql);
-            ps.setString(1,ci.getCod_cid_10());
-            ps.setString(2,ci.getDescricao());
-            ps.setInt(3,ci.getCapitulo());
-            ps.setInt(4,ci.getCod());
+             ps.setInt(1,ci.getCapitulo());
+              ps.setString(2,ci.getDescricao());
+               ps.setString(3, ci.getCod_cid_10());
+               ps.setInt(4, ci.getCod());
+           
+           
+         
             
             
             
