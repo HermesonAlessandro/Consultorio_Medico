@@ -12,7 +12,7 @@ public class ClinicaDAO extends ExecuteSQL{
     }
     
     public void Cadastrar_Clinica(Clinica cl){
-        String sql = "insert into clinica values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "insert into clinica values(?, ?, ?, ?, ?, ?, ?, ?)";
         try{
             PreparedStatement ps = getCon().prepareStatement(sql);
             ps.setInt(1,cl.getCnpj());
