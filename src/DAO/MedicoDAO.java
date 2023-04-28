@@ -1,12 +1,15 @@
 package DAO;
 
+import DTO.MedicoDTO;
 import Modelo.Medico;
 import java.sql.*;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 
 public class MedicoDAO extends ExecuteSQL{
-
+    Connection con;
+    
+    
     public MedicoDAO(Connection con) {
         super(con);
     }
@@ -33,6 +36,27 @@ public class MedicoDAO extends ExecuteSQL{
            JOptionPane.showMessageDialog(null, "error: " +e.getMessage());
            
            }
+    }
+    public ResultSet autenticacaoMedic(MedicoDTO objMedicDto){       
+            
+            con = new ConexaoDAO().AbrirConexao();
+    
+            try {
+                
+                String sql = "select * from medico where rg = ? and senha = ?";
+                
+                PreparedStatement pstm = con.prepareStatement(sql);
+                pstm.setInt(1, objMedicDto.getRg());
+                pstm.setString(2, objMedicDto.getSenha());
+                
+                ResultSet rs = pstm.executeQuery();
+                return rs;
+                
+            
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "MedicoDAO " +  e);
+                return null;
+            }
     }
     
  

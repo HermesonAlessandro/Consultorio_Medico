@@ -13,8 +13,6 @@ public class ConexaoDAO{
             
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,"error:" + e.getMessage());
-            
-            
         }
         
      return con;

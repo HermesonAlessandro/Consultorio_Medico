@@ -5,11 +5,15 @@
 package Visao;
 
 import DAO.AdministradorDAO;
+import DAO.MedicoDAO;
+import DAO.SecretariaDAO;
 import DAO.ConexaoDAO;
 import DTO.AdministradorDTO;
-import com.sun.jdi.connect.spi.Connection;
+import DTO.MedicoDTO;
+import DTO.SecretariaDTO;       
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
+import java.sql.*;
 
 /**
  *
@@ -135,40 +139,94 @@ public class Tela_Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
+        
+            int rg = Integer.valueOf(jTextField1.getText());
+            String senha = jTextField2.getText();
+            String tipo_usu = jComboBox1.getSelectedItem().toString();
+        
+            if(tipo_usu == "Administrador"){
             
+                    try {
 
-            int rg_adm;
-            String senha_adm;
+                    AdministradorDTO objAdmDto = new AdministradorDTO();
+                    objAdmDto.setRg_adm(rg);
+                    objAdmDto.setSenha_adm(senha);
+
+                    Connection con = ConexaoDAO.AbrirConexao();
+
+                    AdministradorDAO objAdmDao = new AdministradorDAO(con);
+                    ResultSet rsAdmDao = objAdmDao.autenticacaoAdm(objAdmDto);
+
+                    if(rsAdmDao.next()){
+                        //Chamar menu correspondente 
+                        Tela_Menu_Administrador objTela_Menu_Administrador = new Tela_Menu_Administrador();
+                        objTela_Menu_Administrador.setVisible(true);
+                        dispose();
+                    }else{
+                        //Menssagem de incorrreto
+                        JOptionPane.showMessageDialog(null, "Rg ou/e senha incorreto(a)(s)");
+                    }
+                    }
 
 
-            rg_adm = Integer.valueOf(jTextField1.getText());
-            senha_adm = jTextField2.getText();
+                    catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, "FRMLOGINVIEW" + e);
+                    }     
+            }else if(tipo_usu == "Medico"){
+                    try {
 
-            AdministradorDTO objAdmDto = new AdministradorDTO();
-            objAdmDto.setRg_adm(rg_adm);
-            objAdmDto.setSenha_adm(senha_adm);
-            
-            AdministradorDAO objAdmDao = new AdministradorDAO();
-            ResultSet rsAdmDao = objAdmDao.autenticacaoAdm(objAdmDto);
-            
-            if(rsAdmDao.next()){
-                //Chamar menu correspondente 
-                Tela_Menu_Administrador objTela_Menu_Administrador = new Tela_Menu_Administrador();
-                objTela_Menu_Administrador.setVisible(true);
-                dispose();
-            }else{
-                //Menssagem de incorrreto
-                JOptionPane.showMessageDialog(null, "Rg ou/e senha incorreto(a)(s)");
+                    MedicoDTO objMedicDto = new MedicoDTO();
+                    objMedicDto.setRg(rg);
+                    objMedicDto.setSenha(senha);
+
+                    Connection con = ConexaoDAO.AbrirConexao();
+
+                    MedicoDAO objMedicDao = new MedicoDAO(con);
+                    ResultSet rsMedicDao = objMedicDao.autenticacaoMedic(objMedicDto);
+
+                    if(rsMedicDao.next()){
+                        //Chamar menu correspondente 
+                        Tela_Menu_Medico objTela_Menu_Medico = new Tela_Menu_Medico();
+                        objTela_Menu_Medico.setVisible(true);
+                        dispose();
+                    }else{
+                        //Menssagem de incorrreto
+                        JOptionPane.showMessageDialog(null, "Rg ou/e senha incorreto(a)(s)");
+                    }
+                    }
+
+
+                    catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, "FRMLOGINVIEW" + e);
+                    } 
+            }else if(tipo_usu == "Secretaria"){
+                    try {
+
+                    SecretariaDTO objSecDto = new SecretariaDTO();
+                    objSecDto.setRg_sec(rg);
+                    objSecDto.setSenha_sec(senha);
+
+                    Connection con = ConexaoDAO.AbrirConexao();
+
+                    SecretariaDAO objSecDao = new SecretariaDAO(con);
+                    ResultSet rsSecDao = objSecDao.autenticacaoSec(objSecDto);
+
+                    if(rsSecDao.next()){
+                        //Chamar menu correspondente 
+                        Tela_Menu_Secretaria objTela_Menu_Sec = new Tela_Menu_Secretaria();
+                        objTela_Menu_Sec.setVisible(true);
+                        dispose();
+                    }else{
+                        //Menssagem de incorrreto
+                        JOptionPane.showMessageDialog(null, "Rg ou/e senha incorreto(a)(s)");
+                    }
+                    }
+
+
+                    catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, "FRMLOGINVIEW" + e);
+                    } 
             }
-        }
-            
-        
-        catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "FRMLOGINVIEW" + e);
-        }
-        
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed

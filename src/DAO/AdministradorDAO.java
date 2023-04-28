@@ -6,14 +6,10 @@ import javax.swing.JOptionPane;
 import DTO.AdministradorDTO;
 
 public class AdministradorDAO extends ExecuteSQL{
-    Connection conn;
+    Connection con;
 
     public AdministradorDAO(Connection con) {
-        super(con);
-    }
-
-    public AdministradorDAO() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       super(con);
     }
 
     
@@ -43,14 +39,14 @@ public class AdministradorDAO extends ExecuteSQL{
     }
     public ResultSet autenticacaoAdm(AdministradorDTO objAdmDto){       
             
-            conn = new ConexaoDAO().AbrirConexao();
+            con = new ConexaoDAO().AbrirConexao();
     
             try {
                 
-                String sql = "select * from administrador where rg = ? and senha = ?";
+                String sql = "select * from administrador where rg_a = ? and senha = ?";
                 
-                PreparedStatement pstm = conn.prepareStatement(sql);
-                pstm.setString(1, objAdmDto.getRg_adm());
+                PreparedStatement pstm = con.prepareStatement(sql);
+                pstm.setInt(1, objAdmDto.getRg_adm());
                 pstm.setString(2, objAdmDto.getSenha_adm());
                 
                 ResultSet rs = pstm.executeQuery();
@@ -63,6 +59,7 @@ public class AdministradorDAO extends ExecuteSQL{
             }
     }
 }
+
 
     
 
