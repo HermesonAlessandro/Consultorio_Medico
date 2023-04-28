@@ -5,7 +5,7 @@
 package Visao;
 
 import DAO.AdministradorDAO;
-import DAO.Conexao;
+import DAO.ConexaoDAO;
 import Modelo.Administrador;
 import javax.swing.JOptionPane;
 import java.sql.*;
@@ -228,7 +228,7 @@ public class Tela_Cadastro_Adiministrador extends javax.swing.JFrame {
        int tel = Integer.valueOf(jTextField6.getText());
        
        Administrador a = new Administrador(rg_a, nome_func, cpf, senha, sexo, clin, tel);
-       Connection con = Conexao.AbrirConexao();
+       Connection con = ConexaoDAO.AbrirConexao();
        AdministradorDAO dao = new AdministradorDAO(con);
        dao.Cadastrar_Administrador(a);
 

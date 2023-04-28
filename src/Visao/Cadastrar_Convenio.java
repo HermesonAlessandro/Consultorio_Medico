@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package Visao;
-import DAO.Conexao;
+import DAO.ConexaoDAO;
 import DAO.ConvenioDAO;
 import Modelo.Convenio;
 import javax.swing.JOptionPane;
@@ -154,7 +154,7 @@ public class Cadastrar_Convenio extends javax.swing.JInternalFrame {
        
        
        Convenio c = new Convenio(cnpj, nome, tel, planos, end, 1234589);
-       Connection con = Conexao.AbrirConexao();
+       Connection con = ConexaoDAO.AbrirConexao();
        ConvenioDAO dao = new ConvenioDAO(con);
        dao.Cadastrar_Convenio(c);
 

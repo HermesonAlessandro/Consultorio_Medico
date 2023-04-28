@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package Visao;
-import DAO.Conexao;
+import DAO.ConexaoDAO;
 import DAO.PacienteDAO;
 import Modelo.Paciente;
 import java.sql.*;
@@ -181,7 +181,7 @@ public class Cadastrar_Paciente extends javax.swing.JInternalFrame {
        String convenio = jTextField6.getText();
        
        Paciente p = new Paciente(cpf, nome, end, tel, rg, sexo, convenio, 1234589, 123456789);
-       Connection con = Conexao.AbrirConexao();
+       Connection con = ConexaoDAO.AbrirConexao();
        PacienteDAO dao = new PacienteDAO(con);
        dao.Cadastrar_Paciente(p);
        

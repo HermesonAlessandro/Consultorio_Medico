@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package Visao;
-import DAO.Conexao;
+import DAO.ConexaoDAO;
 import DAO.ClinicaDAO;
 import Modelo.Clinica;
 import javax.swing.JOptionPane;
@@ -143,7 +143,7 @@ public class Cadastrar_Infor_Clinica extends javax.swing.JInternalFrame {
         
         
         Clinica cl = new Clinica(cnpj, nome, end, tel, 1234589, 729566628,1234589, 285654);
-       Connection con = Conexao.AbrirConexao();
+       Connection con = ConexaoDAO.AbrirConexao();
        ClinicaDAO dao = new ClinicaDAO(con);
        dao.Cadastrar_Clinica(cl);
        

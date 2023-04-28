@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package Visao;
-import DAO.Conexao;
+import DAO.ConexaoDAO;
 import DAO.CidDAO;
 import Modelo.Cid;
 import javax.swing.JOptionPane;
@@ -166,7 +166,7 @@ public class Cadastrar_Doença extends javax.swing.JInternalFrame {
       int cod = Integer.valueOf(jtxt3.getText());
       
        Cid ci = new Cid(cod, capitulo, descricao, cod_cid_10);
-       Connection con = Conexao.AbrirConexao();
+       Connection con = ConexaoDAO.AbrirConexao();
        CidDAO dao = new CidDAO(con);
        dao.Cadastrar_Cid(ci);       
     }//GEN-LAST:event_jButton1ActionPerformed

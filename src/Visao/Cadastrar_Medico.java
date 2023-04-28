@@ -4,7 +4,7 @@
  */
 package Visao;
 
-import DAO.Conexao;
+import DAO.ConexaoDAO;
 import DAO.MedicoDAO;
 import Modelo.Medico;
 import javax.swing.JOptionPane;
@@ -194,7 +194,7 @@ public class Cadastrar_Medico extends javax.swing.JInternalFrame {
        String senha = jPasswordField1.getText();
        
        Medico m = new Medico(cpf, nome, rg, tel, end, sexo, senha);
-       Connection con = Conexao.AbrirConexao();
+       Connection con = ConexaoDAO.AbrirConexao();
        MedicoDAO dao = new MedicoDAO(con);
        dao.Cadastrar_Medico(m);
        

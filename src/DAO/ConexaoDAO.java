@@ -2,7 +2,7 @@ package DAO;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
-public class Conexao{
+public class ConexaoDAO{
     public static Connection AbrirConexao(){
         Connection con = null;
         

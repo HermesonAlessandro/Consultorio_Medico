@@ -4,8 +4,12 @@
  */
 package Visao;
 
-import DAO.Conexao;
+import DAO.AdministradorDAO;
+import DAO.ConexaoDAO;
+import DTO.AdministradorDTO;
 import com.sun.jdi.connect.spi.Connection;
+import javax.swing.JOptionPane;
+import java.sql.ResultSet;
 
 /**
  *
@@ -44,7 +48,7 @@ public class Tela_Login extends javax.swing.JFrame {
         jLabel1.setText("  Tela de Login");
 
         jLabel2.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 24)); // NOI18N
-        jLabel2.setText("Email:");
+        jLabel2.setText("Rg");
 
         jLabel3.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 24)); // NOI18N
         jLabel3.setText("Senha:");
@@ -63,7 +67,7 @@ public class Tela_Login extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Medico", "Secretaria", " " }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Medico", "Secretaria", "" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -103,7 +107,7 @@ public class Tela_Login extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(401, 401, 401)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(317, Short.MAX_VALUE))
+                .addContainerGap(353, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,24 +135,38 @@ public class Tela_Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String email = jTextField1.getText().toString();
-        String senha = jTextField2.getText().toString();
-        String cargo = jComboBox1.getSelectedItem().toString();
-        if(cargo.equals("Administrador")){
-            Tela_Menu_Administrador t = new Tela_Menu_Administrador();
-            t.setVisible(true);
-            dispose();
+        try {
+            
+
+            int rg_adm;
+            String senha_adm;
+
+
+            rg_adm = Integer.valueOf(jTextField1.getText());
+            senha_adm = jTextField2.getText();
+
+            AdministradorDTO objAdmDto = new AdministradorDTO();
+            objAdmDto.setRg_adm(rg_adm);
+            objAdmDto.setSenha_adm(senha_adm);
+            
+            AdministradorDAO objAdmDao = new AdministradorDAO();
+            ResultSet rsAdmDao = objAdmDao.autenticacaoAdm(objAdmDto);
+            
+            if(rsAdmDao.next()){
+                //Chamar menu correspondente 
+                Tela_Menu_Administrador objTela_Menu_Administrador = new Tela_Menu_Administrador();
+                objTela_Menu_Administrador.setVisible(true);
+                dispose();
+            }else{
+                //Menssagem de incorrreto
+                JOptionPane.showMessageDialog(null, "Rg ou/e senha incorreto(a)(s)");
+            }
         }
-        else if(cargo.equals("Medico")){
-            Tela_Menu_Medico t = new Tela_Menu_Medico();
-            t.setVisible(true);
-        }
-        else{
-            Tela_Menu_Secretaria t = new Tela_Menu_Secretaria();
-            t. setVisible(true);
-        }
- 
+            
         
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "FRMLOGINVIEW" + e);
+        }
         
         
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -1,14 +1,22 @@
 package DAO;
-import Modelo.Administrador;
-import java.sql.*; 
+import Modelo.Administrador; 
+import java.sql.*;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
+import DTO.AdministradorDTO;
 
 public class AdministradorDAO extends ExecuteSQL{
+    Connection conn;
 
     public AdministradorDAO(Connection con) {
         super(con);
     }
+
+    public AdministradorDAO() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    
     public void Cadastrar_Administrador(Administrador a){
         String sql = "insert into administrador values(?, ?, ?, ?, ?, ?, ?)";
         try{
@@ -31,9 +39,29 @@ public class AdministradorDAO extends ExecuteSQL{
            JOptionPane.showMessageDialog(null, "error: " +e.getMessage());
            
            }
+        
     }
+    public ResultSet autenticacaoAdm(AdministradorDTO objAdmDto){       
+            
+            conn = new ConexaoDAO().AbrirConexao();
     
- 
+            try {
+                
+                String sql = "select * from administrador where rg = ? and senha = ?";
+                
+                PreparedStatement pstm = conn.prepareStatement(sql);
+                pstm.setString(1, objAdmDto.getRg_adm());
+                pstm.setString(2, objAdmDto.getSenha_adm());
+                
+                ResultSet rs = pstm.executeQuery();
+                return rs;
+                
+            
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "AdminstradorDAO " +  e);
+                return null;
+            }
+    }
 }
 
     

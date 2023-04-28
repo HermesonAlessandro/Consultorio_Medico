@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package Visao;
-import DAO.Conexao;
+import DAO.ConexaoDAO;
 import DAO.SecretariaDAO;
 import Modelo.Secretaria;
 import javax.swing.JOptionPane;
@@ -183,7 +183,7 @@ public class Cadastrar_Secretaria extends javax.swing.JInternalFrame {
        
        
        Secretaria s = new Secretaria(cpf, nome, rg, tel, end, sexo, senha, 285654);
-       Connection con = Conexao.AbrirConexao();
+       Connection con = ConexaoDAO.AbrirConexao();
        SecretariaDAO dao = new SecretariaDAO(con);
        dao.Cadastrar_Secretaria(s);
 
