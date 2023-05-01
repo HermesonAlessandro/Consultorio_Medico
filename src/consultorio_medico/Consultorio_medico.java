@@ -9,7 +9,7 @@ public class Consultorio_medico {
           
           Tela_Login tl = new Tela_Login();
           tl.setVisible(true);
-          System.out.println("Olá Mundo");
+          
           
 }    
 }
