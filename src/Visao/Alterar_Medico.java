@@ -59,7 +59,7 @@ public class Alterar_Medico extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Dubai Medium", 0, 24)); // NOI18N
         jLabel1.setText("Alterar Médico");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(300, 60, 151, 42);
+        jLabel1.setBounds(300, 60, 153, 32);
 
         jButton1.setText("Alterar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -80,22 +80,26 @@ public class Alterar_Medico extends javax.swing.JInternalFrame {
         jPanel1.add(jTextField5);
         jTextField5.setBounds(170, 310, 429, 22);
 
+        jLabel8.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jLabel8.setText("Senha:");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(370, 350, 35, 16);
+        jLabel8.setBounds(370, 350, 38, 30);
 
+        jLabel7.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jLabel7.setText("Sexo:");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(250, 350, 28, 16);
+        jLabel7.setBounds(251, 350, 40, 30);
 
+        jLabel4.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         jLabel4.setText("CPF:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(140, 150, 24, 16);
+        jLabel4.setBounds(144, 150, 30, 30);
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.setLayout(null);
 
+        jComboBox1.setBackground(new java.awt.Color(217, 235, 252));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M ", "F", " " }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,24 +108,30 @@ public class Alterar_Medico extends javax.swing.JInternalFrame {
         });
         jPanel2.add(jComboBox1);
         jComboBox1.setBounds(180, 300, 54, 22);
+
+        jPasswordField1.setBackground(new java.awt.Color(218, 249, 249));
         jPanel2.add(jPasswordField1);
         jPasswordField1.setBounds(300, 300, 112, 22);
 
+        jLabel6.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         jLabel6.setText("Endereço:");
         jPanel2.add(jLabel6);
-        jLabel6.setBounds(10, 180, 52, 16);
+        jLabel6.setBounds(7, 180, 53, 20);
 
+        jLabel2.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         jLabel2.setText("Nome:");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(20, 140, 36, 16);
+        jLabel2.setBounds(20, 140, 40, 20);
 
+        jLabel5.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         jLabel5.setText("Tel:");
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(40, 260, 18, 16);
+        jLabel5.setBounds(40, 260, 18, 15);
 
+        jLabel3.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         jLabel3.setText("RG:");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(40, 220, 18, 16);
+        jLabel3.setBounds(40, 220, 19, 30);
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/desing.png"))); // NOI18N
         jPanel2.add(jLabel10);
