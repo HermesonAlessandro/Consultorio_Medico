@@ -185,6 +185,13 @@ public class Cadastrar_Medico extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(jTextField1.getText().isBlank() || jTextField2.getText().isBlank() || jTextField3.getText().isBlank() 
+                || jTextField4.getText().isBlank() || jTextField5.getText().isBlank() || jPasswordField1.getText().isBlank()){
+            JOptionPane.showMessageDialog(null, "preencha todos os campos!");
+        }
+        
+        
+        else{
        int cpf = Integer.valueOf(jTextField1.getText());
        String nome = jTextField2.getText();
        int rg = Integer.valueOf(jTextField3.getText());
@@ -197,6 +204,8 @@ public class Cadastrar_Medico extends javax.swing.JInternalFrame {
        Connection con = ConexaoDAO.AbrirConexao();
        MedicoDAO dao = new MedicoDAO(con);
        dao.Cadastrar_Medico(m);
+        } 
+      
        
    
                   

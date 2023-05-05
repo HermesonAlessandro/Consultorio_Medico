@@ -26,7 +26,8 @@ public class MedicoDAO extends ExecuteSQL{
             ps.setString(6,m.getSexo());
             ps.setString(7,m.getSenha());
             
-            if(ps.executeUpdate()>0){
+        
+                if(ps.executeUpdate()>0){
                 JOptionPane.showMessageDialog(null, "cadastrado com Sucesso!");
             }else{
                 JOptionPane.showMessageDialog(null, "nao foi possivel o cadastro!");
@@ -59,6 +60,10 @@ public class MedicoDAO extends ExecuteSQL{
             }
     }
     
- 
+    
+    public void Alterar_Medico(Medico m){
+        String sql = "(update medico set nome = ?, rg = ?, tel = ?, end = ?, )";
+        
+    }
 }
 

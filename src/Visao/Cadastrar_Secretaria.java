@@ -172,7 +172,17 @@ public class Cadastrar_Secretaria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       int cpf = Integer.valueOf(jTextField1.getText());
+       
+        if(jTextField1.getText().isBlank() || jTextField2.getText().isBlank() || 
+                jTextField3.getText().isBlank() || jTextField4.getText().isBlank() 
+                || jPasswordField1.getText().isBlank()){
+            
+            JOptionPane.showMessageDialog(null, "preencha todos os campos!");
+        
+        }
+        
+        else{   
+        int cpf = Integer.valueOf(jTextField1.getText());
        String nome = jTextField2.getText();
        int rg = Integer.valueOf(jTextField3.getText());
        int tel = Integer.valueOf(jTextField4.getText());
@@ -186,7 +196,7 @@ public class Cadastrar_Secretaria extends javax.swing.JInternalFrame {
        Connection con = ConexaoDAO.AbrirConexao();
        SecretariaDAO dao = new SecretariaDAO(con);
        dao.Cadastrar_Secretaria(s);
-
+                }        
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
