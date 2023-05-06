@@ -102,18 +102,24 @@ public class Cadastrar_Infor_Clinica extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+        
+        if(jTextField1.getText().isBlank() || jTextField2.getText().isBlank()|| 
+                jTextField3.getText().isBlank() || jTextField4.getText().isBlank()){
+        JOptionPane.showMessageDialog(null, "preencha todos os campos!");
+        
+        }
+         
+        else{
         int cnpj = Integer.valueOf(jTextField1.getText());
         String nome = jTextField2.getText();
         String end = jTextField3.getText();
         int tel = Integer.valueOf(jTextField4.getText());
         
-        
-        Clinica cl = new Clinica(cnpj, nome, end, tel, 1234589, 729566628,1234589, 285654);
+       Clinica cl = new Clinica(cnpj, nome, end, tel, 1234589, 729566628,1234589, 285654);
        Connection con = ConexaoDAO.AbrirConexao();
        ClinicaDAO dao = new ClinicaDAO(con);
        dao.Cadastrar_Clinica(cl);
-       
+       }  
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

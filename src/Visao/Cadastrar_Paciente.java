@@ -121,6 +121,18 @@ public class Cadastrar_Paciente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextField6ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+     
+        if(jTextField1.getText().isBlank() || jTextField2.getText().isBlank() || 
+                jTextField3.getText().isBlank() || jTextField4.getText().isBlank() || 
+                jTextField5.getText().isBlank() || jTextField6.getText().isBlank()){
+            
+            JOptionPane.showMessageDialog(null, "preencha todos os campos!");
+        
+        }
+        
+        
+        
+        else{ 
        int cpf = Integer.valueOf(jTextField1.getText());
        String nome = jTextField2.getText();
        String end = jTextField3.getText();
@@ -133,7 +145,7 @@ public class Cadastrar_Paciente extends javax.swing.JInternalFrame {
        Connection con = ConexaoDAO.AbrirConexao();
        PacienteDAO dao = new PacienteDAO(con);
        dao.Cadastrar_Paciente(p);
-       
+                }
        
        
        
