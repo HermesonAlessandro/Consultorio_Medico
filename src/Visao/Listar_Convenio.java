@@ -4,6 +4,13 @@
  */
 package Visao;
 
+import DAO.ConexaoDAO;
+import DAO.ConvenioDAO;
+import Modelo.Convenio;
+import javax.swing.JOptionPane;
+import java.sql.*;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author RCR - 2022
@@ -48,13 +55,18 @@ public class Listar_Convenio extends javax.swing.JInternalFrame {
         jLabel3.setText("Nome:");
 
         jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-
+                "CNPJ", "NOME"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -107,6 +119,31 @@ public class Listar_Convenio extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+             Convenio objconvenio = new Convenio();
+             Connection con = ConexaoDAO.AbrirConexao();
+             ConvenioDAO dao = new ConvenioDAO(con);
+              
+         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+         model.setNumRows(0);
+         
+         
+         ArrayList<Convenio> lista = dao.PesquisarConvenio();
+         int num = 0;
+         for(Convenio c :lista){
+         model.addRow(new String[num]);
+            jTable1.setValueAt(c.getCnpj(), num, 0);
+            jTable1.setValueAt(c.getNome(), num, 1);
+            num++;
+         }
+                    
+          }catch (Exception e){
+            JOptionPane.showMessageDialog(null,
+                 "nao foi possivel o encontrar um convenio"+e);
+    }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

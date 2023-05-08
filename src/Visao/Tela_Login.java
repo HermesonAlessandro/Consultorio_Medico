@@ -123,11 +123,17 @@ public class Tela_Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+        if(jTextField1.getText().isBlank() || 
+                jTextField2.getText().isBlank()){
+            
+            JOptionPane.showMessageDialog(null, "preencha todos os dados!");  
+        }    
+        
+        else{   
         int rg = Integer.valueOf(jTextField1.getText());
         String senha = jTextField2.getText();
         String tipo_usu = jComboBox1.getSelectedItem().toString();
-
+                
         if(tipo_usu == "Administrador"){
 
             try {
@@ -207,6 +213,8 @@ public class Tela_Login extends javax.swing.JFrame {
             catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "FRMLOGINVIEW" + e);
             }
+        }
+        
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
