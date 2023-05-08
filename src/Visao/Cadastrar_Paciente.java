@@ -196,7 +196,7 @@ public class Cadastrar_Paciente extends javax.swing.JInternalFrame {
        Connection con = ConexaoDAO.AbrirConexao();
        PacienteDAO dao = new PacienteDAO(con);
        dao.Cadastrar_Paciente(p);
-                }
+       }
        
        
        
