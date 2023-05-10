@@ -1,15 +1,18 @@
 package Modelo;
 
+import java.util.Date;
+import javax.swing.JSpinner;
+
 
 public class Consulta {
     private int id;
     private String nome_c;
-    private String data;
+    private Date data;
     private int fk_cpf_m;
     private int fk_cpf_sec;
     private int fk_cpf_p;
 
-    public Consulta(int id, String nome_c, String data, int fk_cpf_m, int fk_cpf_sec, int fk_cpf_p) {
+    public Consulta(int id, String nome_c, Date data, int fk_cpf_m, int fk_cpf_sec, int fk_cpf_p) {
         this.id = id;
         this.nome_c = nome_c;
         this.data = data;
@@ -21,7 +24,7 @@ public class Consulta {
     public Consulta() {
         this.id = 0;
         this.nome_c = "";
-        this.data = "";
+        this.data = null;
         this.fk_cpf_m = 0;
         this.fk_cpf_sec = 0;
         this.fk_cpf_p = 0;
@@ -43,11 +46,11 @@ public class Consulta {
         this.nome_c = nome_c;
     }
 
-    public String getData() {
+    public Date getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(Date data) {
         this.data = data;
     }
 
