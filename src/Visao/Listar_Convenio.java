@@ -3,17 +3,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package Visao;
-
-/**
- *
- * @author RCR - 2022
- */
-public class Buscar_Convenio extends javax.swing.JInternalFrame {
+import DAO.ConexaoDAO;
+import DAO.ConvenioDAO;
+import javax.swing.JOptionPane;
+import Modelo.Convenio; 
+import java.util.ArrayList;
+import javax.swing.JTable;
+import java.sql.*;
+import javax.swing.table.DefaultTableModel;
+public class Listar_Convenio extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Buscar_Convenio
      */
-    public Buscar_Convenio() {
+    public Listar_Convenio() {
         initComponents();
     }
 
@@ -55,6 +58,11 @@ public class Buscar_Convenio extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, -1, -1));
 
         jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -62,7 +70,7 @@ public class Buscar_Convenio extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-
+                "CNPJ", "NOME"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -82,6 +90,31 @@ public class Buscar_Convenio extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+           try {
+             Convenio objconvenio = new Convenio();
+             Connection con = ConexaoDAO.AbrirConexao();
+             ConvenioDAO dao = new ConvenioDAO(con);
+              
+         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+         model.setNumRows(0);
+         
+         
+         ArrayList<Convenio> lista = dao.PesquisarConvenio();
+         int num = 0;
+         for(Convenio c :lista){
+         model.addRow(new String[num]);
+            jTable1.setValueAt(c.getCnpj(), num, 0);
+            jTable1.setValueAt(c.getNome(), num, 1);
+            num++;
+         }
+                    
+          }catch (Exception e){
+           JOptionPane.showMessageDialog(null,
+                 "nao foi possivel o encontrar um medico"+e);
+    }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

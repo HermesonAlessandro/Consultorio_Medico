@@ -23,7 +23,7 @@ public class ConsultaDAO extends ExecuteSQL{
         try{
             PreparedStatement ps = getCon().prepareStatement(sql);
             ps.setString(1,co.getNome_c());
-            ps.setDate(2,co.getData());
+            ps.setString(2,co.getData());
             ps.setInt(3,co.getFk_cpf_m());
             ps.setInt(4,co.getFk_cpf_sec());
             ps.setInt(5,co.getFk_cpf_p());
@@ -54,7 +54,7 @@ public class ConsultaDAO extends ExecuteSQL{
                  while(rs.next()){
                 Consulta objconsulta = new Consulta();
                 objconsulta.setNome_c(rs.getString("nome_c"));
-                objconsulta.setData(rs.getDate("data"));
+                objconsulta.setData(rs.getString("data"));
                 objconsulta.setFk_cpf_m(rs.getInt("fk_cpf_m"));
                 objconsulta.setFk_cpf_sec(rs.getInt("fk_cpf_sec"));
                 objconsulta.setFk_cpf_p(rs.getInt("fk_cpf_p"));

@@ -7,12 +7,12 @@ import javax.swing.JSpinner;
 public class Consulta {
     private int id;
     private String nome_c;
-    private Date data;
+    private String data;
     private int fk_cpf_m;
     private int fk_cpf_sec;
     private int fk_cpf_p;
 
-    public Consulta(int id, String nome_c, Date data, int fk_cpf_m, int fk_cpf_sec, int fk_cpf_p) {
+    public Consulta(int id, String nome_c, String data, int fk_cpf_m, int fk_cpf_sec, int fk_cpf_p) {
         this.id = id;
         this.nome_c = nome_c;
         this.data = data;
@@ -46,11 +46,11 @@ public class Consulta {
         this.nome_c = nome_c;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 

@@ -3,17 +3,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package Visao;
+import DAO.ConexaoDAO;
+import DAO.MedicoDAO;
+import javax.swing.JOptionPane;
+import Modelo.Medico; 
+import java.util.ArrayList;
+import javax.swing.JTable;
+import java.sql.*;
+import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author RCR - 2022
- */
-public class Buscar_Medico extends javax.swing.JInternalFrame {
+public class Listar_Medico extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Buscar_Medico
      */
-    public Buscar_Medico() {
+    public Listar_Medico() {
         initComponents();
     }
 
@@ -55,6 +59,11 @@ public class Buscar_Medico extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, -1, -1));
 
         jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -62,7 +71,7 @@ public class Buscar_Medico extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-
+                "CPF", "Nome"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -82,6 +91,34 @@ public class Buscar_Medico extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+             Medico objmedico = new Medico();
+             Connection con = ConexaoDAO.AbrirConexao();
+             MedicoDAO dao = new MedicoDAO(con);
+              
+         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+         model.setNumRows(0);
+         
+         
+         ArrayList<Medico> lista = dao.PesquisarMedico();
+         int num = 0;
+         for(Medico m :lista){
+         model.addRow(new String[num]);
+            jTable1.setValueAt(m.getCpf(), num, 0);
+            jTable1.setValueAt(m.getNome(), num, 1);
+            num++;
+         }
+                    
+          }catch (Exception e){
+           JOptionPane.showMessageDialog(null,
+                 "nao foi possivel o encontrar um medico"+e);
+    }
+        
+       
+                     
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
