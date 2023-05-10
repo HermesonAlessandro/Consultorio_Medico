@@ -309,7 +309,7 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-         Buscar_Medico bm = new Buscar_Medico();
+         Listar_Medico bm = new Listar_Medico();
           bm.setVisible(true);
           jDesktopPane1.add(bm);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
@@ -334,13 +334,13 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu2ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-    Buscar_Convenio bc = new Buscar_Convenio();
+    Listar_Convenio bc = new Listar_Convenio();
     bc.setVisible(true);
     jDesktopPane1.add(bc);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-    Buscar_Consultas bo = new Buscar_Consultas();
+    Listar_Consultas bo = new Listar_Consultas();
     bo.setVisible(true);
     jDesktopPane1.add(bo);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
@@ -406,7 +406,7 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-       Buscar_Pacientes bp = new Buscar_Pacientes();
+       Listar_Paciente bp = new Listar_Paciente();
        bp.setVisible(true);
        jDesktopPane1.add(bp);
     }//GEN-LAST:event_jMenuItem5ActionPerformed

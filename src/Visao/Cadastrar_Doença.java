@@ -116,6 +116,11 @@ public class Cadastrar_Doença extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtxt1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(jtxt1.getText().isBlank() || jtxt2.getText().isBlank() || 
+                jtxt3.getText().isBlank() || jtxt4.getText().isBlank()){
+               JOptionPane.showMessageDialog(null, "preencha todos os campos!");
+        }
+        else{
       int capitulo = Integer.valueOf(jtxt1.getText());
       String descricao = jtxt2.getText();
       String cod_cid_10 = jtxt4.getText();
@@ -124,7 +129,8 @@ public class Cadastrar_Doença extends javax.swing.JInternalFrame {
        Cid ci = new Cid(cod, capitulo, descricao, cod_cid_10);
        Connection con = ConexaoDAO.AbrirConexao();
        CidDAO dao = new CidDAO(con);
-       dao.Cadastrar_Cid(ci);       
+       dao.Cadastrar_Cid(ci);
+     }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jtxt3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt3ActionPerformed

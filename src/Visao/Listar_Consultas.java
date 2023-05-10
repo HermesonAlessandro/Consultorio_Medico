@@ -8,12 +8,12 @@ package Visao;
  *
  * @author RCR - 2022
  */
-public class Buscar_Consultas extends javax.swing.JInternalFrame {
+public class Listar_Consultas extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Buscar_Consultas
      */
-    public Buscar_Consultas() {
+    public Listar_Consultas() {
         initComponents();
     }
 

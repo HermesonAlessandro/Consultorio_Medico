@@ -5,9 +5,17 @@ import Modelo.Medico;
 import java.sql.*;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
+
 
 public class MedicoDAO extends ExecuteSQL{
     Connection con;
+    ResultSet rs;
+    PreparedStatement ps;
+    ArrayList<Medico> lista = new ArrayList<>();
+    
     
     
     public MedicoDAO(Connection con) {
@@ -58,12 +66,41 @@ public class MedicoDAO extends ExecuteSQL{
                 JOptionPane.showMessageDialog(null, "MedicoDAO " +  e);
                 return null;
             }
-    }
+            }
     
     
-    public void Alterar_Medico(Medico m){
-        String sql = "(update medico set nome = ?, rg = ?, tel = ?, end = ?, )";
+    
+         public ArrayList<Medico>PesquisarMedico(){
+             String sql = "select * from medico";
+             Connection con = ConexaoDAO.AbrirConexao();
+             
+             
+             try {
+                 ps = con.prepareStatement(sql);
+                 rs = ps.executeQuery();
+                 
+                 while(rs.next()){
+                Medico objmedico = new Medico();
+                objmedico.setCpf(rs.getInt("cpf"));
+                objmedico.setNome(rs.getString("nome"));
+                objmedico.setRg(rs.getInt("rg"));
+                objmedico.setTel(rs.getInt("tel"));
+                objmedico.setEnd(rs.getString("end"));
+                objmedico.setSexo(rs.getString("sexo"));
+                objmedico.setSenha(rs.getString("senha"));
+                
+                  lista.add(objmedico);
         
-    }
+                 }
+                 
+             }catch(Exception e) {
+                 JOptionPane.showMessageDialog(null,
+                         "nao foi possivel encontrar o medico" +e.getMessage());
+                 
+                    }
+           
+         return lista; 
+        
+  }
 }
 

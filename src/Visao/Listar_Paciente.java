@@ -8,12 +8,12 @@ package Visao;
  *
  * @author RCR - 2022
  */
-public class Buscar_Pacientes extends javax.swing.JInternalFrame {
+public class Listar_Paciente extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Buscar_Pacientes
      */
-    public Buscar_Pacientes() {
+    public Listar_Paciente() {
         initComponents();
     }
 
