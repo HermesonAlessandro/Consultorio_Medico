@@ -1,6 +1,4 @@
 package DAO;
-
-
 import Modelo.Consulta;
 import java.sql.*;
 import java.sql.PreparedStatement;
@@ -27,7 +25,7 @@ public class ConsultaDAO extends ExecuteSQL{
             ps.setInt(3,co.getFk_cpf_m());
             ps.setInt(4,co.getFk_cpf_sec());
             ps.setInt(5,co.getFk_cpf_p());
-            ps.setInt(6,co.getId());
+          
             
             if(ps.executeUpdate()>0){
                 JOptionPane.showMessageDialog(null, "cadastrado com Sucesso!");
@@ -43,7 +41,7 @@ public class ConsultaDAO extends ExecuteSQL{
     
     
     public ArrayList<Consulta>PesquisarConsulta(){
-             String sql = "select * from medico";
+             String sql = "select * from consulta";
              Connection con = ConexaoDAO.AbrirConexao();
              
              
@@ -65,13 +63,11 @@ public class ConsultaDAO extends ExecuteSQL{
                  
              }catch(Exception e) {
                  JOptionPane.showMessageDialog(null,
-                         "nao foi possivel encontrar o medico" +e.getMessage());
+                         "nao foi possivel encontrar a consulta" +e.getMessage());
                  
                     }
            
          return lista; 
         
-  }
-    
-    
+  }   
 }

@@ -24,7 +24,7 @@ public class Consulta {
     public Consulta() {
         this.id = 0;
         this.nome_c = "";
-        this.data = null;
+        this.data = "";
         this.fk_cpf_m = 0;
         this.fk_cpf_sec = 0;
         this.fk_cpf_p = 0;

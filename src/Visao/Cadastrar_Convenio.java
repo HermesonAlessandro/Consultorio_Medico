@@ -114,7 +114,7 @@ public class Cadastrar_Convenio extends javax.swing.JInternalFrame {
         
         
         else{
-     int cnpj = Integer.valueOf(jTextField1.getText());
+       int cnpj = Integer.valueOf(jTextField1.getText());
        String nome = jTextField2.getText();
        int tel = Integer.valueOf(jTextField3.getText());
        String planos = jTextField4.getText();

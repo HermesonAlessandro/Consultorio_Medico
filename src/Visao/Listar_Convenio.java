@@ -112,7 +112,7 @@ public class Listar_Convenio extends javax.swing.JInternalFrame {
                     
           }catch (Exception e){
            JOptionPane.showMessageDialog(null,
-                 "nao foi possivel o encontrar um medico"+e);
+                 "nao foi possivel o encontrar um convenio"+e);
     }
     }//GEN-LAST:event_jButton1ActionPerformed
 

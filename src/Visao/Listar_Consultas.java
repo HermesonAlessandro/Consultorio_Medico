@@ -3,11 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package Visao;
-
-/**
- *
- * @author RCR - 2022
- */
+import DAO.ConexaoDAO;
+import DAO.ConsultaDAO;
+import javax.swing.JOptionPane;
+import Modelo.Consulta; 
+import java.util.ArrayList;
+import javax.swing.JTable;
+import java.sql.*;
+import javax.swing.table.DefaultTableModel;
 public class Listar_Consultas extends javax.swing.JInternalFrame {
 
     /**
@@ -56,6 +59,11 @@ public class Listar_Consultas extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, -1, -1));
 
         jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -63,7 +71,7 @@ public class Listar_Consultas extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-
+                "ID", "NOME"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -86,6 +94,32 @@ public class Listar_Consultas extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+             Consulta objConsulta = new Consulta();
+             Connection con = ConexaoDAO.AbrirConexao();
+             ConsultaDAO dao = new ConsultaDAO(con);
+              
+         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+         model.setNumRows(0);
+         
+         
+         ArrayList<Consulta> lista = dao.PesquisarConsulta();
+         int num = 0;
+         for(Consulta c :lista){
+         model.addRow(new String[num]);
+            jTable1.setValueAt(c.getId(), num, 0);
+            jTable1.setValueAt(c.getNome_c(), num, 1);
+            num++;
+         }
+                    
+          }catch (Exception e){
+           JOptionPane.showMessageDialog(null,
+                 "nao foi possivel o encontrar um Consulta"+e);
+    }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
