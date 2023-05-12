@@ -3,11 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package Visao;
+import DAO.ConexaoDAO;
+import DAO.AtestadoDAO;
+import Modelo.Atestado;
+import javax.swing.JOptionPane;
+import java.sql.*;
 
-/**
- *
- * @author RCR - 2022
- */
 public class Emitir_Atestado extends javax.swing.JInternalFrame {
 
     /**
@@ -62,6 +63,11 @@ public class Emitir_Atestado extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, -1, -1));
 
         jButton1.setText("Emitir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, -1, -1));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 384, -1));
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 314, -1));
@@ -76,6 +82,26 @@ public class Emitir_Atestado extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(jTextField1.getText().isBlank() || jTextField2.getText().isBlank() || jTextField3.getText().isBlank() 
+                || jTextField4.getText().isBlank()){
+            JOptionPane.showMessageDialog(null, "preencha todos os campos!");
+        }
+        
+        
+        else{
+       String dias_ausentes = jTextField4.getText();
+       int fk_cpf_m = Integer.valueOf(jTextField2.getText());
+       int fk_cpf_p = Integer.valueOf(jTextField3.getText());
+       
+       
+       Atestado a = new Atestado(0,dias_ausentes,729566628,8797897);
+       Connection con = ConexaoDAO.AbrirConexao();
+       AtestadoDAO dao = new AtestadoDAO(con);
+       dao.Cadastrar_Atestado(a);
+        } 
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

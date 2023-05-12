@@ -11,14 +11,13 @@ public class ReceitaDAO extends ExecuteSQL{
         super(con);
     }
     
-    public void Emitir_Receita(Receita rc){
+    public void Cadastrar_Receita(Receita rc){
         String sql = "insert into receita values(0, ?, ?, ?)";
         try{
             PreparedStatement ps = getCon().prepareStatement(sql);
-            ps.setInt(1,rc.getId());
-            ps.setString(2,rc.getDescricao());
-            ps.setInt(3,rc.getFk_cpf_m());
-            ps.setInt(4,rc.getFk_cpf_p());
+            ps.setString(1,rc.getDescricao());
+            ps.setInt(2,rc.getFk_cpf_m());
+            ps.setInt(3,rc.getFk_cpf_p());
             
             
             if(ps.executeUpdate()>0){

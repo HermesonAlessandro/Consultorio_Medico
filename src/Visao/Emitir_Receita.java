@@ -3,11 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package Visao;
+import DAO.ConexaoDAO;
+import DAO.ReceitaDAO;
+import Modelo.Receita;
+import javax.swing.JOptionPane;
+import java.sql.*;
 
-/**
- *
- * @author RCR - 2022
- */
 public class Emitir_Receita extends javax.swing.JInternalFrame {
 
     /**
@@ -71,6 +72,12 @@ public class Emitir_Receita extends javax.swing.JInternalFrame {
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 326, -1));
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 256, -1));
         getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, 251, -1));
+
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 286, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/desing.png"))); // NOI18N
@@ -83,8 +90,27 @@ public class Emitir_Receita extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        if(jTextField1.getText().isBlank() || jTextField2.getText().isBlank() || jTextField3.getText().isBlank() 
+                || jTextField4.getText().isBlank()){
+            JOptionPane.showMessageDialog(null, "preencha todos os campos!");
+        }
+        
+        
+        else{
+       String descricao = jTextField4.getText();
+       int fk_cpf_m = Integer.valueOf(jTextField2.getText());
+       int fk_cpf_p = Integer.valueOf(jTextField3.getText());
+             
+       Receita r = new Receita(0, descricao,729566628,8797897);
+       Connection con = ConexaoDAO.AbrirConexao();
+       ReceitaDAO dao = new ReceitaDAO(con);
+       dao.Cadastrar_Receita(r);
+        } 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

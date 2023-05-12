@@ -15,9 +15,8 @@ public class RelatorioDAO extends ExecuteSQL{
         String sql = "insert into relatorio values(0, ?, ?)";
         try{
             PreparedStatement ps = getCon().prepareStatement(sql);
-            ps.setInt(1,r.getId());
-            ps.setString(2,r.getDescricao());
-            ps.setInt(3,r.getFk_cpf_m());
+            ps.setString(1,r.getDescricao());
+            ps.setInt(2,r.getFk_cpf_m());
             
             
             if(ps.executeUpdate()>0){

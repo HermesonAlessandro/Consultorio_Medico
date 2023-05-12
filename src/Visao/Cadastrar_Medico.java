@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package Visao;
-
 import DAO.ConexaoDAO;
 import DAO.MedicoDAO;
 import Modelo.Medico;
