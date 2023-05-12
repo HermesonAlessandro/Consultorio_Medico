@@ -58,8 +58,6 @@ public class Tela_Menu_Medico extends javax.swing.JFrame {
             }
         });
         jDesktopPane1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 530, 220, 40));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/def.png"))); // NOI18N
         jDesktopPane1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-140, 0, -1, -1));
 
         jMenu1.setText("Realizar");

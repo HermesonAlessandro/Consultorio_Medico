@@ -60,7 +60,6 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
         jLabel2.setText("Secretaria");
         jDesktopPane1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 310, 90));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setForeground(new java.awt.Color(51, 51, 51));
         jButton1.setText("Sair");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -69,8 +68,6 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
             }
         });
         jDesktopPane1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 520, 210, 30));
-
-        imagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/def.png"))); // NOI18N
         jDesktopPane1.add(imagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(-130, 0, 1220, 720));
 
         jMenu1.setText("Cadastra");
