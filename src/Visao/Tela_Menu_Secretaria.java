@@ -68,6 +68,8 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
             }
         });
         jDesktopPane1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 520, 210, 30));
+
+        imagem.setBackground(new java.awt.Color(102, 255, 255));
         jDesktopPane1.add(imagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(-130, 0, 1220, 720));
 
         jMenu1.setText("Cadastra");
