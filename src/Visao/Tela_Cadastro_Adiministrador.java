@@ -56,7 +56,7 @@ public class Tela_Cadastro_Adiministrador extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 48)); // NOI18N
         jLabel1.setText("   Cadastro do Administrador");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 789, 88));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 789, 88));
 
         jLabel2.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 14)); // NOI18N
         jLabel2.setText("Rg_a:");
@@ -77,7 +77,7 @@ public class Tela_Cadastro_Adiministrador extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 615, 110, 29));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 600, 110, 29));
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,7 +85,7 @@ public class Tela_Cadastro_Adiministrador extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 480, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 480, -1));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 480, -1));
 
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,7 +101,7 @@ public class Tela_Cadastro_Adiministrador extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 694, 110, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 680, 110, -1));
 
         jLabel5.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 14)); // NOI18N
         jLabel5.setText("Sexo:");
@@ -161,7 +161,7 @@ public class Tela_Cadastro_Adiministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        dispose();
+       dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed

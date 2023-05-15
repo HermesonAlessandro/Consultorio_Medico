@@ -28,8 +28,7 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
 
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        imagem = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -40,9 +39,7 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem15 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
@@ -60,17 +57,13 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
         jLabel2.setText("Secretaria");
         jDesktopPane1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 310, 90));
 
-        jButton1.setForeground(new java.awt.Color(51, 51, 51));
-        jButton1.setText("Sair");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("Sair");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
-        jDesktopPane1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 520, 210, 30));
-
-        imagem.setBackground(new java.awt.Color(102, 255, 255));
-        jDesktopPane1.add(imagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(-130, 0, 1220, 720));
+        jDesktopPane1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 530, 110, 40));
 
         jMenu1.setText("Cadastra");
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
@@ -144,32 +137,15 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem7);
 
+        jMenuItem15.setText("Administrador");
+        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem15ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem15);
+
         jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Alterar");
-        jMenu3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu3ActionPerformed(evt);
-            }
-        });
-
-        jMenuItem8.setText("Medico");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem8);
-
-        jMenuItem9.setText("Pacientes");
-        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem9ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem9);
-
-        jMenuBar1.add(jMenu3);
 
         jMenu5.setText("Consulta");
 
@@ -243,12 +219,6 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
        jDesktopPane1.add(cm);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-         Listar_Medico bm = new Listar_Medico();
-          bm.setVisible(true);
-          jDesktopPane1.add(bm);
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
-
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
     Cadastrar_Medico cm = new Cadastrar_Medico();
     cm.setVisible(true);
@@ -263,33 +233,6 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
     cc.setVisible(true);
     jDesktopPane1.add(cc);
     }//GEN-LAST:event_jMenu1ActionPerformed
-
-    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
-         
-    }//GEN-LAST:event_jMenu2ActionPerformed
-
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-    Listar_Convenio bc = new Listar_Convenio();
-    bc.setVisible(true);
-    jDesktopPane1.add(bc);
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
-
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-    Listar_Consultas bo = new Listar_Consultas();
-    bo.setVisible(true);
-    jDesktopPane1.add(bo);
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
-
-    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
-    Alterar_Medico am = new Alterar_Medico();
-    am.setVisible(true);
-    jDesktopPane1.add(am);
-    
-    Alterar_Paciente ap = new Alterar_Paciente();
-    ap.setVisible(true);
-    jDesktopPane1.add(ap);
-    
-    }//GEN-LAST:event_jMenu3ActionPerformed
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
         Consultar_Agenda_Medica cam = new Consultar_Agenda_Medica();
@@ -324,29 +267,11 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
     jDesktopPane1.add(aa);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-  Alterar_Medico am = new Alterar_Medico();
-    am.setVisible(true);
-    jDesktopPane1.add(am);
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
-
-    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-    Alterar_Paciente ap = new Alterar_Paciente();
-    ap.setVisible(true);
-    jDesktopPane1.add(ap);
-    }//GEN-LAST:event_jMenuItem9ActionPerformed
-
     private void jMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu4ActionPerformed
      Emitir_Relatorio er = new Emitir_Relatorio();
      er.setVisible(true);
      jDesktopPane1.add(er);
     }//GEN-LAST:event_jMenu4ActionPerformed
-
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-       Listar_Paciente bp = new Listar_Paciente();
-       bp.setVisible(true);
-       jDesktopPane1.add(bp);
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
         Emitir_Relatorio em = new Emitir_Relatorio();
@@ -354,9 +279,46 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
         jDesktopPane1.add(em);
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
+        Listar_Administrador la = new Listar_Administrador();
+        la.setVisible(true);
+        jDesktopPane1.add(la);
+
+    }//GEN-LAST:event_jMenu2ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        Listar_Consultas bo = new Listar_Consultas();
+        bo.setVisible(true);
+        jDesktopPane1.add(bo);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        Listar_convenio lc = new Listar_convenio();
+        lc.setVisible(true);
+        jDesktopPane1.add(lc);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        Listar_Paciente bp = new Listar_Paciente();
+        bp.setVisible(true);
+        jDesktopPane1.add(bp);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        Listar_Medico bm = new Listar_Medico();
+        bm.setVisible(true);
+        jDesktopPane1.add(bm);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
+        Listar_Administrador ld = new Listar_Administrador();
+        ld.setVisible(true);
+        jDesktopPane1.add(ld);
+    }//GEN-LAST:event_jMenuItem15ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -397,13 +359,11 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel imagem;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
@@ -413,13 +373,12 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
+    private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
 }

@@ -15,12 +15,11 @@ public class Compromisso_medicoDAO extends ExecuteSQL{
         String sql = "insert into compromisso_medico values(0, ?, ?, ?, ?, ?)";
         try{
             PreparedStatement ps = getCon().prepareStatement(sql);
-            ps.setInt(1,cm.getId_comp_medico());
-            ps.setString(2,cm.getDescricao());
-            ps.setString(3,cm.getH_fim());
-            ps.setString(4,cm.getH_ini());
-            ps.setInt(5,cm.getFk_cpf_sec());
-            ps.setInt(6,cm.getFk_cpf_m());
+            ps.setString(1,cm.getDescricao());
+            ps.setString(2,cm.getH_fim());
+            ps.setString(3,cm.getH_ini());
+            ps.setInt(4,cm.getFk_cpf_sec());
+            ps.setInt(5,cm.getFk_cpf_m());
            
             
             if(ps.executeUpdate()>0){

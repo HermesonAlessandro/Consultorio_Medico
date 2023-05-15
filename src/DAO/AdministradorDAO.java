@@ -4,9 +4,13 @@ import java.sql.*;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import DTO.AdministradorDTO;
+import java.util.ArrayList;
 
 public class AdministradorDAO extends ExecuteSQL{
     Connection con;
+    ResultSet rs;
+    PreparedStatement ps;
+    ArrayList<Administrador> lista = new ArrayList<>();
 
     public AdministradorDAO(Connection con) {
        super(con);
@@ -58,6 +62,41 @@ public class AdministradorDAO extends ExecuteSQL{
                 return null;
             }
     }
+    
+    public ArrayList<Administrador>PesquisarAdministrador(){
+             String sql = "select * from administrador";
+             Connection con = ConexaoDAO.AbrirConexao();
+             
+             
+             try {
+                 ps = con.prepareStatement(sql);
+                 rs = ps.executeQuery();
+                 
+                 while(rs.next()){
+                Administrador objadministrador = new Administrador();
+                objadministrador.setRg_a(rs.getInt("rg_a"));
+                objadministrador.setNome_func(rs.getString("nome_func"));
+                objadministrador.setCpf(rs.getInt("cpf"));
+                objadministrador.setSenha(rs.getString("senha"));
+                objadministrador.setSexo(rs.getString("sexo"));
+                objadministrador.setClin(rs.getString("clin"));
+                objadministrador.setTel(rs.getInt("tel"));
+                
+                  lista.add(objadministrador);
+        
+                 }
+                 
+             }catch(Exception e) {
+                 JOptionPane.showMessageDialog(null,
+                         "nao foi possivel encontrar o administrador" +e.getMessage());
+                 
+                    }
+           
+         return lista; 
+        
+  }
+    
+    
 }
 
 

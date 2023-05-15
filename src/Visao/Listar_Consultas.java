@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 public class Listar_Consultas extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form Buscar_Consultas
+     * Creates new form Listar_Consultas1
      */
     public Listar_Consultas() {
         initComponents();
@@ -38,25 +38,19 @@ public class Listar_Consultas extends javax.swing.JInternalFrame {
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
-        setTitle("Buscar_Consultas");
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 24)); // NOI18N
         jLabel1.setText("Buscar Consultas");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, -1, -1));
 
         jLabel2.setText("ID:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, -1, -1));
 
-        jLabel3.setText("Nome:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, -1, -1));
+        jLabel3.setText("Nome_c:");
 
         jButton1.setText("Buscar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -64,61 +58,110 @@ public class Listar_Consultas extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "NOME"
+                "ID", "NOME", "DATA"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 417, 247));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 400, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 400, -1));
-
         jButton2.setText("Alterar");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 470, -1, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/desing.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
+        jLabel7.setText("Data:");
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/desing.png"))); // NOI18N
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, -1, 430));
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/abc.png"))); // NOI18N
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -3, 750, 530));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(104, 104, 104)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel2)
+                        .addGap(16, 16, 16)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(3, 3, 3)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel7)
+                        .addGap(13, 13, 13)
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(138, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel1)
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel2))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(88, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-             Consulta objConsulta = new Consulta();
-             Connection con = ConexaoDAO.AbrirConexao();
-             ConsultaDAO dao = new ConsultaDAO(con);
-              
-         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-         model.setNumRows(0);
-         
-         
-         ArrayList<Consulta> lista = dao.PesquisarConsulta();
-         int num = 0;
-         for(Consulta c :lista){
-         model.addRow(new String[num]);
-            jTable1.setValueAt(c.getId(), num, 0);
-            jTable1.setValueAt(c.getNome_c(), num, 1);
-            num++;
-         }
-                    
-          }catch (Exception e){
-           JOptionPane.showMessageDialog(null,
-                 "nao foi possivel o encontrar um Consulta"+e);
-    }
-        
+            Consulta objConsulta = new Consulta();
+            Connection con = ConexaoDAO.AbrirConexao();
+            ConsultaDAO dao = new ConsultaDAO(con);
+
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.setNumRows(0);
+
+            ArrayList<Consulta> lista = dao.PesquisarConsulta();
+            int num = 0;
+            for(Consulta c :lista){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(c.getId(), num, 0);
+                jTable1.setValueAt(c.getNome_c(), num, 1);
+                jTable1.setValueAt(c.getData(), num, 2);
+                num++;
+            }
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null,
+                "nao foi possivel o encontrar um Consulta"+e);
+        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -128,12 +171,11 @@ public class Listar_Consultas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }
