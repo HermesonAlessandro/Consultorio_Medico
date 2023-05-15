@@ -3,9 +3,14 @@ package DAO;
 import Modelo.Clinica;
 import java.sql.*;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class ClinicaDAO extends ExecuteSQL{
+     Connection con;
+    ResultSet rs;
+    PreparedStatement ps;
+    ArrayList<Clinica> lista = new ArrayList<>();
 
     public ClinicaDAO(Connection con) {
         super(con);
@@ -35,4 +40,47 @@ public class ClinicaDAO extends ExecuteSQL{
            
            }
     }
+    
+     public ArrayList<Clinica>Pesquisarclinica(){
+             String sql = "select * from clinica";
+             Connection con = ConexaoDAO.AbrirConexao();
+             
+             
+             try {
+                 ps = con.prepareStatement(sql);
+                 rs = ps.executeQuery();
+                 
+                 while(rs.next()){
+                Clinica objclinica = new Clinica();
+                objclinica.setCnpj(rs.getInt("cnpj"));
+                objclinica.setNome(rs.getString("nome"));
+                objclinica.setEnd(rs.getString("end"));
+                objclinica.setTel(rs.getInt("tel"));
+                objclinica.setFk_cpf_sec(rs.getInt("fk_cpf_sec"));
+                objclinica.setFk_cpf_m(rs.getInt("fk_cpf_m"));
+                objclinica.setFk_cpf_p(rs.getInt("FK_cpf_p"));
+                objclinica.setFk_rg_a(rs.getInt("fk_rg_a"));
+                
+                  lista.add(objclinica);
+        
+                 }
+                 
+             }catch(Exception e) {
+                 JOptionPane.showMessageDialog(null,
+                         "nao foi possivel encontrar a clinica" +e.getMessage());
+                 
+                    }
+           
+         return lista; 
+        
+  }
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

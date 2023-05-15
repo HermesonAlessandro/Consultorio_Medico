@@ -4,9 +4,14 @@ import java.sql.*;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import DTO.SecretariaDTO;
+import java.util.ArrayList;
 public class SecretariaDAO extends ExecuteSQL{
-
     Connection con;
+    ResultSet rs;
+    PreparedStatement ps;
+    ArrayList<Secretaria> lista = new ArrayList<>();
+    
+    
     public SecretariaDAO(Connection con) {
         super(con);
     }
@@ -58,6 +63,42 @@ public class SecretariaDAO extends ExecuteSQL{
                 return null;
             }
     }
+    
+    
+    
+    public ArrayList<Secretaria>PesquisarSecretaria(){
+             String sql = "select * from secretaria";
+             Connection con = ConexaoDAO.AbrirConexao();
+             
+             
+             try {
+                 ps = con.prepareStatement(sql);
+                 rs = ps.executeQuery();
+                 
+                 while(rs.next()){
+                 Secretaria objsecretaria = new Secretaria();
+                objsecretaria.setCpf(rs.getInt("cpf"));
+                objsecretaria.setNome(rs.getString("nome"));
+                objsecretaria.setRg(rs.getInt("rg"));
+                objsecretaria.setTel(rs.getInt("tel"));
+                objsecretaria.setEnd(rs.getString("end"));
+                objsecretaria.setSexo(rs.getString("sexo"));
+                objsecretaria.setSenha(rs.getString("senha"));
+                objsecretaria.setRg_adm(rs.getInt("rg_adm"));
+                
+                  lista.add(objsecretaria);
+        
+                 }
+                 
+             }catch(Exception e) {
+                 JOptionPane.showMessageDialog(null,
+                         "nao foi possivel encontrar o medico" +e.getMessage());
+                 
+                    }
+           
+         return lista; 
+        
+  }
     
  
 }
