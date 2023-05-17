@@ -52,7 +52,7 @@ public class Listar_Consultas extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Nome_c:");
 
-        jButton1.setText("Buscar");
+        jButton1.setText("Listar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -147,7 +147,7 @@ public class Listar_Consultas extends javax.swing.JInternalFrame {
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             model.setNumRows(0);
 
-            ArrayList<Consulta> lista = dao.PesquisarConsulta();
+            ArrayList<Consulta> lista = dao.ListarConsulta();
             int num = 0;
             for(Consulta c :lista){
                 model.addRow(new String[num]);

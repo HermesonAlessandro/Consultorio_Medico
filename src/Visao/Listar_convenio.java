@@ -171,7 +171,7 @@ public class Listar_convenio extends javax.swing.JInternalFrame {
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             model.setNumRows(0);
 
-            ArrayList<Convenio> lista = dao.PesquisarConvenio();
+            ArrayList<Convenio> lista = dao.ListarConvenio();
             int num = 0;
             for(Convenio c :lista){
                 model.addRow(new String[num]);

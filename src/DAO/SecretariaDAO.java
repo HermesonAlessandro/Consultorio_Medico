@@ -66,7 +66,7 @@ public class SecretariaDAO extends ExecuteSQL{
     
     
     
-    public ArrayList<Secretaria>PesquisarSecretaria(){
+    public ArrayList<Secretaria>ListarSecretaria(){
              String sql = "select * from secretaria";
              Connection con = ConexaoDAO.AbrirConexao();
              

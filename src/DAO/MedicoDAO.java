@@ -70,7 +70,7 @@ public class MedicoDAO extends ExecuteSQL{
     
     
     
-         public ArrayList<Medico>PesquisarMedico(){
+         public ArrayList<Medico>ListarMedico(){
              String sql = "select * from medico";
              Connection con = ConexaoDAO.AbrirConexao();
              

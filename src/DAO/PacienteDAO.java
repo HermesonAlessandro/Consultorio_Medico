@@ -42,7 +42,7 @@ public class PacienteDAO extends ExecuteSQL{
            }
     }
    
-    public ArrayList<Paciente>PesquisarPaciente(){
+    public ArrayList<Paciente>ListarPaciente(){
              String sql = "select * from paciente";
              Connection con = ConexaoDAO.AbrirConexao();
              

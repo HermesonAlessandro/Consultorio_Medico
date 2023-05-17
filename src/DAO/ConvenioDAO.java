@@ -41,7 +41,7 @@ public class ConvenioDAO extends ExecuteSQL{;
            }
     }
     
-    public ArrayList<Convenio>PesquisarConvenio(){
+    public ArrayList<Convenio>ListarConvenio(){
              String sql = "select * from convenio";
              Connection con = ConexaoDAO.AbrirConexao();
              

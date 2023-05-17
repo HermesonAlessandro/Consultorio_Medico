@@ -41,7 +41,7 @@ public class ClinicaDAO extends ExecuteSQL{
            }
     }
     
-     public ArrayList<Clinica>Pesquisarclinica(){
+     public ArrayList<Clinica>Listarclinica(){
              String sql = "select * from clinica";
              Connection con = ConexaoDAO.AbrirConexao();
              

@@ -63,7 +63,7 @@ public class AdministradorDAO extends ExecuteSQL{
             }
     }
     
-    public ArrayList<Administrador>PesquisarAdministrador(){
+    public ArrayList<Administrador>ListarAdministrador(){
              String sql = "select * from administrador";
              Connection con = ConexaoDAO.AbrirConexao();
              

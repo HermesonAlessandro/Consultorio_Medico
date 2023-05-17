@@ -40,7 +40,7 @@ public class ConsultaDAO extends ExecuteSQL{
     }
     
     
-    public ArrayList<Consulta>PesquisarConsulta(){
+    public ArrayList<Consulta>ListarConsulta(){
              String sql = "select * from consulta";
              Connection con = ConexaoDAO.AbrirConexao();
              

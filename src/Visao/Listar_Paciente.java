@@ -62,7 +62,7 @@ public class Listar_Paciente extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Nome:");
 
-        jButton1.setText("Buscar");
+        jButton1.setText("Listar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -200,7 +200,7 @@ public class Listar_Paciente extends javax.swing.JInternalFrame {
             DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
             model.setNumRows(0);
 
-            ArrayList<Paciente> lista = dao.PesquisarPaciente();
+            ArrayList<Paciente> lista = dao.ListarPaciente();
             int num = 0;
             for(Paciente p :lista){
                 model.addRow(new String[num]);

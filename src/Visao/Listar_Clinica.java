@@ -67,7 +67,7 @@ public class Listar_Clinica extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jButton1.setText("Buscar");
+        jButton1.setText("Listar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -158,7 +158,7 @@ public class Listar_Clinica extends javax.swing.JInternalFrame {
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             model.setNumRows(0);
 
-            ArrayList<Clinica> lista = dao.Pesquisarclinica();
+            ArrayList<Clinica> lista = dao.Listarclinica();
             int num = 0;
             for(Clinica cl :lista){
                 model.addRow(new String[num]);
