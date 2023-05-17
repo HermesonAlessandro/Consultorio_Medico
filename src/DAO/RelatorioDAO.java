@@ -3,9 +3,14 @@ package DAO;
 import Modelo.Relatorio;
 import java.sql.*;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class RelatorioDAO extends ExecuteSQL{
+     Connection con;
+    ResultSet rs;
+    PreparedStatement ps;
+    ArrayList<Relatorio> lista = new ArrayList<>();
 
     public RelatorioDAO(Connection con) {
         super(con);
@@ -30,5 +35,38 @@ public class RelatorioDAO extends ExecuteSQL{
            
            }
     }
+    
+            public ArrayList<Relatorio>ListarRelatorio(){
+             String sql = "select * from relatorio";
+             Connection con = ConexaoDAO.AbrirConexao();
+             
+             
+             try {
+                 ps = con.prepareStatement(sql);
+                 rs = ps.executeQuery();
+                 
+                 while(rs.next()){
+                Relatorio objrelatorio = new Relatorio();
+                objrelatorio.setId(rs.getInt("id"));
+                objrelatorio.setDescricao(rs.getString("descricao"));
+          
+                
+                  lista.add(objrelatorio);
+        
+                 }
+                 
+             }catch(Exception e) {
+                 JOptionPane.showMessageDialog(null,
+                         "nao foi possivel encontrar o relatorio" +e.getMessage());
+                 
+                    }
+           
+         return lista; 
+        
+  }
+    
+    
+    
+    
     
 }

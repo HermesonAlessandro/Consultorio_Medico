@@ -3,9 +3,14 @@ package DAO;
 import Modelo.Atestado;
 import java.sql.*;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class AtestadoDAO extends ExecuteSQL{
+    Connection con;
+    ResultSet rs;
+    PreparedStatement ps;
+    ArrayList<Atestado> lista = new ArrayList<>();
 
     public AtestadoDAO(Connection con) {
         super(con);
@@ -31,5 +36,38 @@ public class AtestadoDAO extends ExecuteSQL{
            
            }
     }
+    
+        public ArrayList<Atestado>ListarAtestado(){
+             String sql = "select * from atestado";
+             Connection con = ConexaoDAO.AbrirConexao();
+             
+             
+             try {
+                 ps = con.prepareStatement(sql);
+                 rs = ps.executeQuery();
+                 
+                 while(rs.next()){
+                Atestado objatestado = new Atestado();
+                objatestado.setId(rs.getInt("id"));
+                objatestado.setDias_ausentes(rs.getString("dias_ausentes"));
+                                
+                  lista.add(objatestado);
+        
+                 }
+                 
+             }catch(Exception e) {
+                 JOptionPane.showMessageDialog(null,
+                         "nao foi possivel encontrar um atestado" +e.getMessage());
+                 
+                    }
+           
+         return lista; 
+        
+  }
+    
+           
+    
+    
+    
     
 }

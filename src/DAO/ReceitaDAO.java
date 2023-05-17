@@ -3,9 +3,14 @@ package DAO;
 import Modelo.Receita;
 import java.sql.*;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class ReceitaDAO extends ExecuteSQL{
+    Connection con;
+    ResultSet rs;
+    PreparedStatement ps;
+    ArrayList<Receita> lista = new ArrayList<>();
 
     public ReceitaDAO(Connection con) {
         super(con);
@@ -31,4 +36,37 @@ public class ReceitaDAO extends ExecuteSQL{
            
            }
     }
+    
+            public ArrayList<Receita>ListarReceita(){
+             String sql = "select * from receita";
+             Connection con = ConexaoDAO.AbrirConexao();
+             
+             
+             try {
+                 ps = con.prepareStatement(sql);
+                 rs = ps.executeQuery();
+                 
+                 while(rs.next()){
+                Receita objreceita = new Receita();
+                objreceita.setId(rs.getInt("id"));
+                objreceita.setDescricao(rs.getString("descricao"));
+               
+                
+                  lista.add(objreceita);
+        
+                 }
+                 
+             }catch(Exception e) {
+                 JOptionPane.showMessageDialog(null,
+                         "nao foi possivel encontrar a receita" +e.getMessage());
+                 
+                    }
+           
+         return lista; 
+        
+  }
+    
+    
+    
+    
 }

@@ -3,9 +3,14 @@ package DAO;
 import Modelo.Cid;
 import java.sql.*;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class CidDAO extends ExecuteSQL{
+    Connection con;
+    ResultSet rs;
+    PreparedStatement ps;
+    ArrayList<Cid> lista = new ArrayList<>();
 
     public CidDAO(Connection con) {
         super(con);
@@ -36,4 +41,36 @@ public class CidDAO extends ExecuteSQL{
            
            }
     }
+    public ArrayList<Cid>ListarCid(){
+             String sql = "select * from cid";
+             Connection con = ConexaoDAO.AbrirConexao();
+             
+             
+             try {
+                 ps = con.prepareStatement(sql);
+                 rs = ps.executeQuery();
+                 
+                 while(rs.next()){
+                Cid objcid = new Cid();
+                objcid.setCapitulo(rs.getInt("capitulo"));
+                objcid.setDescricao(rs.getString("descricao"));
+                objcid.setCod_cid_10(rs.getString("cod_cid_10"));
+                objcid.setCod(rs.getInt("cod"));
+                
+                
+                  lista.add(objcid);
+        
+                 }
+                 
+             }catch(Exception e) {
+                 JOptionPane.showMessageDialog(null,
+                         "nao foi possivel encontrar uma doença" +e.getMessage());
+                 
+                    }
+           
+         return lista; 
+        
+  }
+    
+    
 }
