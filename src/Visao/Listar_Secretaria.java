@@ -223,7 +223,7 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
 
         }catch (Exception e){
             JOptionPane.showMessageDialog(null,
-                "nao foi possivel o encontrar um medico"+e);
+                "nao foi possivel o encontrar uma secretaria"+e);
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed

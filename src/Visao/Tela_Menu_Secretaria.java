@@ -44,6 +44,7 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem14 = new javax.swing.JMenuItem();
         jMenuItem16 = new javax.swing.JMenuItem();
+        jMenuItem17 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
@@ -180,6 +181,14 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
             }
         });
         jMenu2.add(jMenuItem16);
+
+        jMenuItem17.setText("Compromisso Medico");
+        jMenuItem17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem17ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem17);
 
         jMenuBar1.add(jMenu2);
 
@@ -381,6 +390,12 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
                
     }//GEN-LAST:event_jMenuItem16ActionPerformed
 
+    private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
+        Listar_Compromisso_Medico lcm = new Listar_Compromisso_Medico();
+        lcm.setVisible(true);
+        jDesktopPane1.add(lcm);
+    }//GEN-LAST:event_jMenuItem17ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -437,6 +452,7 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem16;
+    private javax.swing.JMenuItem jMenuItem17;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;

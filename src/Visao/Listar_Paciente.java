@@ -50,6 +50,7 @@ public class Listar_Paciente extends javax.swing.JInternalFrame {
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -91,6 +92,13 @@ public class Listar_Paciente extends javax.swing.JInternalFrame {
 
         jLabel11.setText("Convenio:");
 
+        jButton3.setText("Carregar Campos");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -102,9 +110,11 @@ public class Listar_Paciente extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton2)
-                .addGap(74, 74, 74)
+                .addGap(59, 59, 59)
                 .addComponent(jButton1)
-                .addGap(298, 298, 298))
+                .addGap(44, 44, 44)
+                .addComponent(jButton3)
+                .addGap(194, 194, 194))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(137, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -151,7 +161,8 @@ public class Listar_Paciente extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 302, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33))
@@ -219,11 +230,27 @@ public class Listar_Paciente extends javax.swing.JInternalFrame {
                 "nao foi possivel o encontrar um paciente"+e);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+             private void CarregarCampos(){
+           int setar = jTable2.getSelectedRow();
+          jTextField1.setText(jTable2.getModel().getValueAt(setar, 0).toString());
+          jTextField2.setText(jTable2.getModel().getValueAt(setar, 1).toString());
+          jTextField3.setText(jTable2.getModel().getValueAt(setar, 2).toString());
+          jTextField4.setText(jTable2.getModel().getValueAt(setar, 3).toString());
+          jTextField5.setText(jTable2.getModel().getValueAt(setar, 4).toString());
+          jTextField6.setText(jTable2.getModel().getValueAt(setar, 5).toString());
+          jTextField7.setText(jTable2.getModel().getValueAt(setar, 6).toString());        
+    }
+    
+    
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        CarregarCampos();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

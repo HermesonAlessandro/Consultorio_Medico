@@ -48,6 +48,7 @@ public class Listar_Medico extends javax.swing.JInternalFrame {
         jTextField6 = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -95,6 +96,13 @@ public class Listar_Medico extends javax.swing.JInternalFrame {
 
         jButton2.setText("Alterar");
 
+        jButton3.setText("Carregar Campos");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -140,14 +148,15 @@ public class Listar_Medico extends javax.swing.JInternalFrame {
                                 .addGap(5, 5, 5)
                                 .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(60, 60, 60)
                                 .addComponent(jButton1)
-                                .addGap(78, 78, 78)
-                                .addComponent(jButton2))))
+                                .addGap(41, 41, 41)
+                                .addComponent(jButton2)
+                                .addGap(26, 26, 26)
+                                .addComponent(jButton3))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(162, 162, 162)
+                        .addGap(159, 159, 159)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addContainerGap(177, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,12 +194,13 @@ public class Listar_Medico extends javax.swing.JInternalFrame {
                     .addComponent(jLabel12)
                     .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(29, 29, 29)
+                    .addComponent(jButton3))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         pack();
@@ -223,17 +233,31 @@ public class Listar_Medico extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null,
                 "nao foi possivel o encontrar um medico"+e);
         }
-
+        
     }//GEN-LAST:event_jButton1ActionPerformed
-
+            private void CarregarCampos(){
+                int setar = jTable1.getSelectedRow();
+          jTextField1.setText(jTable1.getModel().getValueAt(setar, 0).toString());
+          jTextField2.setText(jTable1.getModel().getValueAt(setar, 1).toString());
+          jTextField3.setText(jTable1.getModel().getValueAt(setar, 2).toString());
+          jTextField4.setText(jTable1.getModel().getValueAt(setar, 3).toString());
+          jTextField5.setText(jTable1.getModel().getValueAt(setar, 4).toString());
+          jTextField6.setText(jTable1.getModel().getValueAt(setar, 5).toString());
+          jTextField7.setText(jTable1.getModel().getValueAt(setar, 6).toString());        
+    }
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+      CarregarCampos();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

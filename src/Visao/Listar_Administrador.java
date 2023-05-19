@@ -48,6 +48,7 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -119,6 +120,13 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 14)); // NOI18N
         jLabel4.setText("Cpf:");
 
+        jButton3.setText("Carregar Campos");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -172,7 +180,9 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(236, 236, 236)
                                 .addComponent(jButton1)
-                                .addGap(173, 173, 173)
+                                .addGap(42, 42, 42)
+                                .addComponent(jButton3)
+                                .addGap(56, 56, 56)
                                 .addComponent(jButton2)))
                         .addGap(0, 155, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -218,7 +228,8 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -261,7 +272,18 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
-
+        private void CarregarCampos(){
+                int setar = jTable1.getSelectedRow();
+          jTextField1.setText(jTable1.getModel().getValueAt(setar, 0).toString());
+          jTextField2.setText(jTable1.getModel().getValueAt(setar, 1).toString());
+          jTextField3.setText(jTable1.getModel().getValueAt(setar, 2).toString());
+          jPasswordField1.setText(jTable1.getModel().getValueAt(setar, 3).toString());
+          jComboBox1.getSelectedItem().toString();
+          jTextField5.setText(jTable1.getModel().getValueAt(setar, 5).toString());
+          jTextField6.setText(jTable1.getModel().getValueAt(setar, 6).toString());        
+        }
+    
+    
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
@@ -270,10 +292,15 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField6ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       CarregarCampos();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

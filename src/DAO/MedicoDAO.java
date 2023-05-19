@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javax.swing.JTable;
 
 
 
@@ -102,5 +103,6 @@ public class MedicoDAO extends ExecuteSQL{
          return lista; 
         
   }
+         
 }
 

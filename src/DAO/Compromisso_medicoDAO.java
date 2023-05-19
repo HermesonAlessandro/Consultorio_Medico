@@ -3,9 +3,14 @@ package DAO;
 import Modelo.Compromisso_medico;
 import java.sql.*;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class Compromisso_medicoDAO extends ExecuteSQL{
+     Connection con;
+     ResultSet rs;
+     PreparedStatement ps;
+     ArrayList<Compromisso_medico> lista = new ArrayList<>();
 
     public Compromisso_medicoDAO(Connection con) {
         super(con);
@@ -33,4 +38,43 @@ public class Compromisso_medicoDAO extends ExecuteSQL{
            
            }
     }
+    
+     public ArrayList<Compromisso_medico>ListarCompromisso_Medico(){
+             String sql = "select * from compromisso_medico";
+             Connection con = ConexaoDAO.AbrirConexao();
+             
+             
+             try {
+                 ps = con.prepareStatement(sql);
+                 rs = ps.executeQuery();
+                 
+                 while(rs.next()){
+                Compromisso_medico objcompromisso_medico = new Compromisso_medico();
+                objcompromisso_medico.setId_comp_medico(rs.getInt("id_comp_medico"));
+                objcompromisso_medico.setDescricao(rs.getString("descricao"));
+                objcompromisso_medico.setH_fim(rs.getString("h_fim"));
+                objcompromisso_medico.setH_ini(rs.getString("h_ini"));
+                
+                
+                  lista.add(objcompromisso_medico);
+        
+                 }
+                 
+             }catch(Exception e) {
+                 JOptionPane.showMessageDialog(null,
+                         "nao foi possivel encontrar um compromisso medico" +e.getMessage());
+                 
+                    }
+           
+         return lista; 
+        
+  }
+    
+    
+    
+    
+    
+    
+    
+    
 }
