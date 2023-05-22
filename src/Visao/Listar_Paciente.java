@@ -258,9 +258,17 @@ public class Listar_Paciente extends javax.swing.JInternalFrame {
           jTextField2.setText(jTable2.getModel().getValueAt(setar, 1).toString());
           jTextField3.setText(jTable2.getModel().getValueAt(setar, 2).toString());
           jTextField4.setText(jTable2.getModel().getValueAt(setar, 3).toString());
-          jComboBox1.getSelectedItem().toString();
+          String sexo = jTable2.getModel().getValueAt(setar, 4).toString();
           jTextField6.setText(jTable2.getModel().getValueAt(setar, 5).toString());
-          jTextField7.setText(jTable2.getModel().getValueAt(setar, 6).toString());        
+          jTextField7.setText(jTable2.getModel().getValueAt(setar, 6).toString()); 
+          
+          if(sexo == "M"){
+              jComboBox1.setSelectedIndex(1);
+          }
+          
+          else{
+          jComboBox1.setSelectedIndex(0);
+          }
              }
              
              private void LimparDados(){

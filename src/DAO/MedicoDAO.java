@@ -104,5 +104,35 @@ public class MedicoDAO extends ExecuteSQL{
         
   }
          
+         public void AlterarMedico(Medico objmedico){
+   String sql = "update medico set nome = ?, rg = ?, tel = ?, end = ?, sexo = ?,  senha = ? where cpf = ?";
+    Connection con = ConexaoDAO.AbrirConexao();
+    
+    try{
+        PreparedStatement pstm = con.prepareStatement(sql);
+        pstm.setString(1, objmedico.getNome());
+        pstm.setInt(2, objmedico.getRg());
+        pstm.setInt(3, objmedico.getTel());
+        pstm.setString(4, objmedico.getEnd());
+        pstm.setString(5, objmedico.getSexo());
+        pstm.setString(6, objmedico.getSenha());
+        pstm.setInt(7, objmedico.getCpf());
+        
+        pstm.execute();
+        pstm.close();
+        
+        JOptionPane.showMessageDialog(null, "medico alterado com sucesso!");
+        
+    }catch(Exception e){
+        
+        JOptionPane.showMessageDialog(null, "Medico nao alterado!"+e.getMessage());
+    
+    
+    }
+   
+   } 
+         
+         
+         
 }
 

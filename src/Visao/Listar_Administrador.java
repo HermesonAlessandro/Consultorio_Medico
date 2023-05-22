@@ -290,9 +290,18 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
           jTextField2.setText(jTable1.getModel().getValueAt(setar, 1).toString());
           jTextField3.setText(jTable1.getModel().getValueAt(setar, 2).toString());
           jPasswordField1.setText(jTable1.getModel().getValueAt(setar, 3).toString());
-          jComboBox1.getSelectedItem().toString();
+          String sexo = jTable1.getModel().getValueAt(setar, 4).toString();
           jTextField5.setText(jTable1.getModel().getValueAt(setar, 5).toString());
-          jTextField6.setText(jTable1.getModel().getValueAt(setar, 6).toString());        
+          jTextField6.setText(jTable1.getModel().getValueAt(setar, 6).toString());
+          
+          
+          if(sexo == "M"){
+               jComboBox1.setSelectedIndex(0);
+          }
+          else{
+          jComboBox1.setSelectedIndex(1);
+          
+          }
         }
     
         private void LimparDados(){
@@ -302,6 +311,40 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
             jTextField5.setText("");
             jTextField6.setText("");
         }
+        
+        private void AlterarAdministrador(){                  
+            int rg_a;
+            String nome_func;
+            int cpf;
+            String senha;
+            String ;
+            String sexo;
+            String senha;
+            
+            cpf = Integer.parseInt(jTextField1.getText());
+            nome = jTextField2.getText();
+            rg = Integer.parseInt(jTextField3.getText());
+            tel = Integer.parseInt(jTextField4.getText());
+            end = jTextField5.getText();
+            sexo = jComboBox1.getSelectedItem().toString();
+            senha = jPasswordField1.getText();
+            
+            Administrador objadministrador = new Administrador();
+            objadministrador.setRg_a(rg);
+            objadministrador.setNome(nome_func);
+            objadministrador.setRg(rg);
+            objadministrador.setTel(tel);
+            objadministrador.setEnd(end);
+            objadministrador.setSexo(sexo);
+            objadministrador.setSenha(senha);
+           
+            
+            MedicoDAO objmedicodao = new MedicoDAO(ConexaoDAO.AbrirConexao());
+            objmedicodao.AlterarMedico(objmedico);
+
+           
+        
+       }
     
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:

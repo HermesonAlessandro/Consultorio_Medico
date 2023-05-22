@@ -99,6 +99,11 @@ public class Listar_Medico extends javax.swing.JInternalFrame {
         });
 
         jButton2.setText("Alterar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Carregar Campos");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -257,7 +262,7 @@ public class Listar_Medico extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
             private void CarregarCampos(){
-                int setar = jTable1.getSelectedRow();
+          int setar = jTable1.getSelectedRow();
           jTextField1.setText(jTable1.getModel().getValueAt(setar, 0).toString());
           jTextField2.setText(jTable1.getModel().getValueAt(setar, 1).toString());
           jTextField3.setText(jTable1.getModel().getValueAt(setar, 2).toString());
@@ -276,6 +281,41 @@ public class Listar_Medico extends javax.swing.JInternalFrame {
             jTextField5.setText("");
             }
             
+            
+            private void AlterarMedico(){                  
+            int cpf;
+            String nome;
+            int rg;
+            int tel;
+            String end;
+            String sexo;
+            String senha;
+            
+            cpf = Integer.parseInt(jTextField1.getText());
+            nome = jTextField2.getText();
+            rg = Integer.parseInt(jTextField3.getText());
+            tel = Integer.parseInt(jTextField4.getText());
+            end = jTextField5.getText();
+            sexo = jComboBox1.getSelectedItem().toString();
+            senha = jPasswordField1.getText();
+            
+            Medico objmedico = new Medico();
+            objmedico.setCpf(cpf);
+            objmedico.setNome(nome);
+            objmedico.setRg(rg);
+            objmedico.setTel(tel);
+            objmedico.setEnd(end);
+            objmedico.setSexo(sexo);
+            objmedico.setSenha(senha);
+           
+            
+            MedicoDAO objmedicodao = new MedicoDAO(ConexaoDAO.AbrirConexao());
+            objmedicodao.AlterarMedico(objmedico);
+
+           
+        
+       }
+            
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
@@ -287,6 +327,27 @@ public class Listar_Medico extends javax.swing.JInternalFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         LimparDados();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        AlterarMedico();
+        MedicoDAO dao = new MedicoDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Medico> ListaMedico = dao.ListarMedico();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Medico m : ListaMedico){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(m.getCpf(), num, 0);
+                jTable1.setValueAt(m.getNome(), num, 1);
+                jTable1.setValueAt(m.getRg(), num, 2);
+                jTable1.setValueAt(m.getTel(), num, 3);
+                jTable1.setValueAt(m.getEnd(), num, 4);
+                jTable1.setValueAt(m.getSexo(), num, 5);
+                jTable1.setValueAt(m.getSenha(), num, 6);
+                num++;
+        }
+        LimparDados();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
