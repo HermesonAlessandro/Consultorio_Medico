@@ -317,14 +317,14 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
             String nome_func;
             int cpf;
             String senha;
-            String ;
             String sexo;
-            String senha;
+            String clin;
+            int tel;
             
             cpf = Integer.parseInt(jTextField1.getText());
-            nome = jTextField2.getText();
-            rg = Integer.parseInt(jTextField3.getText());
-            tel = Integer.parseInt(jTextField4.getText());
+            nome_func = jTextField2.getText();
+            cpf = Integer.parseInt(jTextField3.getText());
+             = Integer.parseInt(jTextField4.getText());
             end = jTextField5.getText();
             sexo = jComboBox1.getSelectedItem().toString();
             senha = jPasswordField1.getText();
