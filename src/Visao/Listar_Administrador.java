@@ -73,6 +73,11 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
         });
 
         jButton2.setText("Alterar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -293,15 +298,13 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
           String sexo = jTable1.getModel().getValueAt(setar, 4).toString();
           jTextField5.setText(jTable1.getModel().getValueAt(setar, 5).toString());
           jTextField6.setText(jTable1.getModel().getValueAt(setar, 6).toString());
-          
-          
-          if(sexo == "M"){
-               jComboBox1.setSelectedIndex(0);
+           if("M".equals(sexo)){
+             jComboBox1.setSelectedIndex(0);
           }
+          
           else{
-          jComboBox1.setSelectedIndex(1);
-          
-          }
+           jComboBox1.setSelectedIndex(1);
+          }      
         }
     
         private void LimparDados(){
@@ -321,26 +324,27 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
             String clin;
             int tel;
             
-            cpf = Integer.parseInt(jTextField1.getText());
+            rg_a = Integer.parseInt(jTextField1.getText());
             nome_func = jTextField2.getText();
             cpf = Integer.parseInt(jTextField3.getText());
-             = Integer.parseInt(jTextField4.getText());
-            end = jTextField5.getText();
-            sexo = jComboBox1.getSelectedItem().toString();
             senha = jPasswordField1.getText();
+            sexo =  sexo = jComboBox1.getSelectedItem().toString(); 
+            clin = jTextField5.getText();
+            tel = Integer.valueOf(jTextField6.getText());
             
             Administrador objadministrador = new Administrador();
-            objadministrador.setRg_a(rg);
-            objadministrador.setNome(nome_func);
-            objadministrador.setRg(rg);
-            objadministrador.setTel(tel);
-            objadministrador.setEnd(end);
-            objadministrador.setSexo(sexo);
+            objadministrador.setRg_a(rg_a);
+            objadministrador.setNome_func(nome_func);
+            objadministrador.setCpf(cpf);
             objadministrador.setSenha(senha);
+            objadministrador.setSexo(sexo);
+            objadministrador.setClin(clin);
+            objadministrador.setTel(tel);
+            
            
             
-            MedicoDAO objmedicodao = new MedicoDAO(ConexaoDAO.AbrirConexao());
-            objmedicodao.AlterarMedico(objmedico);
+            AdministradorDAO objadministradordao = new AdministradorDAO(ConexaoDAO.AbrirConexao());
+            objadministradordao.AlterarAdministrador(objadministrador);
 
            
         
@@ -361,6 +365,27 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
        LimparDados();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        AlterarAdministrador();
+        AdministradorDAO dao = new AdministradorDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Administrador> ListaAdministrador = dao.ListarAdministrador();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Administrador adm : ListaAdministrador){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(adm.getRg_a(), num, 0);
+                jTable1.setValueAt(adm.getNome_func(), num, 1);
+                jTable1.setValueAt(adm.getCpf(), num, 2);
+                jTable1.setValueAt(adm.getSenha(), num, 3);
+                jTable1.setValueAt(adm.getSexo(), num, 4);
+                jTable1.setValueAt(adm.getClin(), num, 5);
+                jTable1.setValueAt(adm.getTel(), num, 6);
+                num++;
+        }
+        LimparDados();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

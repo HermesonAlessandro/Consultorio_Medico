@@ -10,6 +10,7 @@ import Modelo.Medico;
 import java.util.ArrayList;
 import javax.swing.JTable;
 import java.sql.*;
+import javax.swing.JComboBox;
 import javax.swing.table.DefaultTableModel;
 public class Listar_Medico extends javax.swing.JInternalFrame {
 
@@ -121,7 +122,7 @@ public class Listar_Medico extends javax.swing.JInternalFrame {
 
         jButton5.setText("Excluir");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F", " " }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F", "" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -268,9 +269,17 @@ public class Listar_Medico extends javax.swing.JInternalFrame {
           jTextField3.setText(jTable1.getModel().getValueAt(setar, 2).toString());
           jTextField4.setText(jTable1.getModel().getValueAt(setar, 3).toString());
           jTextField5.setText(jTable1.getModel().getValueAt(setar, 4).toString());
-          jComboBox1.getSelectedItem().toString();
-          jPasswordField1.setText(jTable1.getModel().getValueAt(setar, 5).toString());        
-    }
+          String sexo = jTable1.getModel().getValueAt(setar, 5).toString();
+          jPasswordField1.setText(jTable1.getModel().getValueAt(setar, 6).toString());
+          
+          if("M".equals(sexo)){
+             jComboBox1.setSelectedIndex(0);
+          }
+          
+          else{
+           jComboBox1.setSelectedIndex(1);
+          }      
+       }
             
             
             private void LimparDados(){

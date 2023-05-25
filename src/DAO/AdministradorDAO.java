@@ -97,6 +97,36 @@ public class AdministradorDAO extends ExecuteSQL{
   }
     
     
+   public void AlterarAdministrador(Administrador objadministrador){
+    String sql = "update administrador set nome_func = ?, cpf = ?, senha = ?, sexo = ?, clin = ?,  tel = ? where rg_a = ?";
+    Connection con = ConexaoDAO.AbrirConexao();
+    
+    try{
+        PreparedStatement pstm = con.prepareStatement(sql);
+        pstm.setString(1, objadministrador.getNome_func());
+        pstm.setInt(2, objadministrador.getCpf());
+        pstm.setString(3, objadministrador.getSenha());
+        pstm.setString(4, objadministrador.getSexo());
+        pstm.setString(5, objadministrador.getClin());
+        pstm.setInt(6, objadministrador.getTel());
+        pstm.setInt(7, objadministrador.getRg_a());
+        
+        pstm.execute();
+        pstm.close();
+        
+        JOptionPane.showMessageDialog(null, "Administrador alterado com sucesso!");
+        
+    }catch(Exception e){
+        
+        JOptionPane.showMessageDialog(null, "Administrador nao alterado!"+e.getMessage());
+    
+    
+    }
+   
+   } 
+         
+    
+    
 }
 
 
