@@ -42,6 +42,10 @@ public class Listar_Atestado extends javax.swing.JInternalFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setText("Listar Atestado");
 
@@ -59,6 +63,11 @@ public class Listar_Atestado extends javax.swing.JInternalFrame {
         });
 
         jButton2.setText("Alterar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -192,6 +201,24 @@ public class Listar_Atestado extends javax.swing.JInternalFrame {
          jTextField2.setText("");
      
      }
+     
+     
+     private void AlterarAtestado(){                  
+            int id;
+            String dias_ausentes;
+            
+            id = Integer.parseInt(jTextField1.getText());
+            dias_ausentes = jTextField2.getText();
+         
+            
+            Atestado objatestado = new Atestado();
+            objatestado.setId(id);
+            objatestado.setDias_ausentes(dias_ausentes);
+                       
+            
+            AtestadoDAO objatestadodao = new AtestadoDAO(ConexaoDAO.AbrirConexao());
+            objatestadodao.AlterarAtestado(objatestado);
+       }
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         CarregarCampos();
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -199,6 +226,23 @@ public class Listar_Atestado extends javax.swing.JInternalFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
        LimparDados();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        AlterarAtestado();
+        AtestadoDAO dao = new AtestadoDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Atestado> ListaAtestado = dao.ListarAtestado();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Atestado a : ListaAtestado){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(a.getId(), num, 0);
+                jTable1.setValueAt(a.getDias_ausentes(), num, 1);
+                num++;
+        }
+        LimparDados();
+
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

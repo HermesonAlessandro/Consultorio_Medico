@@ -72,5 +72,34 @@ public class CidDAO extends ExecuteSQL{
         
   }
     
+    public void AlterarCid(Cid objcid){
+    String sql = "update cid set capitulo = ?, descricao = ?, cod_cid_10 = ? where cod = ?";
+    Connection con = ConexaoDAO.AbrirConexao();
+    
+    try{
+        PreparedStatement pstm = con.prepareStatement(sql);
+        pstm.setInt(1, objcid.getCapitulo());
+        pstm.setString(2, objcid.getDescricao());
+        pstm.setString(3, objcid.getCod_cid_10());
+        pstm.setInt(4, objcid.getCod());
+        
+        pstm.execute();
+        pstm.close();
+        
+        JOptionPane.showMessageDialog(null, "Cid alterado com sucesso!");
+        
+    }catch(Exception e){
+        
+        JOptionPane.showMessageDialog(null, "Cid nao alterado!"+e.getMessage());
+    
+    
+    }
+   
+   } 
+    
+    
+    
+    
+    
     
 }

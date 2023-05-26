@@ -85,6 +85,11 @@ public class Listar_Paciente extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(jTable2);
 
         jButton2.setText("Alterar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("End:");
 
@@ -127,12 +132,14 @@ public class Listar_Paciente extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton2)))
+                                .addComponent(jButton2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(103, 103, 103)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -253,21 +260,21 @@ public class Listar_Paciente extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
              private void CarregarCampos(){
-           int setar = jTable2.getSelectedRow();
+          int setar = jTable2.getSelectedRow();
           jTextField1.setText(jTable2.getModel().getValueAt(setar, 0).toString());
           jTextField2.setText(jTable2.getModel().getValueAt(setar, 1).toString());
           jTextField3.setText(jTable2.getModel().getValueAt(setar, 2).toString());
           jTextField4.setText(jTable2.getModel().getValueAt(setar, 3).toString());
-          String sexo = jTable2.getModel().getValueAt(setar, 4).toString();
-          jTextField6.setText(jTable2.getModel().getValueAt(setar, 5).toString());
+          String sexo = jTable2.getModel().getValueAt(setar, 5).toString();
+          jTextField6.setText(jTable2.getModel().getValueAt(setar, 4).toString());
           jTextField7.setText(jTable2.getModel().getValueAt(setar, 6).toString()); 
           
-          if(sexo == "M"){
-              jComboBox1.setSelectedIndex(1);
+          if("M".equals(sexo)){
+              jComboBox1.setSelectedIndex(0);
           }
           
           else{
-          jComboBox1.setSelectedIndex(0);
+          jComboBox1.setSelectedIndex(1);
           }
              }
              
@@ -279,6 +286,40 @@ public class Listar_Paciente extends javax.swing.JInternalFrame {
              jTextField6.setText("");
              jTextField7.setText(""); 
              }
+             
+             
+            private void AlterarPaciente(){                  
+            int cpf;
+            String nome;
+            String end;
+            int tel;
+            int rg;
+            String sexo;
+            String convenio;
+            
+            cpf = Integer.valueOf(jTextField1.getText());
+            nome = jTextField2.getText();
+            end = jTextField3.getText();
+            tel = Integer.valueOf(jTextField4.getText());
+            rg = Integer.valueOf(jTextField6.getText());
+            sexo = jComboBox1.getSelectedItem().toString();
+            
+            convenio = jTextField7.getText();
+            
+            
+            Paciente objpaciente = new Paciente();
+            objpaciente.setCpf(cpf);
+            objpaciente.setNome(nome);
+            objpaciente.setEnd(end);
+            objpaciente.setTel(tel);
+            objpaciente.setRg(rg);
+            objpaciente.setSexo(sexo);
+            objpaciente.setConvenio(convenio);
+           
+            
+            PacienteDAO objpacientedao = new PacienteDAO(ConexaoDAO.AbrirConexao());
+            objpacientedao.AlterarPaciente(objpaciente);
+       }
     
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         CarregarCampos();
@@ -287,6 +328,27 @@ public class Listar_Paciente extends javax.swing.JInternalFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
        LimparDados();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        AlterarPaciente();
+        PacienteDAO dao = new PacienteDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Paciente> ListaPaciente = dao.ListarPaciente();
+        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Paciente p : ListaPaciente){
+                model.addRow(new String[num]);
+                jTable2.setValueAt(p.getCpf(), num, 0);
+                jTable2.setValueAt(p.getNome(), num, 1);
+                jTable2.setValueAt(p.getEnd(), num, 2);
+                jTable2.setValueAt(p.getTel(), num, 3);
+                jTable2.setValueAt(p.getRg(), num, 4);
+                jTable2.setValueAt(p.getSexo(), num, 5);
+                jTable2.setValueAt(p.getConvenio(), num, 6);
+                num++;
+        }
+        LimparDados();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

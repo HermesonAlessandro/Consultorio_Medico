@@ -64,10 +64,28 @@ public class AtestadoDAO extends ExecuteSQL{
          return lista; 
         
   }
+        
+    public void AlterarAtestado(Atestado objatestado){
+    String sql = "update atestado set dias_ausentes = ? where id = ?";
+    Connection con = ConexaoDAO.AbrirConexao();
     
-           
+    try{
+        PreparedStatement pstm = con.prepareStatement(sql);
+        pstm.setString(1, objatestado.getDias_ausentes());
+        pstm.setInt(2, objatestado.getId());
+        
+        pstm.execute();
+        pstm.close();
+        
+        JOptionPane.showMessageDialog(null, "Atestado alterado com sucesso!");
+        
+    }catch(Exception e){
+        
+        JOptionPane.showMessageDialog(null, "Atestado nao alterado!"+e.getMessage());
     
     
+    }
     
-    
+   }
+   
 }

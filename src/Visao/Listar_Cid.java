@@ -71,7 +71,7 @@ public class Listar_Cid extends javax.swing.JInternalFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "ID", "CAPITULO", "DESCRIÇAO", "COD_CID_10"
+                "COD", "CAPITULO", "DESCRIÇAO", "COD_CID_10"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -84,6 +84,11 @@ public class Listar_Cid extends javax.swing.JInternalFrame {
         });
 
         jButton2.setText("Alterar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Carregar Campos");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -196,10 +201,10 @@ public class Listar_Cid extends javax.swing.JInternalFrame {
             int num = 0;
             for(Cid cid :lista){
                 model.addRow(new String[num]);
-                jTable1.setValueAt(cid.getCapitulo(), num, 0);
-                jTable1.setValueAt(cid.getDescricao(), num, 1);
-                jTable1.setValueAt(cid.getCod_cid_10(), num, 2);
-                jTable1.setValueAt(cid.getCod(), num, 3);
+                jTable1.setValueAt(cid.getCapitulo(), num, 1);
+                jTable1.setValueAt(cid.getDescricao(), num, 2);
+                jTable1.setValueAt(cid.getCod_cid_10(), num, 3);
+                jTable1.setValueAt(cid.getCod(), num, 0);
                 num++;
             }
 
@@ -224,6 +229,35 @@ public class Listar_Cid extends javax.swing.JInternalFrame {
           jTextField4.setText("");
           }
           
+          
+            private void AlterarCid(){                  
+            int capitulo;
+            String descricao;
+            String cod_cid_10;
+            int cod;
+           
+            
+            cod = Integer.parseInt(jTextField1.getText());
+            capitulo = Integer.valueOf(jTextField2.getText());
+            descricao = jTextField3.getText();
+            cod_cid_10 = jTextField4.getText();
+            
+            
+            
+            Cid objcid = new Cid();
+            objcid.setCapitulo(capitulo);
+            objcid.setDescricao(descricao);
+            objcid.setCod_cid_10(cod_cid_10);
+            objcid.setCod(cod);
+            
+      
+            CidDAO objciddao = new CidDAO(ConexaoDAO.AbrirConexao());
+            objciddao.AlterarCid(objcid);
+
+           
+        
+       }
+          
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         CarregarCampos();
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -231,6 +265,24 @@ public class Listar_Cid extends javax.swing.JInternalFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
        LimparDados();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        AlterarCid();
+        CidDAO dao = new CidDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Cid> ListaCid = dao.ListarCid();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Cid c : ListaCid){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(c.getCapitulo(), num, 1);
+                jTable1.setValueAt(c.getDescricao(), num, 2);
+                jTable1.setValueAt(c.getCod_cid_10(), num, 3);
+                jTable1.setValueAt(c.getCod(), num, 0);
+                num++;
+        }
+        LimparDados();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

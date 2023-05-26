@@ -79,9 +79,34 @@ public class PacienteDAO extends ExecuteSQL{
     
     
     
+    public void AlterarPaciente(Paciente objpaciente){
+    String sql = "update paciente set nome = ?, end = ?, tel = ?, rg = ?, sexo = ?,  convenio = ? where cpf = ?";
+    Connection con = ConexaoDAO.AbrirConexao();
+    
+    try{
+        PreparedStatement pstm = con.prepareStatement(sql);
+        pstm.setString(1, objpaciente.getNome());
+        pstm.setString(2, objpaciente.getEnd());
+        pstm.setInt(3, objpaciente.getTel());
+        pstm.setInt(4, objpaciente.getRg());
+        pstm.setString(5, objpaciente.getSexo());
+        pstm.setString(6, objpaciente.getConvenio());
+        pstm.setInt(7, objpaciente.getCpf());
+        
+        pstm.execute();
+        pstm.close();
+        
+        JOptionPane.showMessageDialog(null, "Paciente alterado com sucesso!");
+        
+    }catch(Exception e){
+        
+        JOptionPane.showMessageDialog(null, "Paciente nao alterado!"+e.getMessage());
     
     
- 
+    }
+   
+   } 
+    
 }
     
     
