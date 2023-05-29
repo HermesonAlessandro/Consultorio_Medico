@@ -29,6 +29,7 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -68,7 +69,15 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jDesktopPane1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 530, 110, 40));
+        jDesktopPane1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 530, 160, 40));
+
+        jButton1.setText("Voltar Para Tela de Login");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jDesktopPane1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 470, 160, 40));
 
         jMenu1.setText("Cadastra");
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
@@ -396,6 +405,12 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
         jDesktopPane1.add(lcm);
     }//GEN-LAST:event_jMenuItem17ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      Tela_Login tl = new Tela_Login();
+      tl.setVisible(true);
+      dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -435,6 +450,7 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel2;
