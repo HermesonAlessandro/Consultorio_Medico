@@ -31,6 +31,7 @@ public class Tela_Menu_Medico extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -52,7 +53,7 @@ public class Tela_Menu_Medico extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Médico");
-        jDesktopPane1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, -1, -1));
+        jDesktopPane1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, -1, -1));
 
         jButton1.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 12)); // NOI18N
         jButton1.setText("Sair");
@@ -61,7 +62,7 @@ public class Tela_Menu_Medico extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jDesktopPane1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 530, 220, 40));
+        jDesktopPane1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, 220, 40));
         jDesktopPane1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-140, 0, -1, -1));
 
         jButton2.setText("Voltar Para a Tela Login");
@@ -70,7 +71,11 @@ public class Tela_Menu_Medico extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jDesktopPane1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 470, 220, 40));
+        jDesktopPane1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, 220, 40));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/def.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jDesktopPane1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 870, 580));
 
         jMenu1.setText("Realizar");
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
@@ -266,6 +271,7 @@ public class Tela_Menu_Medico extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

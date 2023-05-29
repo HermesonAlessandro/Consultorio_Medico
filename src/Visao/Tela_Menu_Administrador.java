@@ -31,6 +31,7 @@ public class Tela_Menu_Administrador extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -43,7 +44,7 @@ public class Tela_Menu_Administrador extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Administrador");
-        jDesktopPane1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(395, 60, -1, 69));
+        jDesktopPane1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, -1, 69));
 
         jButton1.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 12)); // NOI18N
         jButton1.setText("Sair");
@@ -52,7 +53,7 @@ public class Tela_Menu_Administrador extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jDesktopPane1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 530, 220, 40));
+        jDesktopPane1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 390, 220, 40));
 
         jLabel2.setToolTipText("");
         jDesktopPane1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-140, 0, -1, -1));
@@ -63,7 +64,11 @@ public class Tela_Menu_Administrador extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jDesktopPane1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 480, 220, 40));
+        jDesktopPane1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 220, 40));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/def.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jDesktopPane1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 940, 560));
 
         jMenu1.setText("Cadastrar");
 
@@ -164,6 +169,7 @@ public class Tela_Menu_Administrador extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
