@@ -74,13 +74,30 @@ public class ClinicaDAO extends ExecuteSQL{
          return lista; 
         
   }
+     
+     public void AlterarClinica(Clinica objclinica){
+    String sql = "update clinica set nome = ?, end = ?, tel = ? where cnpj = ?";
+    Connection con = ConexaoDAO.AbrirConexao();
+    
+    try{
+        PreparedStatement pstm = con.prepareStatement(sql);
+        pstm.setString(1, objclinica.getNome());
+        pstm.setString(2, objclinica.getEnd());
+        pstm.setInt(3, objclinica.getTel());
+        pstm.setInt(4, objclinica.getCnpj());
+        
+        
+        pstm.execute();
+        pstm.close();
+        
+        JOptionPane.showMessageDialog(null, "Clinica alterado com sucesso!");
+        
+    }catch(Exception e){
+        
+        JOptionPane.showMessageDialog(null, "Clinica nao alterado!"+e.getMessage());
     
     
-    
-    
-    
-    
-    
-    
-    
+    }
+   
+   }    
 }

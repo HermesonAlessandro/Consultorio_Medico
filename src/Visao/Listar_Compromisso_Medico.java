@@ -71,6 +71,11 @@ public class Listar_Compromisso_Medico extends javax.swing.JInternalFrame {
         });
 
         jButton2.setText("Alterar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -223,6 +228,34 @@ public class Listar_Compromisso_Medico extends javax.swing.JInternalFrame {
             jTextField4.setText("");
             }
             
+            
+            private void AlterarCompromissoMedico(){                  
+            int id_comp_medico;
+            String descricao;
+            String h_fim;
+            String h_ini;
+            
+            id_comp_medico = Integer.parseInt(jTextField1.getText());
+            descricao = jTextField2.getText();
+            h_fim = jTextField3.getText();
+            h_ini = jTextField4.getText();
+            
+            
+            Compromisso_medico objcompromissomedico = new Compromisso_medico();
+            objcompromissomedico.setId_comp_medico(id_comp_medico);
+            objcompromissomedico.setDescricao(descricao);
+            objcompromissomedico.setH_fim(h_fim);
+            objcompromissomedico.setH_ini(h_ini);
+            
+           
+            
+            Compromisso_medicoDAO objcompromissomedicodao = new Compromisso_medicoDAO(ConexaoDAO.AbrirConexao());
+            objcompromissomedicodao.AlterarCompromissoMedico(objcompromissomedico);
+
+           
+        
+       }
+            
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         LimparDados();
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -230,6 +263,24 @@ public class Listar_Compromisso_Medico extends javax.swing.JInternalFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         CarregarCampos();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        AlterarCompromissoMedico();
+        Compromisso_medicoDAO dao = new Compromisso_medicoDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Compromisso_medico> Listacompromisso_medico = dao.ListarCompromisso_Medico();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Compromisso_medico cm : Listacompromisso_medico){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(cm.getId_comp_medico(), num, 0);
+                jTable1.setValueAt(cm.getDescricao(), num, 1);
+                jTable1.setValueAt(cm.getH_fim(), num, 2);
+                jTable1.setValueAt(cm.getH_ini(), num, 3);
+                num++;
+        }
+        LimparDados();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

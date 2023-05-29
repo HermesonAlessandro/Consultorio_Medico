@@ -104,8 +104,8 @@ public class MedicoDAO extends ExecuteSQL{
         
   }
          
-         public void AlterarMedico(Medico objmedico){
-   String sql = "update medico set nome = ?, rg = ?, tel = ?, end = ?, sexo = ?,  senha = ? where cpf = ?";
+   public void AlterarMedico(Medico objmedico){
+    String sql = "update medico set nome = ?, rg = ?, tel = ?, end = ?, sexo = ?,  senha = ? where cpf = ?";
     Connection con = ConexaoDAO.AbrirConexao();
     
     try{

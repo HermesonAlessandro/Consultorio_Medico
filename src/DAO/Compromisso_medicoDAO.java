@@ -69,12 +69,30 @@ public class Compromisso_medicoDAO extends ExecuteSQL{
          return lista; 
         
   }
+     
+     
+     public void AlterarCompromissoMedico(Compromisso_medico objcompromissomedico){
+     String sql = "update compromisso_medico set descricao = ?, h_fim = ?, h_ini = ? where id_comp_medico = ?";
+     Connection con = ConexaoDAO.AbrirConexao();
+    
+    try{
+        PreparedStatement pstm = con.prepareStatement(sql);
+        pstm.setString(1, objcompromissomedico.getDescricao());
+        pstm.setString(2, objcompromissomedico.getH_fim());
+        pstm.setString(3, objcompromissomedico.getH_ini());
+        pstm.setInt(4, objcompromissomedico.getId_comp_medico());
+                
+        pstm.execute();
+        pstm.close();
+        
+        JOptionPane.showMessageDialog(null, "Compromisso Medico alterado com sucesso!");
+        
+    }catch(Exception e){
+        
+        JOptionPane.showMessageDialog(null, "Compromisso Medico nao alterado!"+e.getMessage());
     
     
-    
-    
-    
-    
-    
-    
+    }
+   
+   }    
 }

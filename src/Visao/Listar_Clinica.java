@@ -80,6 +80,11 @@ public class Listar_Clinica extends javax.swing.JInternalFrame {
         });
 
         jButton2.setText("Alterar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Carregar Campos");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -219,6 +224,31 @@ public class Listar_Clinica extends javax.swing.JInternalFrame {
         jTextField3.setText("");
         jTextField4.setText("");
         }
+        
+        
+        private void AlterarClinica(){                  
+            int cnpj;
+            String nome;
+            String end;
+            int tel;
+                    
+            cnpj = Integer.parseInt(jTextField1.getText());
+            nome = jTextField2.getText();
+            end = jTextField3.getText();
+            tel = Integer.valueOf(jTextField4.getText());
+            
+            
+            Clinica objclinica = new Clinica();
+            objclinica.setCnpj(cnpj);
+            objclinica.setNome(nome);
+            objclinica.setEnd(end);
+            objclinica.setTel(tel);
+            
+           
+            
+            ClinicaDAO objclinicadao = new ClinicaDAO(ConexaoDAO.AbrirConexao());
+            objclinicadao.AlterarClinica(objclinica);
+       }
     
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         CarregarCampos();
@@ -227,6 +257,24 @@ public class Listar_Clinica extends javax.swing.JInternalFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         LimparDados();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        AlterarClinica();
+        ClinicaDAO dao = new ClinicaDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Clinica> ListaClinica = dao.Listarclinica();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Clinica cl : ListaClinica){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(cl.getCnpj(), num, 0);
+                jTable1.setValueAt(cl.getNome(), num, 1);
+                jTable1.setValueAt(cl.getEnd(), num, 2);
+                jTable1.setValueAt(cl.getTel(), num, 3);
+                num++;
+        }
+        LimparDados();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

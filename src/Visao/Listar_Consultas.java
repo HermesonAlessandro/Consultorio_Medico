@@ -205,6 +205,35 @@ public class Listar_Consultas extends javax.swing.JInternalFrame {
           jTextField2.setText("");
           jTextField3.setText("");
           }
+          
+          
+            private void AlterarConsulta(){                  
+            String nome_c;
+            String data;
+            int id;
+            
+            
+            nome_c = jTextField1.getText();
+            data = jTextField2.getText();
+            id = Integer.parseInt(jTextField1.getText());
+            
+            
+            Medico objmedico = new Medico();
+            objmedico.setCpf(cpf);
+            objmedico.setNome(nome);
+            objmedico.setRg(rg);
+            objmedico.setTel(tel);
+            objmedico.setEnd(end);
+            objmedico.setSexo(sexo);
+            objmedico.setSenha(senha);
+           
+            
+            MedicoDAO objmedicodao = new MedicoDAO(ConexaoDAO.AbrirConexao());
+            objmedicodao.AlterarMedico(objmedico);
+
+           
+        
+       }
         
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
        CarregarCampos();
