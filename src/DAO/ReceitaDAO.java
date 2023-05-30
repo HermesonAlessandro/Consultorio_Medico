@@ -65,8 +65,28 @@ public class ReceitaDAO extends ExecuteSQL{
          return lista; 
         
   }
+            
+    public void AlterarReceita(Receita objreceita){
+    String sql = "update receita set descricao = ? where id = ?";
+    Connection con = ConexaoDAO.AbrirConexao();
+    
+    try{
+        PreparedStatement pstm = con.prepareStatement(sql);
+        pstm.setString(1, objreceita.getDescricao());
+        pstm.setInt(2, objreceita.getId());
+    
+        pstm.execute();
+        pstm.close();
+        
+        JOptionPane.showMessageDialog(null, "Receita alterado com sucesso!");
+        
+    }catch(Exception e){
+        
+        JOptionPane.showMessageDialog(null, "Receita nao alterado!"+e.getMessage());
     
     
-    
+    }
+   
+   } 
     
 }

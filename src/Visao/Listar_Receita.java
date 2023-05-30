@@ -76,6 +76,11 @@ public class Listar_Receita extends javax.swing.JInternalFrame {
         });
 
         jButton2.setText("Alterar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Carregar Campos");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -195,6 +200,24 @@ public class Listar_Receita extends javax.swing.JInternalFrame {
             jTextField1.setText("");
             jTextField2.setText("");
             }
+            
+            private void AlterarReceita(){                  
+            int id;
+            String descricao;
+            
+            id = Integer.valueOf(jTextField1.getText());
+            descricao = jTextField2.getText();
+            
+            Receita objreceita = new Receita();
+            objreceita.setId(id);
+            objreceita.setDescricao(descricao);
+            
+            ReceitaDAO objreceitadao = new ReceitaDAO(ConexaoDAO.AbrirConexao());
+            objreceitadao.AlterarReceita(objreceita);
+
+           
+        
+       }
     
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
        CarregarCampos();
@@ -203,6 +226,23 @@ public class Listar_Receita extends javax.swing.JInternalFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
        LimparDados();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        AlterarReceita();
+        ReceitaDAO dao = new ReceitaDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Receita> ListaReceita = dao.ListarReceita();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Receita r : ListaReceita){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(r.getId(), num, 0);
+                jTable1.setValueAt(r.getDescricao(), num, 1);
+                
+                num++;
+        }
+        LimparDados();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

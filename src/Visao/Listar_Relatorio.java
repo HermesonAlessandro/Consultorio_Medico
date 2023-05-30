@@ -76,6 +76,11 @@ public class Listar_Relatorio extends javax.swing.JInternalFrame {
         });
 
         jButton2.setText("Alterar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Carregar Campos");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -191,6 +196,22 @@ public class Listar_Relatorio extends javax.swing.JInternalFrame {
               jTextField1.setText("");
               jTextField2.setText("");         
              }
+              
+              
+            private void AlterarRelatorio(){                  
+            int id;
+            String descricao;
+            
+            id = Integer.valueOf(jTextField1.getText());
+            descricao = jTextField2.getText();
+            
+            Relatorio objrelatorio = new Relatorio();
+            objrelatorio.setId(id);
+            objrelatorio.setDescricao(descricao);
+            
+            RelatorioDAO objrelatoriodao = new RelatorioDAO(ConexaoDAO.AbrirConexao());
+            objrelatoriodao.AlterarRelatorio(objrelatorio);
+       }
        
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         CarregarCampos();
@@ -199,6 +220,23 @@ public class Listar_Relatorio extends javax.swing.JInternalFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         LimparDados();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        AlterarRelatorio();
+        RelatorioDAO dao = new RelatorioDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Relatorio> ListaRelatorio = dao.ListarRelatorio();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Relatorio r : ListaRelatorio){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(r.getId(), num, 0);
+                jTable1.setValueAt(r.getDescricao(), num, 1);
+                
+                num++;
+        }
+        LimparDados();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -270,11 +270,19 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
           jTextField3.setText(jTable1.getModel().getValueAt(setar, 2).toString()); 
           jTextField4.setText(jTable1.getModel().getValueAt(setar, 3).toString());
           jTextField5.setText(jTable1.getModel().getValueAt(setar, 4).toString());
-          jComboBox1.getSelectedItem().toString();
+          String sexo = jTable1.getModel().getValueAt(setar, 5).toString();
           jTextField3.setText(jTable1.getModel().getValueAt(setar, 5).toString()); 
           jPasswordField2.setText(jTable1.getModel().getValueAt(setar, 6).toString());
           
+          if("M".equals(sexo)){
+             jComboBox1.setSelectedIndex(0);
             }
+          
+          else{
+           jComboBox1.setSelectedIndex(1);
+          }      
+          
+        }
     
         private void LimparDados(){
             jTextField1.setText("");
@@ -283,6 +291,37 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
             jTextField4.setText("");
             jTextField5.setText("");
         }
+        
+        
+            private void AlterarSecretaria(){                  
+            int cpf;
+            String nome;
+            int rg;
+            int tel;
+            String end;
+            String sexo;
+            String senha;
+            
+            cpf = Integer.valueOf(jTextField1.getText());
+            nome = jTextField2.getText();
+            rg = Integer.valueOf(jTextField3.getText());
+            tel = Integer.valueOf(jTextField4.getText());
+            end = jTextField5.getText();
+            sexo = jComboBox1.getSelectedItem().toString();
+            senha = jPasswordField2.getText();
+            
+            Secretaria objsecretaria = new Secretaria();
+            objsecretaria.setCpf(cpf);
+            objsecretaria.setNome(nome);
+            objsecretaria.setRg(rg);
+            objsecretaria.setTel(tel);
+            objsecretaria.setEnd(end);
+            objsecretaria.setSexo(sexo);
+            objsecretaria.setSenha(senha);
+           
+            SecretariaDAO objsecretariadao = new SecretariaDAO(ConexaoDAO.AbrirConexao());
+            objsecretariadao.AlterarSecretaria(objsecretaria);
+            }
     
     
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

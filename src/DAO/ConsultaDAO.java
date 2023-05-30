@@ -69,5 +69,26 @@ public class ConsultaDAO extends ExecuteSQL{
            
          return lista; 
         
-  }   
+  }
+    public void AlterarConsulta(Consulta objcconsulta){
+    String sql = "update consulta set nome_c = ?, data = ? where id = ?";
+    Connection con = ConexaoDAO.AbrirConexao();
+    
+    try{
+        PreparedStatement pstm = con.prepareStatement(sql);
+        pstm.setString(1, objcconsulta.getNome_c());
+        pstm.setString(2, objcconsulta.getData());
+        pstm.setInt(3, objcconsulta.getId());
+                
+        pstm.execute();
+        pstm.close();
+        
+        JOptionPane.showMessageDialog(null, "Consulta alterado com sucesso!");
+        
+    }catch(Exception e){
+        
+    JOptionPane.showMessageDialog(null, "Consulta nao alterado!"+e.getMessage());
+    }
+   
+   }  
 }

@@ -64,9 +64,28 @@ public class RelatorioDAO extends ExecuteSQL{
          return lista; 
         
   }
+            
+    public void AlterarRelatorio(Relatorio objrelatorio){
+    String sql = "update relatorio set descricao = ? where id = ?";
+    Connection con = ConexaoDAO.AbrirConexao();
+    
+    try{
+        PreparedStatement pstm = con.prepareStatement(sql);
+        pstm.setString(1, objrelatorio.getDescricao());
+        pstm.setInt(2, objrelatorio.getId());
+    
+        pstm.execute();
+        pstm.close();
+        
+        JOptionPane.showMessageDialog(null, "Relatorio alterado com sucesso!");
+        
+    }catch(Exception e){
+        
+        JOptionPane.showMessageDialog(null, "Relatorio nao alterado!"+e.getMessage());
     
     
-    
-    
-    
+    }
+   
+   } 
+       
 }
