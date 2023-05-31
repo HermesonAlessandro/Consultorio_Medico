@@ -121,6 +121,11 @@ public class Listar_Medico extends javax.swing.JInternalFrame {
         });
 
         jButton5.setText("Excluir");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F", "" }));
 
@@ -321,10 +326,19 @@ public class Listar_Medico extends javax.swing.JInternalFrame {
             
             MedicoDAO objmedicodao = new MedicoDAO(ConexaoDAO.AbrirConexao());
             objmedicodao.AlterarMedico(objmedico);
-
-           
-        
        }
+            
+            private void ExcluirMedico(){
+                int cpf;
+                
+               cpf = Integer.valueOf(jTextField1.getText());
+               
+               Medico objmedico = new Medico();
+               objmedico.setCpf(cpf);
+               
+               MedicoDAO objmedicodao = new MedicoDAO(ConexaoDAO.AbrirConexao());
+               objmedicodao.ExcluirMedico(objmedico);
+            }
             
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
@@ -358,6 +372,28 @@ public class Listar_Medico extends javax.swing.JInternalFrame {
         }
         LimparDados();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        ExcluirMedico();
+        AlterarMedico();
+        MedicoDAO dao = new MedicoDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Medico> ListaMedico = dao.ListarMedico();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Medico m : ListaMedico){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(m.getCpf(), num, 0);
+                jTable1.setValueAt(m.getNome(), num, 1);
+                jTable1.setValueAt(m.getRg(), num, 2);
+                jTable1.setValueAt(m.getTel(), num, 3);
+                jTable1.setValueAt(m.getEnd(), num, 4);
+                jTable1.setValueAt(m.getSexo(), num, 5);
+                jTable1.setValueAt(m.getSenha(), num, 6);
+                num++;
+        }
+        LimparDados();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

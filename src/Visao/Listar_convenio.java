@@ -55,7 +55,7 @@ public class Listar_convenio extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 24)); // NOI18N
         jLabel1.setText("Listar Convênios");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
 
         jLabel2.setText("CNPJ:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 51, -1, -1));
@@ -88,6 +88,11 @@ public class Listar_convenio extends javax.swing.JInternalFrame {
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 450, -1));
 
         jButton2.setText("Alterar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, -1, -1));
 
         jLabel7.setText("Tel:");
@@ -121,7 +126,7 @@ public class Listar_convenio extends javax.swing.JInternalFrame {
         jButton5.setText("Excluir");
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 260, -1, -1));
 
-        pack();
+        setBounds(0, 0, 724, 688);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -171,29 +176,30 @@ public class Listar_convenio extends javax.swing.JInternalFrame {
             private void AlterarConvenio(){ 
             int cnpj;
             String nome;
-            int rg;
+            int tel;
             String planos;
             String end;
             
             
             cnpj = Integer.parseInt(jTextField1.getText());
             nome = jTextField2.getText();
-            rg = Integer.parseInt(jTextField3.getText());
+            tel = Integer.parseInt(jTextField3.getText());
+            planos = jTextField4.getText();
+            end = jTextField5.getText();
            
            
             
-            Secretaria objsecretaria = new Secretaria();
-            objsecretaria.setCpf(cpf);
-            objsecretaria.setNome(nome);
-            objsecretaria.setRg(rg);
-            objsecretaria.setTel(tel);
-            objsecretaria.setEnd(end);
-            objsecretaria.setSexo(sexo);
-            objsecretaria.setSenha(senha);
-           
+            Convenio objconvenio = new Convenio();
+            objconvenio.setCnpj(cnpj);
+            objconvenio.setNome(nome);
+            objconvenio.setTel(tel);
+            objconvenio.setPlanos(planos);
+            objconvenio.setEnd(end);
             
-            SecretariaDAO objsecretariadao = new SecretariaDAO(ConexaoDAO.AbrirConexao());
-            objsecretariadao.AlterarSecretaria(objsecretaria);
+          
+            
+            ConvenioDAO objconveniodao = new ConvenioDAO(ConexaoDAO.AbrirConexao());
+            objconveniodao.AlterarConvenio(objconvenio);
             
             }
     
@@ -206,6 +212,25 @@ public class Listar_convenio extends javax.swing.JInternalFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         LimparDados();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        AlterarConvenio();
+        ConvenioDAO dao = new ConvenioDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Convenio> ListaConvenio = dao.ListarConvenio();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Convenio c : ListaConvenio){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(c.getCnpj(), num, 0);
+                jTable1.setValueAt(c.getNome(), num, 1);
+                jTable1.setValueAt(c.getTel(), num, 2);
+                jTable1.setValueAt(c.getPlanos(), num, 3);
+                jTable1.setValueAt(c.getEnd(), num, 4);
+                num++;
+        }
+        LimparDados();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

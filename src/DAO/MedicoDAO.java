@@ -104,7 +104,7 @@ public class MedicoDAO extends ExecuteSQL{
         
   }
          
-   public void AlterarMedico(Medico objmedico){
+    public void AlterarMedico(Medico objmedico){
     String sql = "update medico set nome = ?, rg = ?, tel = ?, end = ?, sexo = ?,  senha = ? where cpf = ?";
     Connection con = ConexaoDAO.AbrirConexao();
     
@@ -130,9 +130,26 @@ public class MedicoDAO extends ExecuteSQL{
     
     }
    
-   } 
-         
-         
-         
+   }
+    
+    public void ExcluirMedico(Medico objmedico){
+        String sql = "delete from medico where cpf = ?";
+        Connection con = ConexaoDAO.AbrirConexao();
+        
+        try{
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, objmedico.getCpf());
+            
+            ps.execute();
+            ps.close();
+            
+        JOptionPane.showMessageDialog(null, "Medico Excluido!");
+        
+        }catch(Exception e){
+            
+        JOptionPane.showMessageDialog(null, "Medico não excluido!");
+        
+        }
+    }     
 }
 

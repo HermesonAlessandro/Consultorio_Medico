@@ -73,6 +73,37 @@ public class ConvenioDAO extends ExecuteSQL{;
         
   }
     
+    
+    public void AlterarConvenio(Convenio objconvenio){
+    String sql = "update convenio set nome = ?, tel = ?, planos = ?, end = ? where cnpj = ?";
+    Connection con = ConexaoDAO.AbrirConexao();
+    
+    try{
+        PreparedStatement pstm = con.prepareStatement(sql);
+        pstm.setString(1, objconvenio.getNome());
+        pstm.setInt(2, objconvenio.getTel());
+        pstm.setString(3, objconvenio.getPlanos());
+        pstm.setString(4, objconvenio.getEnd());
+        pstm.setInt(5, objconvenio.getCnpj());
+        
+        
+        pstm.execute();
+        pstm.close();
+        
+        JOptionPane.showMessageDialog(null, "Convenio alterado com sucesso!");
+        
+    }catch(Exception e){
+        
+        JOptionPane.showMessageDialog(null, "Convenio nao alterado!"+e.getMessage());
+    
+    
+    }
+   
+   } 
+         
+         
+         
+    
  
 }
 
