@@ -100,5 +100,33 @@ public class SecretariaDAO extends ExecuteSQL{
         
   }
     
- 
+    
+    public void AlterarSecretaria(Secretaria objsecretaria){
+    String sql = "update secretaria set nome = ?, rg = ?, tel = ?, end = ?, sexo = ?,  senha = ? where cpf = ?";
+    Connection con = ConexaoDAO.AbrirConexao();
+    
+    try{
+        PreparedStatement pstm = con.prepareStatement(sql);
+        pstm.setString(1, objsecretaria.getNome());
+        pstm.setInt(2, objsecretaria.getRg());
+        pstm.setInt(3, objsecretaria.getTel());
+        pstm.setString(4, objsecretaria.getEnd());
+        pstm.setString(5, objsecretaria.getSexo());
+        pstm.setString(6, objsecretaria.getSenha());
+        pstm.setInt(7, objsecretaria.getCpf());
+        
+        pstm.execute();
+        pstm.close();
+        
+        JOptionPane.showMessageDialog(null, "Secretaria alterado com sucesso!");
+        
+    }catch(Exception e){
+        
+        JOptionPane.showMessageDialog(null, "Secretaria nao alterado!"+e.getMessage());
+    
+    
+    }
+   
+   } 
+        
 }

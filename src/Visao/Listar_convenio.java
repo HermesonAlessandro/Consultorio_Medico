@@ -166,6 +166,37 @@ public class Listar_convenio extends javax.swing.JInternalFrame {
               jTextField4.setText("");
               jTextField5.setText(""); 
             }
+          
+          
+            private void AlterarConvenio(){ 
+            int cnpj;
+            String nome;
+            int rg;
+            String planos;
+            String end;
+            
+            
+            cnpj = Integer.parseInt(jTextField1.getText());
+            nome = jTextField2.getText();
+            rg = Integer.parseInt(jTextField3.getText());
+           
+           
+            
+            Secretaria objsecretaria = new Secretaria();
+            objsecretaria.setCpf(cpf);
+            objsecretaria.setNome(nome);
+            objsecretaria.setRg(rg);
+            objsecretaria.setTel(tel);
+            objsecretaria.setEnd(end);
+            objsecretaria.setSexo(sexo);
+            objsecretaria.setSenha(senha);
+           
+            
+            SecretariaDAO objsecretariadao = new SecretariaDAO(ConexaoDAO.AbrirConexao());
+            objsecretariadao.AlterarSecretaria(objsecretaria);
+            
+            }
+    
     
     
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

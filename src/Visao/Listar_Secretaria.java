@@ -71,6 +71,11 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
         jLabel7.setText("Sexo:");
 
         jButton2.setText("Alterar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel8.setText("Senha:");
 
@@ -173,9 +178,9 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
                         .addComponent(jButton1)
                         .addGap(32, 32, 32)
                         .addComponent(jButton3)
-                        .addGap(28, 28, 28)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(16, 16, 16)
                         .addComponent(jButton5)))
                 .addGap(253, 253, 253))
             .addGroup(layout.createSequentialGroup()
@@ -270,8 +275,7 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
           jTextField3.setText(jTable1.getModel().getValueAt(setar, 2).toString()); 
           jTextField4.setText(jTable1.getModel().getValueAt(setar, 3).toString());
           jTextField5.setText(jTable1.getModel().getValueAt(setar, 4).toString());
-          String sexo = jTable1.getModel().getValueAt(setar, 5).toString();
-          jTextField3.setText(jTable1.getModel().getValueAt(setar, 5).toString()); 
+          String sexo = jTable1.getModel().getValueAt(setar, 5).toString(); 
           jPasswordField2.setText(jTable1.getModel().getValueAt(setar, 6).toString());
           
           if("M".equals(sexo)){
@@ -293,7 +297,7 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
         }
         
         
-            private void AlterarSecretaria(){                  
+            private void AlterarSecretaria(){ 
             int cpf;
             String nome;
             int rg;
@@ -302,10 +306,10 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
             String sexo;
             String senha;
             
-            cpf = Integer.valueOf(jTextField1.getText());
+            cpf = Integer.parseInt(jTextField1.getText());
             nome = jTextField2.getText();
-            rg = Integer.valueOf(jTextField3.getText());
-            tel = Integer.valueOf(jTextField4.getText());
+            rg = Integer.parseInt(jTextField3.getText());
+            tel = Integer.parseInt(jTextField4.getText());
             end = jTextField5.getText();
             sexo = jComboBox1.getSelectedItem().toString();
             senha = jPasswordField2.getText();
@@ -319,8 +323,10 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
             objsecretaria.setSexo(sexo);
             objsecretaria.setSenha(senha);
            
+            
             SecretariaDAO objsecretariadao = new SecretariaDAO(ConexaoDAO.AbrirConexao());
             objsecretariadao.AlterarSecretaria(objsecretaria);
+            
             }
     
     
@@ -331,6 +337,27 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         LimparDados();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        AlterarSecretaria();
+        SecretariaDAO dao = new SecretariaDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Secretaria> ListaSecretaria = dao.ListarSecretaria();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Secretaria s : ListaSecretaria){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(s.getCpf(), num, 0);
+                jTable1.setValueAt(s.getNome(), num, 1);
+                jTable1.setValueAt(s.getRg(), num, 2);
+                jTable1.setValueAt(s.getTel(), num, 3);
+                jTable1.setValueAt(s.getEnd(), num, 4);
+                jTable1.setValueAt(s.getSexo(), num, 5);
+                jTable1.setValueAt(s.getSenha(), num, 6);
+                num++;
+        }
+        LimparDados();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
