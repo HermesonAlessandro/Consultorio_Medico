@@ -1,6 +1,7 @@
 package DAO;
 
 import Modelo.Convenio;
+import java.net.ConnectException;
 import java.sql.*;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
@@ -100,10 +101,24 @@ public class ConvenioDAO extends ExecuteSQL{;
     }
    
    } 
-         
-         
-         
     
- 
+    public void ExcluirConvenio(Convenio objconvenio){
+        String sql = "delete from convenio where cnpj = ?";
+        Connection con = new ConexaoDAO().AbrirConexao();
+        
+        try{
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, objconvenio.getCnpj());
+            
+            ps.execute();
+            ps.close();
+            
+        JOptionPane.showMessageDialog(null, "Convenio Excluido!");
+            
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Convenio não excluido!"+e.getMessage());
+               
+        }
+    }
 }
 

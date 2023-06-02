@@ -106,7 +106,26 @@ public class PacienteDAO extends ExecuteSQL{
     }
    
    } 
-    
+   
+        public void ExcluirPaciente(Paciente objpaciente){
+        String sql = "delete from paciente where cpf = ?";
+        Connection con = ConexaoDAO.AbrirConexao();
+        
+        try{
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, objpaciente.getCpf());
+            
+            ps.execute();
+            ps.close();
+            
+        JOptionPane.showMessageDialog(null, "Paciente Excluido!");
+        
+        }catch(Exception e){
+            
+        JOptionPane.showMessageDialog(null, "Paciente não Excluido!"+e.getMessage());
+        
+        }
+    }     
 }
     
     

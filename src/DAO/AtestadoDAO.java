@@ -87,5 +87,9 @@ public class AtestadoDAO extends ExecuteSQL{
     }
     
    }
-   
+    
+    
+    public void ExcluirAtestado(Atestado objatestado){
+    
+    }
 }

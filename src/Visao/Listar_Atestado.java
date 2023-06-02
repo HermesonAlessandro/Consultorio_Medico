@@ -219,6 +219,10 @@ public class Listar_Atestado extends javax.swing.JInternalFrame {
             AtestadoDAO objatestadodao = new AtestadoDAO(ConexaoDAO.AbrirConexao());
             objatestadodao.AlterarAtestado(objatestado);
        }
+     
+            private void ExcluirAtestado(){
+     
+             }
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         CarregarCampos();
     }//GEN-LAST:event_jButton3ActionPerformed

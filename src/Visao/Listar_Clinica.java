@@ -105,6 +105,11 @@ public class Listar_Clinica extends javax.swing.JInternalFrame {
         });
 
         jButton5.setText("Excluir");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -251,6 +256,18 @@ public class Listar_Clinica extends javax.swing.JInternalFrame {
             ClinicaDAO objclinicadao = new ClinicaDAO(ConexaoDAO.AbrirConexao());
             objclinicadao.AlterarClinica(objclinica);
        }
+        
+        
+        private void ExcluirClinica(){
+            int cnpj;
+            
+            cnpj = Integer.valueOf(jTextField1.getText());
+            Clinica objclinica = new Clinica();
+            objclinica.setCnpj(cnpj);
+            
+            ClinicaDAO objclinicadao = new ClinicaDAO(ConexaoDAO.AbrirConexao());
+            objclinicadao.ExcluirClinica(objclinica);
+        }
     
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         CarregarCampos();
@@ -277,6 +294,24 @@ public class Listar_Clinica extends javax.swing.JInternalFrame {
         }
         LimparDados();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        ExcluirClinica();
+        ClinicaDAO dao = new ClinicaDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Clinica> ListaClinica = dao.Listarclinica();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Clinica cl : ListaClinica){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(cl.getCnpj(), num, 0);
+                jTable1.setValueAt(cl.getNome(), num, 1);
+                jTable1.setValueAt(cl.getEnd(), num, 2);
+                jTable1.setValueAt(cl.getTel(), num, 3);
+                num++;
+        }
+        LimparDados();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

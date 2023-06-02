@@ -90,5 +90,24 @@ public class ConsultaDAO extends ExecuteSQL{
     JOptionPane.showMessageDialog(null, "Consulta nao alterado!"+e.getMessage());
     }
    
-   }  
+   }
+    
+    public void ExcluirConsulta(Consulta objconsulta){
+        String sql = "delete from consulta where id = ?";
+        Connection con = ConexaoDAO.AbrirConexao();
+        
+        try{
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, objconsulta.getId());
+            
+            ps.execute();
+            ps.close();
+            
+        JOptionPane.showMessageDialog(null, "Consulta Excluida!");
+            
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Consulta nao Excluida!"+e.getMessage());
+            
+        }
+    }
 }

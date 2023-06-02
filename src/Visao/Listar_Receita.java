@@ -97,6 +97,11 @@ public class Listar_Receita extends javax.swing.JInternalFrame {
         });
 
         jButton5.setText("Excluir");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -214,10 +219,19 @@ public class Listar_Receita extends javax.swing.JInternalFrame {
             
             ReceitaDAO objreceitadao = new ReceitaDAO(ConexaoDAO.AbrirConexao());
             objreceitadao.AlterarReceita(objreceita);
-
-           
-        
        }
+            
+            private void ExcluirReceita(){
+              int id;
+              
+              id = Integer.valueOf(jTextField1.getText());
+              
+              Receita objreceita = new Receita();
+              objreceita.setId(id);
+              
+              ReceitaDAO objreceitadao = new ReceitaDAO(ConexaoDAO.AbrirConexao());
+              objreceitadao.ExcluirReceita(objreceita);
+            }
     
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
        CarregarCampos();
@@ -243,6 +257,22 @@ public class Listar_Receita extends javax.swing.JInternalFrame {
         }
         LimparDados();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        ExcluirReceita();
+        ReceitaDAO dao = new ReceitaDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Receita> ListaReceita = dao.ListarReceita();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Receita r : ListaReceita){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(r.getId(), num, 0);
+                jTable1.setValueAt(r.getDescricao(), num, 1);
+                num++;
+        }
+        LimparDados();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

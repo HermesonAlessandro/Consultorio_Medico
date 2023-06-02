@@ -97,9 +97,23 @@ public class CidDAO extends ExecuteSQL{
    
    } 
     
+    public void ExcluirCid(Cid objcid){
+        String sql = "delete from cid where cod = ?";
+        Connection con = ConexaoDAO.AbrirConexao();
+        
+        try{
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, objcid.getCod());
+            
+            ps.execute();
+            ps.close();
+            
+            JOptionPane.showMessageDialog(null, "Cid Excluído");
+            
+        }catch (Exception e){
+            
+            JOptionPane.showMessageDialog(null, "Cid não Excluido!"+e.getMessage());
+       }
     
-    
-    
-    
-    
+    }
 }

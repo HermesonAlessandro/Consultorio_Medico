@@ -99,5 +99,26 @@ public class ClinicaDAO extends ExecuteSQL{
     
     }
    
-   }    
+   }
+     
+     public void ExcluirClinica(Clinica objclinica){
+         String sql = "delete from clinica where cnpj = ?";
+         Connection con = ConexaoDAO.AbrirConexao();
+         
+         
+         try{
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, objclinica.getCnpj());
+            
+            ps.execute();
+            ps.close();
+             
+         JOptionPane.showMessageDialog(null, "Clinica Excluida!");
+         
+         }catch (Exception e){
+             JOptionPane.showMessageDialog(null, "Clinica não Excluida!"+e.getMessage());
+             
+             
+         }
+     }
 }

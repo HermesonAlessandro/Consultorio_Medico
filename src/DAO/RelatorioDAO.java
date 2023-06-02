@@ -86,6 +86,24 @@ public class RelatorioDAO extends ExecuteSQL{
     
     }
    
-   } 
-       
+   }
+    
+    public void ExcluirRelatorio(Relatorio objrelatorio){
+        String sql = "delete from relatorio where id = ?";
+        Connection con = ConexaoDAO.AbrirConexao();
+        
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, objrelatorio.getId());
+            
+            ps.execute();
+            ps.close();
+            
+        JOptionPane.showMessageDialog(null, "Relatorio Excluido!");
+            
+        } catch (Exception e) {
+            
+            JOptionPane.showMessageDialog(null, "Relatorio não excluido!"+e.getMessage());
+        }
+    }
 }

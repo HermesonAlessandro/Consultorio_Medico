@@ -87,6 +87,24 @@ public class ReceitaDAO extends ExecuteSQL{
     
     }
    
-   } 
+   }
     
+        public void ExcluirReceita(Receita objreceita){
+        String sql = "delete from receita where id = ?";
+        Connection con = ConexaoDAO.AbrirConexao();
+        
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, objreceita.getId());
+            
+            ps.execute();
+            ps.close();
+            
+            JOptionPane.showMessageDialog(null, "Receita Excluida!");
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Receita não Excluida!"+e.getMessage());
+            
+        }
+    }
 }

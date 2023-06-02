@@ -143,6 +143,11 @@ public class Listar_Paciente extends javax.swing.JInternalFrame {
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 349, -1, -1));
 
         jButton5.setText("Excluir");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(596, 349, -1, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F", " " }));
@@ -245,6 +250,19 @@ public class Listar_Paciente extends javax.swing.JInternalFrame {
             PacienteDAO objpacientedao = new PacienteDAO(ConexaoDAO.AbrirConexao());
             objpacientedao.AlterarPaciente(objpaciente);
        }
+            
+            
+               private void ExcluirPaciente(){
+               int cpf;
+                
+               cpf = Integer.valueOf(jTextField1.getText());
+               
+               Paciente objpaciente = new Paciente();
+               objpaciente.setCpf(cpf);
+               
+               PacienteDAO objpacientedao = new PacienteDAO(ConexaoDAO.AbrirConexao());
+               objpacientedao.ExcluirPaciente(objpaciente);
+            }
     
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         CarregarCampos();
@@ -282,6 +300,27 @@ public class Listar_Paciente extends javax.swing.JInternalFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        ExcluirPaciente();
+        PacienteDAO dao = new PacienteDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Paciente> ListaPaciente = dao.ListarPaciente();
+        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Paciente p : ListaPaciente){
+                model.addRow(new String[num]);
+                jTable2.setValueAt(p.getCpf(), num, 0);
+                jTable2.setValueAt(p.getNome(), num, 1);
+                jTable2.setValueAt(p.getEnd(), num, 2);
+                jTable2.setValueAt(p.getTel(), num, 3);
+                jTable2.setValueAt(p.getRg(), num, 4);
+                jTable2.setValueAt(p.getSexo(), num, 5);
+                jTable2.setValueAt(p.getConvenio(), num, 6);
+                num++;
+        }
+        LimparDados();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

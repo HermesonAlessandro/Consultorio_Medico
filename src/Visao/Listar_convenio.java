@@ -124,6 +124,11 @@ public class Listar_convenio extends javax.swing.JInternalFrame {
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, -1, -1));
 
         jButton5.setText("Excluir");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 260, -1, -1));
 
         setBounds(0, 0, 724, 688);
@@ -200,11 +205,20 @@ public class Listar_convenio extends javax.swing.JInternalFrame {
             
             ConvenioDAO objconveniodao = new ConvenioDAO(ConexaoDAO.AbrirConexao());
             objconveniodao.AlterarConvenio(objconvenio);
-            
             }
-    
-    
-    
+            
+            private void ExcluirConvenio(){
+                int cnpj;
+                
+                cnpj = Integer.valueOf(jTextField1.getText());
+                
+                Convenio objconvenio = new Convenio();
+                objconvenio.setCnpj(cnpj);
+                
+                ConvenioDAO objconveniodao = new ConvenioDAO(ConexaoDAO.AbrirConexao());
+                objconveniodao.ExcluirConvenio(objconvenio);
+      
+            }
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
       CarregarCampos();
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -231,6 +245,25 @@ public class Listar_convenio extends javax.swing.JInternalFrame {
         }
         LimparDados();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        ExcluirConvenio();
+        ConvenioDAO dao = new ConvenioDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Convenio> ListaConvenio = dao.ListarConvenio();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Convenio c : ListaConvenio){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(c.getCnpj(), num, 0);
+                jTable1.setValueAt(c.getNome(), num, 1);
+                jTable1.setValueAt(c.getTel(), num, 2);
+                jTable1.setValueAt(c.getPlanos(), num, 3);
+                jTable1.setValueAt(c.getEnd(), num, 4);
+                num++;
+        }
+        LimparDados();      
+    }//GEN-LAST:event_jButton5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

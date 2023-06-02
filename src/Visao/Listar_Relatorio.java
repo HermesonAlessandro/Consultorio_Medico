@@ -4,7 +4,9 @@
  */
 package Visao;
 import DAO.ConexaoDAO;
+import DAO.MedicoDAO;
 import DAO.RelatorioDAO;
+import Modelo.Medico;
 import javax.swing.JOptionPane;
 import Modelo.Relatorio; 
 import java.util.ArrayList;
@@ -97,6 +99,11 @@ public class Listar_Relatorio extends javax.swing.JInternalFrame {
         });
 
         jButton5.setText("Excluir");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -212,6 +219,20 @@ public class Listar_Relatorio extends javax.swing.JInternalFrame {
             RelatorioDAO objrelatoriodao = new RelatorioDAO(ConexaoDAO.AbrirConexao());
             objrelatoriodao.AlterarRelatorio(objrelatorio);
        }
+            
+            private void ExcluirRelatorio(){
+                 int id;
+                
+               id = Integer.valueOf(jTextField1.getText());
+               
+               Relatorio objrelatorio = new Relatorio();
+               objrelatorio.setId(id);
+               
+               RelatorioDAO objrelatoriodao = new RelatorioDAO(ConexaoDAO.AbrirConexao());
+               objrelatoriodao.ExcluirRelatorio(objrelatorio);
+            
+            
+            }
        
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         CarregarCampos();
@@ -237,6 +258,22 @@ public class Listar_Relatorio extends javax.swing.JInternalFrame {
         }
         LimparDados();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        ExcluirRelatorio();
+        RelatorioDAO dao = new RelatorioDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Relatorio> ListaRelatorio = dao.ListarRelatorio();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Relatorio r : ListaRelatorio){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(r.getId(), num, 0);
+                jTable1.setValueAt(r.getDescricao(), num, 1);
+                num++;
+        }
+        LimparDados();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

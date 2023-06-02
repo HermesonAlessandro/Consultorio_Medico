@@ -103,6 +103,11 @@ public class Listar_Consultas extends javax.swing.JInternalFrame {
         });
 
         jButton5.setText("Excluir");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -237,11 +242,20 @@ public class Listar_Consultas extends javax.swing.JInternalFrame {
             
             ConsultaDAO objconsultadao = new ConsultaDAO(ConexaoDAO.AbrirConexao());
             objconsultadao.AlterarConsulta(objconsulta);
-
-           
-        
        }
-        
+            
+            private void ExcluirConsulta(){
+               int id;
+               
+               id = Integer.valueOf(jTextField1.getText());
+               
+               Consulta objconsulta = new Consulta();
+               objconsulta.setId(id);
+               
+               ConsultaDAO objconsultadao = new ConsultaDAO(ConexaoDAO.AbrirConexao());
+               objconsultadao.ExcluirConsulta(objconsulta);
+            }
+                
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
        CarregarCampos();
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -270,6 +284,23 @@ public class Listar_Consultas extends javax.swing.JInternalFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        ExcluirConsulta();
+        ConsultaDAO dao = new ConsultaDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Consulta> ListaConsulta = dao.ListarConsulta();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Consulta c : ListaConsulta){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(c.getId(), num, 0);
+                jTable1.setValueAt(c.getNome_c(), num, 1);
+                jTable1.setValueAt(c.getData(), num, 2);
+                num++;
+        }
+        LimparDados();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -121,6 +121,11 @@ public class Listar_Compromisso_Medico extends javax.swing.JInternalFrame {
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, -1, -1));
 
         jButton5.setText("Excluir");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 320, -1, -1));
 
         pack();
@@ -190,10 +195,20 @@ public class Listar_Compromisso_Medico extends javax.swing.JInternalFrame {
             
             Compromisso_medicoDAO objcompromissomedicodao = new Compromisso_medicoDAO(ConexaoDAO.AbrirConexao());
             objcompromissomedicodao.AlterarCompromissoMedico(objcompromissomedico);
-
-           
-        
        }
+            
+            private void ExcluirComprmissoMedico(){
+                int id_comp_medico;
+                
+                id_comp_medico = Integer.valueOf(jTextField1.getText());
+                
+                Compromisso_medico objcompromissomedico = new Compromisso_medico();
+                objcompromissomedico.setId_comp_medico(id_comp_medico);
+                
+                Compromisso_medicoDAO objcompromissomedicodao = new Compromisso_medicoDAO(ConexaoDAO.AbrirConexao());
+                objcompromissomedicodao.ExcluirCompromissoMedico(objcompromissomedico);
+       
+            }
             
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         LimparDados();
@@ -220,6 +235,24 @@ public class Listar_Compromisso_Medico extends javax.swing.JInternalFrame {
         }
         LimparDados();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        ExcluirComprmissoMedico();
+        Compromisso_medicoDAO dao = new Compromisso_medicoDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Compromisso_medico> ListaCompromissoMedico = dao.ListarCompromisso_Medico();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Compromisso_medico cm : ListaCompromissoMedico){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(cm.getId_comp_medico(), num, 0);
+                jTable1.setValueAt(cm.getDescricao(), num, 1);
+                jTable1.setValueAt(cm.getH_fim(), num, 2);
+                jTable1.setValueAt(cm.getH_ini(), num, 3);
+                num++;
+        }
+        LimparDados();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

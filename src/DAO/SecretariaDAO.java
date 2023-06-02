@@ -127,6 +127,25 @@ public class SecretariaDAO extends ExecuteSQL{
     
     }
    
-   } 
-        
+   }
+
+
+   public void ExcluirSecretaria(Secretaria objsecretaria){
+       String sql = "delete from secretaria where cpf = ?";
+       Connection con = ConexaoDAO.AbrirConexao();
+       
+       try {
+           ps = con.prepareStatement(sql);
+            ps.setInt(1, objsecretaria.getCpf());
+            
+            ps.execute();
+            ps.close();
+            
+            JOptionPane.showMessageDialog(null, "Secretaria Excluida!");
+           
+       } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Secretaria não Excluida"+e.getMessage());
+           
+       }
+   }
 }

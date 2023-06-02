@@ -343,10 +343,12 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
             
             AdministradorDAO objadministradordao = new AdministradorDAO(ConexaoDAO.AbrirConexao());
             objadministradordao.AlterarAdministrador(objadministrador);
-
-           
-        
        }
+        
+         private void ExcluirAdministrador(){
+        
+        
+         }
     
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:

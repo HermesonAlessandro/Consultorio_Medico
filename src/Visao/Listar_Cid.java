@@ -105,6 +105,11 @@ public class Listar_Cid extends javax.swing.JInternalFrame {
         });
 
         jButton5.setText("Excluir");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -251,10 +256,20 @@ public class Listar_Cid extends javax.swing.JInternalFrame {
       
             CidDAO objciddao = new CidDAO(ConexaoDAO.AbrirConexao());
             objciddao.AlterarCid(objcid);
-
-           
-        
        }
+            
+            private void ExcluirCid(){
+                int cod;
+                
+               cod = Integer.valueOf(jTextField1.getText());
+               
+               Cid objcid = new Cid();
+               objcid.setCod(cod);
+               
+               CidDAO objciddao = new CidDAO(ConexaoDAO.AbrirConexao());
+               objciddao.ExcluirCid(objcid);
+            
+            }
           
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         CarregarCampos();
@@ -281,6 +296,24 @@ public class Listar_Cid extends javax.swing.JInternalFrame {
         }
         LimparDados();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        ExcluirCid();
+        CidDAO dao = new CidDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Cid> ListaCid = dao.ListarCid();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Cid c : ListaCid){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(c.getCod(), num, 0);
+                jTable1.setValueAt(c.getCapitulo(), num, 1);
+                jTable1.setValueAt(c.getDescricao(), num, 2);
+                jTable1.setValueAt(c.getCod_cid_10(), num, 3);
+                num++;
+        }
+        LimparDados();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

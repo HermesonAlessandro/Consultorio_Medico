@@ -294,6 +294,7 @@ public class Listar_Medico extends javax.swing.JInternalFrame {
             jTextField3.setText("");
             jTextField4.setText("");
             jTextField5.setText("");
+            jPasswordField1.setText("");
             }
             
             
@@ -375,7 +376,6 @@ public class Listar_Medico extends javax.swing.JInternalFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         ExcluirMedico();
-        AlterarMedico();
         MedicoDAO dao = new MedicoDAO(ConexaoDAO.AbrirConexao());
         ArrayList<Medico> ListaMedico = dao.ListarMedico();
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();

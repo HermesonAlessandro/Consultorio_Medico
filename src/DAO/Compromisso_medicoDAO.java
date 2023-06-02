@@ -94,5 +94,25 @@ public class Compromisso_medicoDAO extends ExecuteSQL{
     
     }
    
-   }    
+   }
+     
+     public void ExcluirCompromissoMedico(Compromisso_medico objCompromissomedico){
+         String sql = "delete from compromisso_medico where id_comp_medico = ?";
+         Connection con = ConexaoDAO.AbrirConexao();
+         
+         try{
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, objCompromissomedico.getId_comp_medico());
+            
+            ps.execute();
+            ps.close();
+             
+             JOptionPane.showMessageDialog(null, "Compromisso Medico Excluido!");
+             
+         }catch (Exception e){
+             JOptionPane.showMessageDialog(null,"Compromisso Medico não Excluido!"+e.getMessage());
+             
+         }
+   
+     }
 }

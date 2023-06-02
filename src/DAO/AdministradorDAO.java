@@ -123,10 +123,12 @@ public class AdministradorDAO extends ExecuteSQL{
     
     }
    
-   } 
-         
-    
-    
+   }
+   
+   public void ExcluirAdministrador(Administrador objadministrador){
+   
+   
+   }
 }
 
 

@@ -124,6 +124,11 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
         });
 
         jButton5.setText("Excluir");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F", " " }));
 
@@ -294,6 +299,7 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
             jTextField3.setText("");
             jTextField4.setText("");
             jTextField5.setText("");
+            jPasswordField2.setText("");
         }
         
         
@@ -328,6 +334,18 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
             objsecretariadao.AlterarSecretaria(objsecretaria);
             
             }
+            
+            private void ExcluirSecretraria(){
+                int cpf;
+                
+               cpf = Integer.valueOf(jTextField1.getText());
+               
+               Secretaria objsecretaria = new Secretaria();
+               objsecretaria.setCpf(cpf);
+               
+               SecretariaDAO objsecretariadao = new SecretariaDAO(ConexaoDAO.AbrirConexao());
+               objsecretariadao.ExcluirSecretaria(objsecretaria);
+            }
     
     
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -358,6 +376,27 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
         }
         LimparDados();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        ExcluirSecretraria();
+        SecretariaDAO dao = new SecretariaDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Secretaria> ListaSecretaria = dao.ListarSecretaria();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Secretaria s : ListaSecretaria){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(s.getCpf(), num, 0);
+                jTable1.setValueAt(s.getNome(), num, 1);
+                jTable1.setValueAt(s.getRg(), num, 2);
+                jTable1.setValueAt(s.getTel(), num, 3);
+                jTable1.setValueAt(s.getEnd(), num, 4);
+                jTable1.setValueAt(s.getSexo(), num, 5);
+                jTable1.setValueAt(s.getSenha(), num, 6);
+                num++;
+        }
+        LimparDados();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -147,9 +147,9 @@ public class MedicoDAO extends ExecuteSQL{
         
         }catch(Exception e){
             
-        JOptionPane.showMessageDialog(null, "Medico não excluido!");
+        JOptionPane.showMessageDialog(null, "Medico não excluido!"+e.getMessage());
         
         }
-    }     
+    } 
 }
 
