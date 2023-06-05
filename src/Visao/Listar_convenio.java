@@ -186,9 +186,9 @@ public class Listar_convenio extends javax.swing.JInternalFrame {
             String end;
             
             
-            cnpj = Integer.parseInt(jTextField1.getText());
+            cnpj = Integer.valueOf(jTextField1.getText());
             nome = jTextField2.getText();
-            tel = Integer.parseInt(jTextField3.getText());
+            tel = Integer.valueOf(jTextField3.getText());
             planos = jTextField4.getText();
             end = jTextField5.getText();
            

@@ -126,9 +126,64 @@ public class AdministradorDAO extends ExecuteSQL{
    }
    
    public void ExcluirAdministrador(Administrador objadministrador){
-   
-   
+       String sql = "delete from administrador where rg_a = ?";
+       Connection con = ConexaoDAO.AbrirConexao();
+       
+       try{
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, objadministrador.getRg_a());
+            
+            ps.execute();
+            ps.close();
+           
+           JOptionPane.showMessageDialog(null, "Administrador Excluido!");
+           
+       }catch (Exception e){
+           
+           JOptionPane.showMessageDialog(null, "Administrador não Excluido!: "+e.getMessage());
+       }
    }
+   
+   
+   
+    public ArrayList<Administrador>BuscarAdministrador(String nome_func){
+        String sql ="";
+        if(nome_func.equals("")){
+            sql = "select * from administrador";
+        
+        }else{
+            sql = "select * from administrador where nome_func like '%"+nome_func+"%'";
+        }
+        Connection con = ConexaoDAO.AbrirConexao();
+             
+             
+             try {
+                 ps = con.prepareStatement(sql);
+                 rs = ps.executeQuery();
+                 
+                 while(rs.next()){
+                    Administrador objadministrador = new Administrador();
+                    objadministrador.setRg_a(rs.getInt("rg_a"));
+                    objadministrador.setNome_func(rs.getString("nome_func"));
+                    objadministrador.setCpf(rs.getInt("cpf"));
+                    objadministrador.setSenha(rs.getString("senha"));
+                    objadministrador.setSexo(rs.getString("sexo"));
+                    objadministrador.setClin(rs.getString("clin"));
+                    objadministrador.setTel(rs.getInt("tel"));
+                    
+                
+                  lista.add(objadministrador);
+        
+                 }
+                 
+             }catch(Exception e) {
+                 JOptionPane.showMessageDialog(null,
+                         "nao foi possivel encontrar o Administrador!: " +e.getMessage());
+                 
+                    }
+           
+         return lista;    
+    }
 }
 
 

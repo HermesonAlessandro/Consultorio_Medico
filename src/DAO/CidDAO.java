@@ -116,4 +116,8 @@ public class CidDAO extends ExecuteSQL{
        }
     
     }
+    
+    public void BuscarCid(Cid objcid){
+    
+    }
 }

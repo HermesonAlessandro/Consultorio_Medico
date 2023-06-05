@@ -120,5 +120,10 @@ public class ConvenioDAO extends ExecuteSQL{;
                
         }
     }
+    
+    public void BuscarConvenio(Convenio objconvenio){
+        
+        
+}
 }
 

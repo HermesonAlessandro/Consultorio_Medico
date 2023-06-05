@@ -148,4 +148,8 @@ public class SecretariaDAO extends ExecuteSQL{
            
        }
    }
+   
+   public void BuscarSecretaria(Secretaria objsecretaria){
+       
+   }
 }

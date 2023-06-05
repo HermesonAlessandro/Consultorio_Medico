@@ -4,6 +4,7 @@ import Modelo.Atestado;
 import java.sql.*;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
+import javax.print.DocFlavor;
 import javax.swing.JOptionPane;
 
 public class AtestadoDAO extends ExecuteSQL{
@@ -90,6 +91,55 @@ public class AtestadoDAO extends ExecuteSQL{
     
     
     public void ExcluirAtestado(Atestado objatestado){
+        String sql = "delete from atestado where id = ?";
+        Connection con = ConexaoDAO.AbrirConexao();
+        
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, objatestado.getId());
+            
+            ps.execute();
+            ps.close();
+            
+            JOptionPane.showMessageDialog(null,"Atestado Excluido!");
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Atestado não Excluido!: "+e.getMessage());
+            
+        }
     
     }
+    
+     public ArrayList<Atestado>BuscarAtestado(int id){
+        String sql ="";
+        if(id == 1){
+            sql = "select * from atestado where id = ?";
+        }else{
+            sql = "select * from atestado";
+            
+        }
+        Connection con = ConexaoDAO.AbrirConexao();
+             
+             
+             try {
+                 ps = con.prepareStatement(sql);
+                 rs = ps.executeQuery();
+                 
+                 while(rs.next()){
+                    Atestado objatestado = new Atestado();
+                    objatestado.setId(rs.getInt("id"));
+                    objatestado.setDias_ausentes(rs.getString("dias_ausentes"));
+           
+                  lista.add(objatestado);
+        
+                 }
+                 
+             }catch(Exception e) {
+                 JOptionPane.showMessageDialog(null,
+                         "nao foi possivel encontrar o Atestado: " +e.getMessage());
+                 
+                    }
+           
+         return lista;    
+    }
+    
 }

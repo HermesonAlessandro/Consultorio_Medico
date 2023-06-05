@@ -110,4 +110,8 @@ public class ConsultaDAO extends ExecuteSQL{
             
         }
     }
+    
+    public void BuscarConsulta(Consulta objconsulta){
+    
+    }
 }

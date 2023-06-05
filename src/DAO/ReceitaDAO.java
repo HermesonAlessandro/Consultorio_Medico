@@ -107,4 +107,8 @@ public class ReceitaDAO extends ExecuteSQL{
             
         }
     }
+        
+        public void BuscarReceita(Receita objreceita){
+        
+        }
 }

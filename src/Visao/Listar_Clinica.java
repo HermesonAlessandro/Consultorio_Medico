@@ -239,7 +239,7 @@ public class Listar_Clinica extends javax.swing.JInternalFrame {
             String end;
             int tel;
                     
-            cnpj = Integer.parseInt(jTextField1.getText());
+            cnpj = Integer.valueOf(jTextField1.getText());
             nome = jTextField2.getText();
             end = jTextField3.getText();
             tel = Integer.valueOf(jTextField4.getText());

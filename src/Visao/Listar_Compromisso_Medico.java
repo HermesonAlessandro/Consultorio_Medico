@@ -179,7 +179,7 @@ public class Listar_Compromisso_Medico extends javax.swing.JInternalFrame {
             String h_fim;
             String h_ini;
             
-            id_comp_medico = Integer.parseInt(jTextField1.getText());
+            id_comp_medico = Integer.valueOf(jTextField1.getText());
             descricao = jTextField2.getText();
             h_fim = jTextField3.getText();
             h_ini = jTextField4.getText();

@@ -121,4 +121,8 @@ public class ClinicaDAO extends ExecuteSQL{
              
          }
      }
+     
+     public void BuscarClinica(Clinica objclinica){
+     
+     }
 }

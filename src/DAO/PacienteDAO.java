@@ -125,7 +125,12 @@ public class PacienteDAO extends ExecuteSQL{
         JOptionPane.showMessageDialog(null, "Paciente não Excluido!"+e.getMessage());
         
         }
-    }     
+    }
+        
+        public void BuscarPaciente(Paciente objpaciente){
+        
+        }
+        
 }
     
     

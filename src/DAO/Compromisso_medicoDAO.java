@@ -115,4 +115,8 @@ public class Compromisso_medicoDAO extends ExecuteSQL{
          }
    
      }
+     
+     public void BuscarCompromissoMedico(){
+     
+     }
 }

@@ -106,4 +106,8 @@ public class RelatorioDAO extends ExecuteSQL{
             JOptionPane.showMessageDialog(null, "Relatorio não excluido!"+e.getMessage());
         }
     }
+    
+    public void BuscarRelatorio(Relatorio objrelatorio){
+    
+    }
 }

@@ -312,10 +312,10 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
             String sexo;
             String senha;
             
-            cpf = Integer.parseInt(jTextField1.getText());
+            cpf = Integer.valueOf(jTextField1.getText());
             nome = jTextField2.getText();
-            rg = Integer.parseInt(jTextField3.getText());
-            tel = Integer.parseInt(jTextField4.getText());
+            rg = Integer.valueOf(jTextField3.getText());
+            tel = Integer.valueOf(jTextField4.getText());
             end = jTextField5.getText();
             sexo = jComboBox1.getSelectedItem().toString();
             senha = jPasswordField2.getText();

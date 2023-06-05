@@ -240,7 +240,7 @@ public class Listar_Cid extends javax.swing.JInternalFrame {
             int cod;
            
             
-            cod = Integer.parseInt(jTextField1.getText());
+            cod = Integer.valueOf(jTextField1.getText());
             capitulo = Integer.valueOf(jTextField2.getText());
             descricao = jTextField3.getText();
             cod_cid_10 = jTextField4.getText();

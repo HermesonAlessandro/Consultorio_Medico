@@ -18,6 +18,32 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
      */
     public Listar_Administrador() {
         initComponents();
+        try {
+            Administrador objadministrador = new Administrador();
+            Connection con = ConexaoDAO.AbrirConexao();
+            AdministradorDAO dao = new AdministradorDAO(con);
+
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.setNumRows(0);
+
+            ArrayList<Administrador> lista = dao.ListarAdministrador();
+            int num = 0;
+            for(Administrador a :lista){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(a.getRg_a(), num, 0);
+                jTable1.setValueAt(a.getNome_func(), num, 1);
+                jTable1.setValueAt(a.getCpf(), num, 2);
+                jTable1.setValueAt(a.getSenha(), num, 3);
+                jTable1.setValueAt(a.getSexo(), num, 4);
+                jTable1.setValueAt(a.getClin(), num, 5);
+                jTable1.setValueAt(a.getTel(), num, 6);
+                num++;
+            }
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null,
+                "nao foi possivel o encontrar um Administrador!: "+e.getMessage());
+        }
     }
 
     /**
@@ -31,7 +57,6 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
 
         jComboBox1 = new javax.swing.JComboBox<>();
         jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         jTextField2 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jTextField3 = new javax.swing.JTextField();
@@ -51,24 +76,19 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F", " " }));
+        jComboBox1.setEnabled(false);
 
         jTextField1.setEnabled(false);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("Listar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
             }
         });
 
@@ -79,6 +99,7 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
             }
         });
 
+        jTextField3.setEnabled(false);
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
@@ -113,9 +134,12 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 48)); // NOI18N
         jLabel1.setText("Listar Administrador");
 
+        jPasswordField1.setEnabled(false);
+
         jLabel2.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 14)); // NOI18N
         jLabel2.setText("Rg_a:");
 
+        jTextField6.setEnabled(false);
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField6ActionPerformed(evt);
@@ -124,6 +148,8 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
 
         jLabel3.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 14)); // NOI18N
         jLabel3.setText("Nome_Func:");
+
+        jTextField5.setEnabled(false);
 
         jLabel4.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 14)); // NOI18N
         jLabel4.setText("Cpf:");
@@ -143,6 +169,18 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
         });
 
         jButton5.setText("Excluir");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jButton6.setText("Buscar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -191,8 +229,8 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(11, 11, 11)
+                                .addComponent(jButton6)
+                                .addGap(17, 17, 17)
                                 .addComponent(jButton3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButton2)
@@ -240,11 +278,11 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
                     .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(jButton5)
+                    .addComponent(jButton6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(12, Short.MAX_VALUE))
@@ -256,39 +294,15 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
 
     }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            Administrador objadAdministrador = new Administrador();
-            Connection con = ConexaoDAO.AbrirConexao();
-            AdministradorDAO dao = new AdministradorDAO(con);
-
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setNumRows(0);
-
-            ArrayList<Administrador> lista = dao.ListarAdministrador();
-            int num = 0;
-            for(Administrador a :lista){
-                model.addRow(new String[num]);
-                jTable1.setValueAt(a.getRg_a(), num, 0);
-                jTable1.setValueAt(a.getNome_func(), num, 1);
-                jTable1.setValueAt(a.getCpf(), num, 2);
-                jTable1.setValueAt(a.getSenha(), num, 3);
-                jTable1.setValueAt(a.getSexo(), num, 4);
-                jTable1.setValueAt(a.getClin(), num, 5);
-                jTable1.setValueAt(a.getTel(), num, 6);
-
-                num++;
-            }
-
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null,
-                "nao foi possivel o encontrar um administrador"+e);
-        }
-
-    }//GEN-LAST:event_jButton1ActionPerformed
         private void CarregarCampos(){
-                int setar = jTable1.getSelectedRow();
+          jTextField2.setEnabled(true);
+          jTextField3.setEnabled(true);
+          jPasswordField1.setEnabled(true);
+          jComboBox1.setEnabled(true);
+          jTextField5.setEnabled(true);
+          jTextField6.setEnabled(true);
+          
+          int setar = jTable1.getSelectedRow();
           jTextField1.setText(jTable1.getModel().getValueAt(setar, 0).toString());
           jTextField2.setText(jTable1.getModel().getValueAt(setar, 1).toString());
           jTextField3.setText(jTable1.getModel().getValueAt(setar, 2).toString());
@@ -311,6 +325,7 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
             jTextField3.setText("");
             jTextField5.setText("");
             jTextField6.setText("");
+            jPasswordField1.setText("");
         }
         
         private void AlterarAdministrador(){                  
@@ -322,9 +337,9 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
             String clin;
             int tel;
             
-            rg_a = Integer.parseInt(jTextField1.getText());
+            rg_a = Integer.valueOf(jTextField1.getText());
             nome_func = jTextField2.getText();
-            cpf = Integer.parseInt(jTextField3.getText());
+            cpf = Integer.valueOf(jTextField3.getText());
             senha = jPasswordField1.getText();
             sexo =  sexo = jComboBox1.getSelectedItem().toString(); 
             clin = jTextField5.getText();
@@ -346,8 +361,15 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
        }
         
          private void ExcluirAdministrador(){
-        
-        
+             int rg_a;
+             
+             rg_a = Integer.valueOf(jTextField1.getText());
+             
+             Administrador objadministrador = new Administrador();
+             objadministrador.setRg_a(rg_a);
+             
+             AdministradorDAO objadministradordao = new AdministradorDAO(ConexaoDAO.AbrirConexao());
+             objadministradordao.ExcluirAdministrador(objadministrador);
          }
     
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
@@ -387,13 +409,57 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
         LimparDados();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        ExcluirAdministrador();
+        AdministradorDAO dao = new AdministradorDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Administrador> ListaAdministrador = dao.ListarAdministrador();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Administrador a : ListaAdministrador){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(a.getRg_a(), num, 0);
+                jTable1.setValueAt(a.getNome_func(), num, 1);
+                jTable1.setValueAt(a.getCpf(), num, 2);
+                jTable1.setValueAt(a.getSenha(), num, 3);
+                jTable1.setValueAt(a.getSexo(), num, 4);
+                jTable1.setValueAt(a.getClin(), num, 5);
+                jTable1.setValueAt(a.getTel(), num, 6);
+                num++;
+        }
+        LimparDados();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        String nome_func = jTextField2.getText();
+                
+        AdministradorDAO objadministradordao = new AdministradorDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Administrador> ListaAdministrador = objadministradordao.BuscarAdministrador(nome_func);
+        AdministradorDAO dao = new AdministradorDAO(ConexaoDAO.AbrirConexao());
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Administrador a : ListaAdministrador){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(a.getRg_a(), num, 0);
+                jTable1.setValueAt(a.getNome_func(), num, 1);
+                jTable1.setValueAt(a.getCpf(), num, 2);
+                jTable1.setValueAt(a.getSenha(), num, 3);
+                jTable1.setValueAt(a.getSexo(), num, 4);
+                jTable1.setValueAt(a.getClin(), num, 5);
+                jTable1.setValueAt(a.getTel(), num, 6);
+                num++;
+        }
+        LimparDados();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -18,6 +18,27 @@ public class Listar_Atestado extends javax.swing.JInternalFrame {
      */
     public Listar_Atestado() {
         initComponents();
+        try {
+            Atestado objatestado = new Atestado();
+            Connection con = ConexaoDAO.AbrirConexao();
+            AtestadoDAO dao = new AtestadoDAO(con);
+
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.setNumRows(0);
+
+            ArrayList<Atestado> lista = dao.ListarAtestado();
+            int num = 0;
+            for(Atestado a :lista){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(a.getId(), num, 0);
+                jTable1.setValueAt(a.getDias_ausentes(), num, 1);
+                num++;
+            }
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null,
+                "nao foi possivel o encontrar um Atestado!: "+e.getMessage());
+        }
     }
 
     /**
@@ -34,13 +55,13 @@ public class Listar_Atestado extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -53,14 +74,7 @@ public class Listar_Atestado extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Dias Ausentes:");
 
-        jTextField1.setEnabled(false);
-
-        jButton1.setText("Listar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jTextField2.setEnabled(false);
 
         jButton2.setText("Alterar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -97,6 +111,18 @@ public class Listar_Atestado extends javax.swing.JInternalFrame {
         });
 
         jButton5.setText("Excluir");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jButton6.setText("Buscar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -107,9 +133,9 @@ public class Listar_Atestado extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton4)
+                        .addGap(9, 9, 9)
+                        .addComponent(jButton6)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton3)
@@ -152,11 +178,11 @@ public class Listar_Atestado extends javax.swing.JInternalFrame {
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
                     .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(jButton5)
+                    .addComponent(jButton6))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(17, Short.MAX_VALUE))
@@ -165,32 +191,9 @@ public class Listar_Atestado extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            Atestado objAtestado = new Atestado();
-            Connection con = ConexaoDAO.AbrirConexao();
-            AtestadoDAO dao = new AtestadoDAO(con);
-
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setNumRows(0);
-
-            ArrayList<Atestado> lista = dao.ListarAtestado();
-            int num = 0;
-            for(Atestado a :lista){
-                model.addRow(new String[num]);
-                jTable1.setValueAt(a.getId(), num, 0);
-                jTable1.setValueAt(a.getDias_ausentes(), num, 1);
-                
-                num++;
-            }
-
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null,
-                "nao foi possivel o encontrar um atestado"+e);
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
      private void CarregarCampos(){
+          jTextField1.setEnabled(false);
+          jTextField2.setEnabled(true);
           int setar = jTable1.getSelectedRow();
           jTextField1.setText(jTable1.getModel().getValueAt(setar, 0).toString());
           jTextField2.setText(jTable1.getModel().getValueAt(setar, 1).toString());       
@@ -207,7 +210,7 @@ public class Listar_Atestado extends javax.swing.JInternalFrame {
             int id;
             String dias_ausentes;
             
-            id = Integer.parseInt(jTextField1.getText());
+            id = Integer.valueOf(jTextField1.getText());
             dias_ausentes = jTextField2.getText();
          
             
@@ -221,6 +224,15 @@ public class Listar_Atestado extends javax.swing.JInternalFrame {
        }
      
             private void ExcluirAtestado(){
+                int id;
+                
+                id = Integer.valueOf(jTextField1.getText());
+                
+                Atestado objatestado = new Atestado();
+                objatestado.setId(id);
+                
+                AtestadoDAO objAtestadodao = new AtestadoDAO(ConexaoDAO.AbrirConexao());
+                objAtestadodao.ExcluirAtestado(objatestado);
      
              }
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -248,13 +260,47 @@ public class Listar_Atestado extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        ExcluirAtestado();
+        AtestadoDAO dao = new AtestadoDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Atestado> ListaAtestado = dao.ListarAtestado();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Atestado a : ListaAtestado){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(a.getId(), num, 0);
+                jTable1.setValueAt(a.getDias_ausentes(), num, 1);
+                num++;
+        }
+        LimparDados();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        int id = Integer.valueOf(jTextField1.getText());
+                
+        AtestadoDAO objatestadodao = new AtestadoDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Atestado> ListaAtestado = objatestadodao.BuscarAtestado(id);
+        AtestadoDAO dao = new AtestadoDAO(ConexaoDAO.AbrirConexao());
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Atestado a : ListaAtestado){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(a.getId(), num, 0);
+                jTable1.setValueAt(a.getDias_ausentes(), num, 1);
+                num++;
+        }
+        LimparDados();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

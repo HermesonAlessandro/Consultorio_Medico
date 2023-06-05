@@ -150,6 +150,44 @@ public class MedicoDAO extends ExecuteSQL{
         JOptionPane.showMessageDialog(null, "Medico não excluido!"+e.getMessage());
         
         }
-    } 
+    }
+    
+    public ArrayList<Medico>BuscarMedico(String nome){
+        String sql ="";
+        if(nome.equals("")){
+            sql = "select * from medico";
+        
+        }else{
+            sql = "select * from medico where nome like '%"+nome+"%'";
+        }
+        Connection con = ConexaoDAO.AbrirConexao();
+             
+             
+             try {
+                 ps = con.prepareStatement(sql);
+                 rs = ps.executeQuery();
+                 
+                 while(rs.next()){
+                    Medico objmedico = new Medico();
+                    objmedico.setCpf(rs.getInt("cpf"));
+                    objmedico.setNome(rs.getString("nome"));
+                    objmedico.setRg(rs.getInt("rg"));
+                    objmedico.setTel(rs.getInt("tel"));
+                    objmedico.setEnd(rs.getString("end"));
+                    objmedico.setSexo(rs.getString("sexo"));
+                    objmedico.setSenha(rs.getString("senha"));
+                
+                  lista.add(objmedico);
+        
+                 }
+                 
+             }catch(Exception e) {
+                 JOptionPane.showMessageDialog(null,
+                         "nao foi possivel encontrar o Medico: " +e.getMessage());
+                 
+                    }
+           
+         return lista;    
+    }
 }
 
