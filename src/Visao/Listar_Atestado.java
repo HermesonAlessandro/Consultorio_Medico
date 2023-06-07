@@ -277,8 +277,12 @@ public class Listar_Atestado extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        int id = Integer.valueOf(jTextField1.getText());
-                
+        int id = 0;
+        if(!jTextField1.getText().equals("")){
+            id = Integer.valueOf(jTextField1.getText());
+        }
+        
+        
         AtestadoDAO objatestadodao = new AtestadoDAO(ConexaoDAO.AbrirConexao());
         ArrayList<Atestado> ListaAtestado = objatestadodao.BuscarAtestado(id);
         AtestadoDAO dao = new AtestadoDAO(ConexaoDAO.AbrirConexao());

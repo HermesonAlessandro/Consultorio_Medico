@@ -116,8 +116,39 @@ public class CidDAO extends ExecuteSQL{
        }
     
     }
-    
-    public void BuscarCid(Cid objcid){
-    
+     public ArrayList<Cid>BuscarCid(int cod){
+        String sql ="";
+        if(cod == 0){
+            sql = "select * from cid";
+        }else{
+             sql = "select * from cid where cod = "+cod;
+            
+        }
+        Connection con = ConexaoDAO.AbrirConexao();
+             
+             
+             try {
+                 ps = con.prepareStatement(sql);
+                 rs = ps.executeQuery();
+                 
+                 while(rs.next()){
+                    Cid objcid = new Cid();
+                    objcid.setCod(rs.getInt("cod"));
+                    objcid.setCapitulo(rs.getInt("capitulo"));
+                    objcid.setDescricao(rs.getString("descricao"));
+                    objcid.setCod_cid_10(rs.getString("cod_cid_10"));
+           
+                  lista.add(objcid);
+        
+                 }
+                 
+             }catch(Exception e) {
+                 JOptionPane.showMessageDialog(null,
+                         "nao foi possivel encontrar o Cid: " +e.getMessage());
+                 
+                    }
+           
+         return lista;    
     }
+    
 }

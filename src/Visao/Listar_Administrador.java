@@ -85,12 +85,13 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F", " " }));
         jComboBox1.setEnabled(false);
 
-        jTextField1.setEnabled(false);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
+
+        jTextField2.setEnabled(false);
 
         jButton2.setText("Alterar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -295,6 +296,7 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jTextField1ActionPerformed
         private void CarregarCampos(){
+          jTextField1.setEnabled(false);
           jTextField2.setEnabled(true);
           jTextField3.setEnabled(true);
           jPasswordField1.setEnabled(true);
@@ -431,10 +433,14 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        String nome_func = jTextField2.getText();
-                
+        int rg_a = 0;
+        if(!jTextField1.getText().equals("")){
+            rg_a = Integer.valueOf(jTextField1.getText());
+        }
+        
+        
         AdministradorDAO objadministradordao = new AdministradorDAO(ConexaoDAO.AbrirConexao());
-        ArrayList<Administrador> ListaAdministrador = objadministradordao.BuscarAdministrador(nome_func);
+        ArrayList<Administrador> ListaAdministrador = objadministradordao.BuscarAdministrador(rg_a);
         AdministradorDAO dao = new AdministradorDAO(ConexaoDAO.AbrirConexao());
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setNumRows(0);
@@ -448,6 +454,7 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
                 jTable1.setValueAt(a.getSexo(), num, 4);
                 jTable1.setValueAt(a.getClin(), num, 5);
                 jTable1.setValueAt(a.getTel(), num, 6);
+                
                 num++;
         }
         LimparDados();

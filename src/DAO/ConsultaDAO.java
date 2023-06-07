@@ -111,7 +111,39 @@ public class ConsultaDAO extends ExecuteSQL{
         }
     }
     
-    public void BuscarConsulta(Consulta objconsulta){
-    
+    public ArrayList<Consulta>BuscarConsulta(int id){
+        String sql ="";
+        if(id == 0){
+            sql = "select * from consulta";
+        }else{
+             sql = "select * from consulta where id = "+id;
+            
+        }
+        Connection con = ConexaoDAO.AbrirConexao();
+             
+             
+             try {
+                 ps = con.prepareStatement(sql);
+                 rs = ps.executeQuery();
+                 
+                 while(rs.next()){
+                    Consulta objconsulta = new Consulta();
+                    objconsulta.setId(rs.getInt("id"));
+                    objconsulta.setNome_c(rs.getString("nome_c"));
+                    objconsulta.setData(rs.getString("data"));
+                    
+           
+                  lista.add(objconsulta);
+        
+                 }
+                 
+             }catch(Exception e) {
+                 JOptionPane.showMessageDialog(null,
+                         "nao foi possivel encontrar um Consulta: " +e.getMessage());
+                 
+                    }
+           
+         return lista;    
     }
+    
 }

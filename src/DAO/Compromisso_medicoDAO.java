@@ -116,7 +116,38 @@ public class Compromisso_medicoDAO extends ExecuteSQL{
    
      }
      
-     public void BuscarCompromissoMedico(){
-     
-     }
+     public ArrayList<Compromisso_medico>BuscarCompromissoMedico(int id_comp_medico){
+        String sql ="";
+        if(id_comp_medico == 0){
+            sql = "select * from compromisso_medico";
+        }else{
+             sql = "select * from compromisso_medico where id_comp_medico = "+id_comp_medico;
+            
+        }
+        Connection con = ConexaoDAO.AbrirConexao();
+             
+             
+             try {
+                 ps = con.prepareStatement(sql);
+                 rs = ps.executeQuery();
+                 
+                 while(rs.next()){
+                    Compromisso_medico objcompromissomedico = new Compromisso_medico();
+                    objcompromissomedico.setId_comp_medico(rs.getInt("id_comp_medico"));
+                    objcompromissomedico.setDescricao(rs.getString("descricao"));
+                    objcompromissomedico.setH_fim(rs.getString("h_fim"));
+                    objcompromissomedico.setH_ini(rs.getString("h_ini"));
+           
+                  lista.add(objcompromissomedico);
+        
+                 }
+                 
+             }catch(Exception e) {
+                 JOptionPane.showMessageDialog(null,
+                         "nao foi possivel encontrar o Compromisso Medico: " +e.getMessage());
+                 
+                    }
+           
+         return lista;    
+    }
 }

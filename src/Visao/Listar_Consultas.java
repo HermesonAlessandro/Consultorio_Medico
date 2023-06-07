@@ -18,6 +18,28 @@ public class Listar_Consultas extends javax.swing.JInternalFrame {
      */
     public Listar_Consultas() {
         initComponents();
+        try {
+            Consulta objconsulta = new Consulta();
+            Connection con = ConexaoDAO.AbrirConexao();
+            ConsultaDAO dao = new ConsultaDAO(con);
+
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.setNumRows(0);
+
+            ArrayList<Consulta> lista = dao.ListarConsulta();
+            int num = 0;
+            for(Consulta c :lista){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(c.getId(), num, 0);
+                jTable1.setValueAt(c.getNome_c(), num, 1);
+                jTable1.setValueAt(c.getData(), num, 1);
+                num++;
+            }
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null,
+                "nao foi possivel o encontrar um Consulta!: "+e.getMessage());
+        }
     }
 
     /**
@@ -32,7 +54,6 @@ public class Listar_Consultas extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
@@ -43,6 +64,7 @@ public class Listar_Consultas extends javax.swing.JInternalFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -55,13 +77,6 @@ public class Listar_Consultas extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Nome_c:");
 
-        jButton1.setText("Listar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -72,12 +87,13 @@ public class Listar_Consultas extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jTextField1.setEnabled(false);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
+
+        jTextField2.setEnabled(false);
 
         jButton2.setText("Alterar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -87,6 +103,8 @@ public class Listar_Consultas extends javax.swing.JInternalFrame {
         });
 
         jLabel7.setText("Data:");
+
+        jTextField3.setEnabled(false);
 
         jButton3.setText("Caregar Campos");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -109,6 +127,13 @@ public class Listar_Consultas extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton6.setText("Buscar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -127,8 +152,8 @@ public class Listar_Consultas extends javax.swing.JInternalFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jButton4)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jButton1)
-                                    .addGap(12, 12, 12)
+                                    .addComponent(jButton6)
+                                    .addGap(9, 9, 9)
                                     .addComponent(jButton3)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(jButton2)
@@ -174,7 +199,7 @@ public class Listar_Consultas extends javax.swing.JInternalFrame {
                     .addComponent(jButton4)
                     .addComponent(jButton5)
                     .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(jButton6))
                 .addGap(28, 28, 28)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(88, Short.MAX_VALUE))
@@ -182,33 +207,10 @@ public class Listar_Consultas extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            Consulta objConsulta = new Consulta();
-            Connection con = ConexaoDAO.AbrirConexao();
-            ConsultaDAO dao = new ConsultaDAO(con);
-
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setNumRows(0);
-
-            ArrayList<Consulta> lista = dao.ListarConsulta();
-            int num = 0;
-            for(Consulta c :lista){
-                model.addRow(new String[num]);
-                jTable1.setValueAt(c.getId(), num, 0);
-                jTable1.setValueAt(c.getNome_c(), num, 1);
-                jTable1.setValueAt(c.getData(), num, 2);
-                num++;
-            }
-
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null,
-                "nao foi possivel o encontrar um Consulta"+e);
-        }
-
-    }//GEN-LAST:event_jButton1ActionPerformed
           private void CarregarCampos(){
+          jTextField1.setEnabled(false);
+          jTextField2.setEnabled(true);
+          jTextField3.setEnabled(true);
           int setar = jTable1.getSelectedRow();
           jTextField1.setText(jTable1.getModel().getValueAt(setar, 0).toString());
           jTextField2.setText(jTable1.getModel().getValueAt(setar, 1).toString());
@@ -302,13 +304,37 @@ public class Listar_Consultas extends javax.swing.JInternalFrame {
         LimparDados();
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        int id = 0;
+        if(!jTextField1.getText().equals("")){
+            id = Integer.valueOf(jTextField1.getText());
+        }
+        
+        
+        ConsultaDAO objconsultadao = new ConsultaDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Consulta> ListaConsulta = objconsultadao.BuscarConsulta(id);
+        ConsultaDAO dao = new ConsultaDAO(ConexaoDAO.AbrirConexao());
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Consulta c : ListaConsulta){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(c.getId(), num, 0);
+                jTable1.setValueAt(c.getNome_c(), num, 1);
+                jTable1.setValueAt(c.getData(), num, 2);
+                
+                num++;
+        }
+        LimparDados();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

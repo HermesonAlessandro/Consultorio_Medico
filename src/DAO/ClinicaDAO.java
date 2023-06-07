@@ -122,7 +122,39 @@ public class ClinicaDAO extends ExecuteSQL{
          }
      }
      
-     public void BuscarClinica(Clinica objclinica){
+      public ArrayList<Clinica>BuscarClinica(int cnpj){
+        String sql ="";
+        if(cnpj == 0){
+            sql = "select * from clinica";
+        }else{
+             sql = "select * from clinica where cnpj = "+cnpj;
+            
+        }
+        Connection con = ConexaoDAO.AbrirConexao();
+             
+             
+             try {
+                 ps = con.prepareStatement(sql);
+                 rs = ps.executeQuery();
+                 
+                 while(rs.next()){
+                    Clinica objclinica = new Clinica();
+                    objclinica.setCnpj(rs.getInt("cnpj"));
+                    objclinica.setNome(rs.getString("nome"));
+                    objclinica.setEnd(rs.getString("end"));
+                    objclinica.setTel(rs.getInt("tel"));
+           
+                  lista.add(objclinica);
+        
+                 }
+                 
+             }catch(Exception e) {
+                 JOptionPane.showMessageDialog(null,
+                         "nao foi possivel encontrar uma Clinica: " +e.getMessage());
+                 
+                    }
+           
+         return lista;    
+    }
      
-     }
 }

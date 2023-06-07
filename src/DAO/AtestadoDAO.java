@@ -111,10 +111,10 @@ public class AtestadoDAO extends ExecuteSQL{
     
      public ArrayList<Atestado>BuscarAtestado(int id){
         String sql ="";
-        if(id == 1){
-            sql = "select * from atestado where id = ?";
-        }else{
+        if(id == 0){
             sql = "select * from atestado";
+        }else{
+             sql = "select * from atestado where id = "+id;
             
         }
         Connection con = ConexaoDAO.AbrirConexao();

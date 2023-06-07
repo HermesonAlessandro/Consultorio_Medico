@@ -100,7 +100,7 @@ public class Listar_Medico extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jTextField1.setEnabled(false);
+        jTextField2.setEnabled(false);
 
         jLabel7.setText("Rg:");
 
@@ -272,11 +272,13 @@ public class Listar_Medico extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
         private void CarregarCampos(){
-        jTextField3.setEnabled(true);
-        jTextField4.setEnabled(true);
-        jTextField5.setEnabled(true);
-        jComboBox1.setEnabled(true);
-        jPasswordField1.setEnabled(true);
+            jTextField1.setEnabled(false);
+            jTextField2.setEnabled(true);
+            jTextField3.setEnabled(true);
+            jTextField4.setEnabled(true);
+            jTextField5.setEnabled(true);
+            jComboBox1.setEnabled(true);
+            jPasswordField1.setEnabled(true);
           int setar = jTable1.getSelectedRow();
           jTextField1.setText(jTable1.getModel().getValueAt(setar, 0).toString());
           jTextField2.setText(jTable1.getModel().getValueAt(setar, 1).toString());
@@ -407,10 +409,14 @@ public class Listar_Medico extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        String nome = jTextField2.getText();
-                
+       int cpf = 0;
+        if(!jTextField1.getText().equals("")){
+            cpf = Integer.valueOf(jTextField1.getText());
+        }
+        
+        
         MedicoDAO objmedicodao = new MedicoDAO(ConexaoDAO.AbrirConexao());
-        ArrayList<Medico> ListaMedico = objmedicodao.BuscarMedico(nome);
+        ArrayList<Medico> ListaMedico = objmedicodao.BuscarMedico(cpf);
         MedicoDAO dao = new MedicoDAO(ConexaoDAO.AbrirConexao());
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setNumRows(0);
@@ -424,10 +430,10 @@ public class Listar_Medico extends javax.swing.JInternalFrame {
                 jTable1.setValueAt(m.getEnd(), num, 4);
                 jTable1.setValueAt(m.getSexo(), num, 5);
                 jTable1.setValueAt(m.getSenha(), num, 6);
+                
                 num++;
         }
         LimparDados();
-        
        
     }//GEN-LAST:event_jButton6ActionPerformed
 

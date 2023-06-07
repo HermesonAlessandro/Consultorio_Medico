@@ -151,14 +151,14 @@ public class MedicoDAO extends ExecuteSQL{
         
         }
     }
-    
-    public ArrayList<Medico>BuscarMedico(String nome){
+  
+    public ArrayList<Medico>BuscarMedico(int cpf){
         String sql ="";
-        if(nome.equals("")){
+        if(cpf == 0){
             sql = "select * from medico";
-        
         }else{
-            sql = "select * from medico where nome like '%"+nome+"%'";
+             sql = "select * from medico where cpf = "+cpf;
+            
         }
         Connection con = ConexaoDAO.AbrirConexao();
              
@@ -176,18 +176,19 @@ public class MedicoDAO extends ExecuteSQL{
                     objmedico.setEnd(rs.getString("end"));
                     objmedico.setSexo(rs.getString("sexo"));
                     objmedico.setSenha(rs.getString("senha"));
-                
+           
                   lista.add(objmedico);
         
                  }
                  
              }catch(Exception e) {
                  JOptionPane.showMessageDialog(null,
-                         "nao foi possivel encontrar o Medico: " +e.getMessage());
+                         "nao foi possivel encontrar um Medico: " +e.getMessage());
                  
                     }
            
          return lista;    
     }
+    
 }
 

@@ -144,15 +144,13 @@ public class AdministradorDAO extends ExecuteSQL{
        }
    }
    
-   
-   
-    public ArrayList<Administrador>BuscarAdministrador(String nome_func){
+    public ArrayList<Administrador>BuscarAdministrador(int rg_a){
         String sql ="";
-        if(nome_func.equals("")){
+        if(rg_a == 0){
             sql = "select * from administrador";
-        
         }else{
-            sql = "select * from administrador where nome_func like '%"+nome_func+"%'";
+             sql = "select * from administrador where rg_a = "+rg_a;
+            
         }
         Connection con = ConexaoDAO.AbrirConexao();
              
@@ -170,15 +168,14 @@ public class AdministradorDAO extends ExecuteSQL{
                     objadministrador.setSexo(rs.getString("sexo"));
                     objadministrador.setClin(rs.getString("clin"));
                     objadministrador.setTel(rs.getInt("tel"));
-                    
-                
+           
                   lista.add(objadministrador);
         
                  }
                  
              }catch(Exception e) {
                  JOptionPane.showMessageDialog(null,
-                         "nao foi possivel encontrar o Administrador!: " +e.getMessage());
+                         "nao foi possivel encontrar um Administrador: " +e.getMessage());
                  
                     }
            
