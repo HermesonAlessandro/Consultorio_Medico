@@ -106,8 +106,36 @@ public class RelatorioDAO extends ExecuteSQL{
             JOptionPane.showMessageDialog(null, "Relatorio não excluido!"+e.getMessage());
         }
     }
-    
-    public void BuscarRelatorio(Relatorio objrelatorio){
-    
+    public ArrayList<Relatorio>BuscarRelatorio(int id){
+        String sql ="";
+        if(id == 0){
+            sql = "select * from relatorio";
+        }else{
+             sql = "select * from relatorio where id = "+id;
+            
+        }
+        Connection con = ConexaoDAO.AbrirConexao();
+             
+             
+             try {
+                 ps = con.prepareStatement(sql);
+                 rs = ps.executeQuery();
+                 
+                 while(rs.next()){
+                    Relatorio objrelatorio = new Relatorio();
+                    objrelatorio.setId(rs.getInt("id"));
+                    objrelatorio.setDescricao(rs.getString("descricao"));
+           
+                  lista.add(objrelatorio);
+        
+                 }
+                 
+             }catch(Exception e) {
+                 JOptionPane.showMessageDialog(null,
+                         "nao foi possivel encontrar um Relatorio: " +e.getMessage());
+                 
+                    }
+           
+         return lista;    
     }
 }

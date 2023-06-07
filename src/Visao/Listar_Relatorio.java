@@ -20,6 +20,27 @@ public class Listar_Relatorio extends javax.swing.JInternalFrame {
      */
     public Listar_Relatorio() {
         initComponents();
+        try {
+            Relatorio objrelatorio = new Relatorio();
+            Connection con = ConexaoDAO.AbrirConexao();
+            RelatorioDAO dao = new RelatorioDAO(con);
+
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.setNumRows(0);
+
+            ArrayList<Relatorio> lista = dao.ListarRelatorio();
+            int num = 0;
+            for(Relatorio r :lista){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(r.getId(), num, 0);
+                jTable1.setValueAt(r.getDescricao(), num, 1);
+                num++;
+            }
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null,
+                "nao foi possivel o encontrar um Relatorio!: "+e.getMessage());
+        }
     }
 
     /**
@@ -38,11 +59,11 @@ public class Listar_Relatorio extends javax.swing.JInternalFrame {
         jTextField2 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -55,7 +76,7 @@ public class Listar_Relatorio extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Descriçao");
 
-        jTextField1.setEnabled(false);
+        jTextField2.setEnabled(false);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -69,13 +90,6 @@ public class Listar_Relatorio extends javax.swing.JInternalFrame {
             }
         ));
         jScrollPane1.setViewportView(jTable1);
-
-        jButton1.setText("Listar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         jButton2.setText("Alterar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -105,6 +119,13 @@ public class Listar_Relatorio extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton6.setText("Buscar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -128,8 +149,8 @@ public class Listar_Relatorio extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton6)
+                                .addGap(9, 9, 9)
                                 .addComponent(jButton2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton3)
@@ -139,7 +160,7 @@ public class Listar_Relatorio extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,11 +176,11 @@ public class Listar_Relatorio extends javax.swing.JInternalFrame {
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
                     .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(jButton5)
+                    .addComponent(jButton6))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
@@ -167,33 +188,9 @@ public class Listar_Relatorio extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            Relatorio objRelatorio = new Relatorio();
-            Connection con = ConexaoDAO.AbrirConexao();
-            RelatorioDAO dao = new RelatorioDAO(con);
-
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setNumRows(0);
-
-            ArrayList<Relatorio> lista = dao.ListarRelatorio();
-            int num = 0;
-            for(Relatorio r :lista){
-                model.addRow(new String[num]);
-                jTable1.setValueAt(r.getId(), num, 0);
-                jTable1.setValueAt(r.getDescricao(), num, 1);
-               
-                num++;
-            }
-
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null,
-                "nao foi possivel o encontrar um medico"+e);
-        }
-
-    }//GEN-LAST:event_jButton1ActionPerformed
               private void CarregarCampos(){
+          jTextField1.setEnabled(false);
+          jTextField2.setEnabled(true);
           int setar = jTable1.getSelectedRow();
           jTextField1.setText(jTable1.getModel().getValueAt(setar, 0).toString());
           jTextField2.setText(jTable1.getModel().getValueAt(setar, 1).toString());       
@@ -275,13 +272,35 @@ public class Listar_Relatorio extends javax.swing.JInternalFrame {
         LimparDados();
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+       int id = 0;
+        if(!jTextField1.getText().equals("")){
+            id = Integer.valueOf(jTextField1.getText());
+        }
+        
+        
+        RelatorioDAO objrelatoriodao = new RelatorioDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Relatorio> ListaRelatorio = objrelatoriodao.BuscarRelatorio(id);
+        RelatorioDAO dao = new RelatorioDAO(ConexaoDAO.AbrirConexao());
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Relatorio r : ListaRelatorio){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(r.getId(), num, 0);
+                jTable1.setValueAt(r.getDescricao(), num, 1);
+                num++;
+        }
+        LimparDados();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

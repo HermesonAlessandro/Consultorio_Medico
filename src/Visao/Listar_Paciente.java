@@ -20,6 +20,32 @@ public class Listar_Paciente extends javax.swing.JInternalFrame {
      */
     public Listar_Paciente() {
         initComponents();
+        try {
+            Paciente objpaciente = new Paciente();
+            Connection con = ConexaoDAO.AbrirConexao();
+            PacienteDAO dao = new PacienteDAO(con);
+
+            DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+            model.setNumRows(0);
+
+            ArrayList<Paciente> lista = dao.ListarPaciente();
+            int num = 0;
+            for(Paciente p :lista){
+                model.addRow(new String[num]);
+                jTable2.setValueAt(p.getCpf(), num, 0);
+                jTable2.setValueAt(p.getNome(), num, 1);
+                jTable2.setValueAt(p.getEnd(), num, 2);
+                jTable2.setValueAt(p.getTel(), num, 3);
+                jTable2.setValueAt(p.getRg(), num, 4);
+                jTable2.setValueAt(p.getSexo(), num, 5);
+                jTable2.setValueAt(p.getConvenio(), num, 6);
+                num++;
+            }
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null,
+                "nao foi possivel o encontrar um Paciente!: "+e.getMessage());
+        }
     }
 
     /**
@@ -34,7 +60,6 @@ public class Listar_Paciente extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -53,6 +78,7 @@ public class Listar_Paciente extends javax.swing.JInternalFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jButton6 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -68,17 +94,9 @@ public class Listar_Paciente extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Nome:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 112, -1, -1));
-
-        jButton1.setText("Listar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(498, 349, -1, -1));
-
-        jTextField1.setEnabled(false);
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 380, -1));
+
+        jTextField2.setEnabled(false);
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 370, -1));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -115,10 +133,17 @@ public class Listar_Paciente extends javax.swing.JInternalFrame {
 
         jLabel11.setText("Convenio:");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, -1, -1));
+
+        jTextField3.setEnabled(false);
         getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 380, -1));
+
+        jTextField4.setEnabled(false);
         getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 390, -1));
+
+        jTextField6.setEnabled(false);
         getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 390, -1));
 
+        jTextField7.setEnabled(false);
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField7ActionPerformed(evt);
@@ -148,9 +173,10 @@ public class Listar_Paciente extends javax.swing.JInternalFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(596, 349, -1, -1));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 350, -1, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F", " " }));
+        jComboBox1.setEnabled(false);
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -158,38 +184,24 @@ public class Listar_Paciente extends javax.swing.JInternalFrame {
         });
         getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, -1, -1));
 
+        jButton6.setText("Buscar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 350, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            Paciente objpaciente = new Paciente();
-            Connection con = ConexaoDAO.AbrirConexao();
-            PacienteDAO dao = new PacienteDAO(con);
-
-            DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
-            model.setNumRows(0);
-
-            ArrayList<Paciente> lista = dao.ListarPaciente();
-            int num = 0;
-            for(Paciente p :lista){
-                model.addRow(new String[num]);
-                jTable2.setValueAt(p.getCpf(), num, 0);
-                jTable2.setValueAt(p.getNome(), num, 1);
-                jTable2.setValueAt(p.getEnd(), num, 2);
-                jTable2.setValueAt(p.getTel(), num, 3);
-                jTable2.setValueAt(p.getRg(), num, 4);
-                jTable2.setValueAt(p.getSexo(), num, 5);
-                jTable2.setValueAt(p.getConvenio(), num, 6);
-                num++;
-            }
-
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null,
-                "nao foi possivel o encontrar um paciente"+e);
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
              private void CarregarCampos(){
+          jTextField1.setEnabled(false);
+          jTextField2.setEnabled(true);
+          jTextField3.setEnabled(true);
+          jTextField4.setEnabled(true);
+          jComboBox1.setEnabled(true);
+          jTextField6.setEnabled(true);
+          jTextField7.setEnabled(true);
           int setar = jTable2.getSelectedRow();
           jTextField1.setText(jTable2.getModel().getValueAt(setar, 0).toString());
           jTextField2.setText(jTable2.getModel().getValueAt(setar, 1).toString());
@@ -322,13 +334,40 @@ public class Listar_Paciente extends javax.swing.JInternalFrame {
         LimparDados();
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        int cpf = 0;
+        if(!jTextField1.getText().equals("")){
+            cpf = Integer.valueOf(jTextField1.getText());
+        }
+        
+        
+        PacienteDAO objpacientedao = new PacienteDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Paciente> ListaPaciente = objpacientedao.BuscarPaciente(cpf);
+        PacienteDAO dao = new PacienteDAO(ConexaoDAO.AbrirConexao());
+        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Paciente p : ListaPaciente){
+                model.addRow(new String[num]);
+                jTable2.setValueAt(p.getCpf(), num, 0);
+                jTable2.setValueAt(p.getNome(), num, 1);
+                jTable2.setValueAt(p.getEnd(), num, 2);
+                jTable2.setValueAt(p.getTel(), num, 3);
+                jTable2.setValueAt(p.getRg(), num, 4);
+                jTable2.setValueAt(p.getSexo(), num, 5); 
+                jTable2.setValueAt(p.getConvenio(), num, 6);
+                num++;
+        }
+        LimparDados();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

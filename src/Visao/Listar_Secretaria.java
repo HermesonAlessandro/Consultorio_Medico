@@ -19,6 +19,32 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
      */
     public Listar_Secretaria() {
         initComponents();
+        try {
+            Secretaria objsecretaria = new Secretaria();
+            Connection con = ConexaoDAO.AbrirConexao();
+            SecretariaDAO dao = new SecretariaDAO(con);
+
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.setNumRows(0);
+
+            ArrayList<Secretaria> lista = dao.ListarSecretaria();
+            int num = 0;
+            for(Secretaria s :lista){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(s.getCpf(), num, 0);
+                jTable1.setValueAt(s.getNome(), num, 1);
+                jTable1.setValueAt(s.getRg(), num, 2);
+                jTable1.setValueAt(s.getTel(), num, 3);
+                jTable1.setValueAt(s.getEnd(), num, 4);
+                jTable1.setValueAt(s.getSexo(), num, 5);
+                jTable1.setValueAt(s.getSenha(), num, 6);
+                num++;
+            }
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null,
+                "nao foi possivel o encontrar uma Secretaria!: "+e.getMessage());
+        }
     }
 
     /**
@@ -32,7 +58,6 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
 
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
@@ -52,6 +77,7 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
         jButton5 = new javax.swing.JButton();
         jPasswordField2 = new javax.swing.JPasswordField();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jButton6 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -60,13 +86,6 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
         jLabel5.setText("Tel:");
 
         jLabel6.setText("End:");
-
-        jButton1.setText("Listar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         jLabel7.setText("Sexo:");
 
@@ -79,7 +98,9 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
 
         jLabel8.setText("Senha:");
 
-        jTextField1.setEnabled(false);
+        jTextField2.setEnabled(false);
+
+        jTextField3.setEnabled(false);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -94,11 +115,14 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jTextField4.setEnabled(false);
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField4ActionPerformed(evt);
             }
         });
+
+        jTextField5.setEnabled(false);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setText("Lista Secretaria");
@@ -130,7 +154,17 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
             }
         });
 
+        jPasswordField2.setEnabled(false);
+
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F", " " }));
+        jComboBox1.setEnabled(false);
+
+        jButton6.setText("Buscar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -179,9 +213,9 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(244, 244, 244)
                         .addComponent(jButton4)
+                        .addGap(29, 29, 29)
+                        .addComponent(jButton6)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)
-                        .addGap(32, 32, 32)
                         .addComponent(jButton3)
                         .addGap(18, 18, 18)
                         .addComponent(jButton2)
@@ -228,10 +262,10 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
-                    .addComponent(jButton1)
                     .addComponent(jButton3)
                     .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(jButton5)
+                    .addComponent(jButton6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(12, Short.MAX_VALUE))
@@ -243,37 +277,14 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       try {
-            Secretaria objseSecretaria = new Secretaria();
-            Connection con = ConexaoDAO.AbrirConexao();
-            SecretariaDAO dao = new SecretariaDAO(con);
-
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setNumRows(0);
-
-            ArrayList<Secretaria> lista = dao.ListarSecretaria();
-            int num = 0;
-            for(Secretaria s :lista){
-                model.addRow(new String[num]);
-                jTable1.setValueAt(s.getCpf(), num, 0);
-                jTable1.setValueAt(s.getNome(), num, 1);
-                jTable1.setValueAt(s.getRg(), num, 2);
-                jTable1.setValueAt(s.getTel(), num, 3);
-                jTable1.setValueAt(s.getEnd(), num, 4);
-                jTable1.setValueAt(s.getSexo(), num, 5);
-                jTable1.setValueAt(s.getSenha(), num, 6);
-                num++;
-            }
-
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null,
-                "nao foi possivel o encontrar uma secretaria"+e);
-        }
-
-    }//GEN-LAST:event_jButton1ActionPerformed
-    private void CarregarCampos(){ 
+    private void CarregarCampos(){
+          jTextField1.setEnabled(false);
+          jTextField2.setEnabled(true);
+          jTextField3.setEnabled(true);
+          jTextField4.setEnabled(true);
+          jTextField5.setEnabled(true);
+          jComboBox1.setEnabled(true);
+          jPasswordField2.setEnabled(true);
           int setar = jTable1.getSelectedRow();    
           jTextField1.setText(jTable1.getModel().getValueAt(setar, 0).toString());
           jTextField2.setText(jTable1.getModel().getValueAt(setar, 1).toString());
@@ -398,13 +409,41 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
         LimparDados();
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+       int cpf = 0;
+        if(!jTextField1.getText().equals("")){
+            cpf = Integer.valueOf(jTextField1.getText());
+        }
+        
+        
+        SecretariaDAO objsecretariadao = new SecretariaDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Secretaria> ListaSecretaria = objsecretariadao.BuscarSecretaria(cpf);
+        SecretariaDAO dao = new SecretariaDAO(ConexaoDAO.AbrirConexao());
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Secretaria s : ListaSecretaria){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(s.getCpf(), num, 0);
+                jTable1.setValueAt(s.getNome(), num, 1);
+                jTable1.setValueAt(s.getRg(), num, 2);
+                jTable1.setValueAt(s.getTel(), num, 3);
+                jTable1.setValueAt(s.getEnd(), num, 4);
+                jTable1.setValueAt(s.getSexo(), num, 5);
+                jTable1.setValueAt(s.getSenha(), num, 6);
+                
+                num++;
+        }
+        LimparDados();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

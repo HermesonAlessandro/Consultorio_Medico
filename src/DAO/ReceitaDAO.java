@@ -108,7 +108,37 @@ public class ReceitaDAO extends ExecuteSQL{
         }
     }
         
-        public void BuscarReceita(Receita objreceita){
-        
+        public ArrayList<Receita>BuscarReceita(int id){
+        String sql ="";
+        if(id == 0){
+            sql = "select * from receita";
+        }else{
+             sql = "select * from receita where id = "+id;
+            
         }
+        Connection con = ConexaoDAO.AbrirConexao();
+             
+             
+             try {
+                 ps = con.prepareStatement(sql);
+                 rs = ps.executeQuery();
+                 
+                 while(rs.next()){
+                    Receita objreceita = new Receita();
+                    objreceita.setId(rs.getInt("id"));
+                    objreceita.setDescricao(rs.getString("descricao"));
+           
+                  lista.add(objreceita);
+        
+                 }
+                 
+             }catch(Exception e) {
+                 JOptionPane.showMessageDialog(null,
+                         "nao foi possivel encontrar uma Receita: " +e.getMessage());
+                 
+                    }
+           
+         return lista;    
+    }
+        
 }

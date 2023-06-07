@@ -125,11 +125,46 @@ public class PacienteDAO extends ExecuteSQL{
         JOptionPane.showMessageDialog(null, "Paciente não Excluido!"+e.getMessage());
         
         }
+        }
+        
+        public ArrayList<Paciente>BuscarPaciente(int cpf){
+        String sql ="";
+        if(cpf == 0){
+            sql = "select * from paciente";
+        }else{
+             sql = "select * from paciente where cpf = "+cpf;
+            
+        }
+        Connection con = ConexaoDAO.AbrirConexao();
+             
+             
+             try {
+                 ps = con.prepareStatement(sql);
+                 rs = ps.executeQuery();
+                 
+                 while(rs.next()){
+                    Paciente objpaciente = new Paciente();
+                    objpaciente.setCpf(rs.getInt("cpf"));
+                    objpaciente.setNome(rs.getString("nome"));
+                    objpaciente.setEnd(rs.getString("end"));
+                    objpaciente.setTel(rs.getInt("tel"));
+                    objpaciente.setRg(rs.getInt("rg"));
+                    objpaciente.setSexo(rs.getString("sexo"));
+                    objpaciente.setConvenio(rs.getString("convenio"));
+           
+                  lista.add(objpaciente);
+        
+                 }
+                 
+             }catch(Exception e) {
+                 JOptionPane.showMessageDialog(null,
+                         "nao foi possivel encontrar um Paciente: " +e.getMessage());
+                 
+                    }
+           
+         return lista;    
     }
         
-        public void BuscarPaciente(Paciente objpaciente){
-        
-        }
         
 }
     

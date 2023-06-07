@@ -121,9 +121,40 @@ public class ConvenioDAO extends ExecuteSQL{;
         }
     }
     
-    public void BuscarConvenio(Convenio objconvenio){
+     public ArrayList<Convenio>BuscarConvenio(int cnpj){
+        String sql ="";
+        if(cnpj == 0){
+            sql = "select * from convenio";
+        }else{
+             sql = "select * from convenio where cnpj = "+cnpj;
+            
+        }
+        Connection con = ConexaoDAO.AbrirConexao();
+             
+             
+             try {
+                 ps = con.prepareStatement(sql);
+                 rs = ps.executeQuery();
+                 
+                 while(rs.next()){
+                    Convenio objconvenio = new Convenio();
+                    objconvenio.setCnpj(rs.getInt("cnpj"));
+                    objconvenio.setNome(rs.getString("nome"));
+                    objconvenio.setTel(rs.getInt("tel"));
+                    objconvenio.setPlanos(rs.getString("planos"));
+                    objconvenio.setEnd(rs.getString("end"));
+           
+                  lista.add(objconvenio);
         
-        
-}
+                 }
+                 
+             }catch(Exception e) {
+                 JOptionPane.showMessageDialog(null,
+                         "nao foi possivel encontrar um Convenio: " +e.getMessage());
+                 
+                    }
+           
+         return lista;    
+    }
 }
 

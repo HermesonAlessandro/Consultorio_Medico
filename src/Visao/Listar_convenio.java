@@ -18,6 +18,30 @@ public class Listar_convenio extends javax.swing.JInternalFrame {
      */
     public Listar_convenio() {
         initComponents();
+         try {
+             Convenio objconvenio = new Convenio();
+            Connection con = ConexaoDAO.AbrirConexao();
+            ConvenioDAO dao = new ConvenioDAO(con);
+
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.setNumRows(0);
+
+            ArrayList<Convenio> lista = dao.ListarConvenio();
+            int num = 0;
+            for(Convenio c :lista){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(c.getCnpj(), num, 0);
+                jTable1.setValueAt(c.getNome(), num, 1);
+                jTable1.setValueAt(c.getTel(), num, 2);
+                jTable1.setValueAt(c.getPlanos(), num, 3);
+                jTable1.setValueAt(c.getEnd(), num, 4);
+                num++;
+            }
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null,
+                "nao foi possivel o encontrar um Convenio!: "+e.getMessage());
+        }
     }
 
     /**
@@ -32,7 +56,6 @@ public class Listar_convenio extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
@@ -47,6 +70,7 @@ public class Listar_convenio extends javax.swing.JInternalFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -63,14 +87,6 @@ public class Listar_convenio extends javax.swing.JInternalFrame {
         jLabel3.setText("Nome:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, -1, -1));
 
-        jButton1.setText("Listar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, -1, -1));
-
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -82,9 +98,9 @@ public class Listar_convenio extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 301, 500, 312));
-
-        jTextField1.setEnabled(false);
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 51, 450, -1));
+
+        jTextField2.setEnabled(false);
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 450, -1));
 
         jButton2.setText("Alterar");
@@ -103,8 +119,14 @@ public class Listar_convenio extends javax.swing.JInternalFrame {
 
         jLabel9.setText("End:");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 201, -1, -1));
+
+        jTextField3.setEnabled(false);
         getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 131, 450, -1));
+
+        jTextField4.setEnabled(false);
         getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 171, 450, -1));
+
+        jTextField5.setEnabled(false);
         getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 201, 460, -1));
 
         jButton3.setText("Carregar Campos");
@@ -131,36 +153,22 @@ public class Listar_convenio extends javax.swing.JInternalFrame {
         });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 260, -1, -1));
 
+        jButton6.setText("Buscar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, -1, -1));
+
         setBounds(0, 0, 724, 688);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            Convenio objconvenio = new Convenio();
-            Connection con = ConexaoDAO.AbrirConexao();
-            ConvenioDAO dao = new ConvenioDAO(con);
-
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setNumRows(0);
-
-            ArrayList<Convenio> lista = dao.ListarConvenio();
-            int num = 0;
-            for(Convenio c :lista){
-                model.addRow(new String[num]);
-                jTable1.setValueAt(c.getCnpj(), num, 0);
-                jTable1.setValueAt(c.getNome(), num, 1);
-                jTable1.setValueAt(c.getTel(), num, 2);
-                jTable1.setValueAt(c.getPlanos(), num, 3);
-                jTable1.setValueAt(c.getEnd(), num, 4);
-                num++;
-            }
-
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null,
-                "nao foi possivel o encontrar um convenio"+e);
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
             private void CarregarCampos(){
+            jTextField1.setEnabled(false);
+            jTextField2.setEnabled(true);
+            jTextField3.setEnabled(true);
+            jTextField4.setEnabled(true);
+            jTextField5.setEnabled(true);
           int setar = jTable1.getSelectedRow();    
           jTextField1.setText(jTable1.getModel().getValueAt(setar, 0).toString());
           jTextField2.setText(jTable1.getModel().getValueAt(setar, 1).toString());
@@ -265,13 +273,38 @@ public class Listar_convenio extends javax.swing.JInternalFrame {
         LimparDados();      
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+       int cnpj = 0;
+        if(!jTextField1.getText().equals("")){
+            cnpj = Integer.valueOf(jTextField1.getText());
+        }
+        
+        
+        ConvenioDAO objconveniodao = new ConvenioDAO(ConexaoDAO.AbrirConexao());
+        ArrayList<Convenio> ListaConvenio = objconveniodao.BuscarConvenio(cnpj);
+        ConvenioDAO dao = new ConvenioDAO(ConexaoDAO.AbrirConexao());
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        int num = 0;
+        for (Convenio c : ListaConvenio){
+                model.addRow(new String[num]);
+                jTable1.setValueAt(c.getCnpj(), num, 0);
+                jTable1.setValueAt(c.getNome(), num, 1);
+                jTable1.setValueAt(c.getTel(), num, 2);
+                jTable1.setValueAt(c.getPlanos(), num, 3);
+                jTable1.setValueAt(c.getEnd(), num, 4);
+                num++;
+        }
+        LimparDados();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

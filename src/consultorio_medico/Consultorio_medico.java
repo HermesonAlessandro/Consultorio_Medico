@@ -1,10 +1,11 @@
 package consultorio_medico;
-import Visao.Tela_Apresentacao;
-import Visao.Tela_Login;
+import Visao.Tela_Colaboradores;
 
-public class Consultorio_medico {
-      public static void main(String[] args) { 
-          Tela_Apresentacao ta = new Tela_Apresentacao();
-          ta.setVisible(true);        
+public class Consultorio_medico{
+      public static void main(String[] args){
+          
+          Tela_Colaboradores tc = new Tela_Colaboradores();
+          tc.setVisible(true);
+                 
 }    
 }

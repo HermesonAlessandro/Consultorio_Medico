@@ -149,7 +149,43 @@ public class SecretariaDAO extends ExecuteSQL{
        }
    }
    
-   public void BuscarSecretaria(Secretaria objsecretaria){
-       
-   }
+   public ArrayList<Secretaria>BuscarSecretaria(int cpf){
+        String sql ="";
+        if(cpf == 0){
+            sql = "select * from secretaria";
+        }else{
+             sql = "select * from secretaria where cpf = "+cpf;
+            
+        }
+        Connection con = ConexaoDAO.AbrirConexao();
+             
+             
+             try {
+                 ps = con.prepareStatement(sql);
+                 rs = ps.executeQuery();
+                 
+                 while(rs.next()){
+                    Secretaria objsecretaria = new Secretaria();
+                    objsecretaria.setCpf(rs.getInt("cpf"));
+                    objsecretaria.setNome(rs.getString("nome"));
+                    objsecretaria.setRg(rs.getInt("rg"));
+                    objsecretaria.setTel(rs.getInt("tel"));
+                    objsecretaria.setEnd(rs.getString("end"));
+                    objsecretaria.setSexo(rs.getString("sexo"));
+                    objsecretaria.setSenha(rs.getString("senha"));
+           
+                  lista.add(objsecretaria);
+        
+                 }
+                 
+             }catch(Exception e) {
+                 JOptionPane.showMessageDialog(null,
+                         "nao foi possivel encontrar uma Secretaria: " +e.getMessage());
+                 
+                    }
+           
+         return lista;    
+    }
+   
+   
 }
