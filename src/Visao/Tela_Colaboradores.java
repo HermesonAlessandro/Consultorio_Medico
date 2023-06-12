@@ -33,74 +33,47 @@ public class Tela_Colaboradores extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel1.setText("Colaboradores: ");
+        jLabel1.setFont(new java.awt.Font("Bebas Kai", 0, 48)); // NOI18N
+        jLabel1.setText("COLABORADORES:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 70, -1, -1));
 
-        jLabel2.setText("Consultorio_medico Criado por: ");
+        jLabel2.setFont(new java.awt.Font("Expressway Rg", 0, 24)); // NOI18N
+        jLabel2.setText("Consultorio médico criado por: ");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, 360, 30));
 
-        jLabel3.setText("Erika Silva Bianqui");
+        jLabel3.setFont(new java.awt.Font("Blue Highway D", 0, 14)); // NOI18N
+        jLabel3.setText("- Erika Silva Bianqui -");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(587, 210, 130, -1));
 
-        jLabel4.setText("Francico Lucas de Sousa Machado");
+        jLabel4.setFont(new java.awt.Font("Blue Highway D", 0, 14)); // NOI18N
+        jLabel4.setText("- Francico Lucas de Sousa Machado -");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 240, -1, -1));
 
-        jLabel5.setText("Hermeson Alessandro Melo de Sousa");
+        jLabel5.setFont(new java.awt.Font("Blue Highway D", 0, 14)); // NOI18N
+        jLabel5.setText("- Hermeson Alessandro Melo de Sousa -");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 280, -1, -1));
 
-        jLabel6.setText("Kalebe Ribeiro Sousa");
+        jLabel6.setFont(new java.awt.Font("Blue Highway D", 0, 14)); // NOI18N
+        jLabel6.setText("- Kalebe Ribeiro Sousa -");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 320, -1, -1));
 
+        jButton1.setFont(new java.awt.Font("Expressway Rg", 0, 18)); // NOI18N
         jButton1.setText("Começar a Experiência");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 480, 260, 70));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(183, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(142, 142, 142))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel5)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addComponent(jLabel3))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addComponent(jLabel6)))
-                        .addGap(220, 220, 220))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(252, 252, 252))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel1)
-                .addGap(29, 29, 29)
-                .addComponent(jLabel2)
-                .addGap(27, 27, 27)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel6)
-                .addGap(60, 60, 60)
-                .addComponent(jButton1)
-                .addContainerGap(85, Short.MAX_VALUE))
-        );
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/hatsunemiku.png"))); // NOI18N
+        jLabel7.setText("jLabel7");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -154,5 +127,6 @@ public class Tela_Colaboradores extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
 }
