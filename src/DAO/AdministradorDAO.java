@@ -18,8 +18,8 @@ public class AdministradorDAO extends ExecuteSQL{
 
     
     public void Cadastrar_Administrador(Administrador a){
-        String sql = "insert into administrador values(?, ?, ?, ?, ?, ?, ?)";
-        try{
+    String sql = "insert into administrador values(?, ?, ?, ?, ?, ?, ?)";
+    try{
             PreparedStatement ps = getCon().prepareStatement(sql);
             ps.setInt(1,a.getRg_a());
             ps.setString(2,a.getNome_func());
@@ -30,9 +30,9 @@ public class AdministradorDAO extends ExecuteSQL{
             ps.setInt(7,a.getTel());
             
             if(ps.executeUpdate()>0){
-                JOptionPane.showMessageDialog(null, "cadastrado com Sucesso!");
+                JOptionPane.showMessageDialog(null, "Administrador cadastrado com Sucesso!");
             }else{
-                JOptionPane.showMessageDialog(null, "nao foi possivel o cadastro!");
+                JOptionPane.showMessageDialog(null, "Não foi possivel o cadastrar um Administrador!");
             }
             
            }catch(Exception e){
@@ -42,11 +42,8 @@ public class AdministradorDAO extends ExecuteSQL{
         
     }
     public ResultSet autenticacaoAdm(AdministradorDTO objAdmDto){       
-            
-            con = new ConexaoDAO().AbrirConexao();
-    
-            try {
-                
+    con = new ConexaoDAO().AbrirConexao();
+    try{
                 String sql = "select * from administrador where rg_a = ? and senha = ?";
                 
                 PreparedStatement pstm = con.prepareStatement(sql);
@@ -58,17 +55,15 @@ public class AdministradorDAO extends ExecuteSQL{
                 
             
             } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, "AdminstradorDAO " +  e);
+                JOptionPane.showMessageDialog(null, "AdminstradorDAO " +  e.getMessage());
                 return null;
             }
     }
     
     public ArrayList<Administrador>ListarAdministrador(){
-             String sql = "select * from administrador";
-             Connection con = ConexaoDAO.AbrirConexao();
-             
-             
-             try {
+    String sql = "select * from administrador";
+    Connection con = ConexaoDAO.AbrirConexao();
+    try {
                  ps = con.prepareStatement(sql);
                  rs = ps.executeQuery();
                  
@@ -88,7 +83,7 @@ public class AdministradorDAO extends ExecuteSQL{
                  
              }catch(Exception e) {
                  JOptionPane.showMessageDialog(null,
-                         "nao foi possivel encontrar o administrador" +e.getMessage());
+                         "nao foi possivel encontrar o administrador: " +e.getMessage());
                  
                     }
            
@@ -118,9 +113,8 @@ public class AdministradorDAO extends ExecuteSQL{
         
     }catch(Exception e){
         
-        JOptionPane.showMessageDialog(null, "Administrador nao alterado!"+e.getMessage());
-    
-    
+        JOptionPane.showMessageDialog(null, "Administrador nao alterado!: "+e.getMessage());
+ 
     }
    
    }
