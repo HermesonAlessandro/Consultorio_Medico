@@ -39,7 +39,7 @@ public class Listar_Relatorio extends javax.swing.JInternalFrame {
 
         }catch (Exception e){
             JOptionPane.showMessageDialog(null,
-                "nao foi possivel o encontrar um Relatorio!: "+e.getMessage());
+                "Não foi possivel o encontrar um Relatorio!: "+e.getMessage());
         }
     }
 
@@ -153,48 +153,46 @@ public class Listar_Relatorio extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-              private void CarregarCampos(){
+          private void CarregarCampos(){
           jTextField1.setEnabled(false);
           jTextField2.setEnabled(true);
           int setar = jTable1.getSelectedRow();
           jTextField1.setText(jTable1.getModel().getValueAt(setar, 0).toString());
           jTextField2.setText(jTable1.getModel().getValueAt(setar, 1).toString());       
-    }
+        }
               
-              private void LimparDados(){
-              jTextField1.setText("");
-              jTextField2.setText("");         
-             }
+          private void LimparDados(){
+          jTextField1.setText("");
+          jTextField2.setText("");         
+        }
               
               
-            private void AlterarRelatorio(){                  
-            int id;
-            String descricao;
+           private void AlterarRelatorio(){                  
+           int id;
+           String descricao;
             
-            id = Integer.valueOf(jTextField1.getText());
-            descricao = jTextField2.getText();
+           id = Integer.valueOf(jTextField1.getText());
+           descricao = jTextField2.getText();
             
-            Relatorio objrelatorio = new Relatorio();
-            objrelatorio.setId(id);
-            objrelatorio.setDescricao(descricao);
+           Relatorio objrelatorio = new Relatorio();
+           objrelatorio.setId(id);
+           objrelatorio.setDescricao(descricao);
             
-            RelatorioDAO objrelatoriodao = new RelatorioDAO(ConexaoDAO.AbrirConexao());
-            objrelatoriodao.AlterarRelatorio(objrelatorio);
+           RelatorioDAO objrelatoriodao = new RelatorioDAO(ConexaoDAO.AbrirConexao());
+           objrelatoriodao.AlterarRelatorio(objrelatorio);
        }
             
             private void ExcluirRelatorio(){
-                 int id;
+            int id;
                 
-               id = Integer.valueOf(jTextField1.getText());
+            id = Integer.valueOf(jTextField1.getText());
                
-               Relatorio objrelatorio = new Relatorio();
-               objrelatorio.setId(id);
+            Relatorio objrelatorio = new Relatorio();
+            objrelatorio.setId(id);
                
-               RelatorioDAO objrelatoriodao = new RelatorioDAO(ConexaoDAO.AbrirConexao());
-               objrelatoriodao.ExcluirRelatorio(objrelatorio);
-            
-            
-            }
+            RelatorioDAO objrelatoriodao = new RelatorioDAO(ConexaoDAO.AbrirConexao());
+            objrelatoriodao.ExcluirRelatorio(objrelatorio);
+          }
        
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         CarregarCampos();

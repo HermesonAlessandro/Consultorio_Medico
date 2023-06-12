@@ -40,7 +40,7 @@ public class Listar_Compromisso_Medico extends javax.swing.JInternalFrame {
 
         }catch (Exception e){
             JOptionPane.showMessageDialog(null,
-                "nao foi possivel o encontrar um Compromisso Medico!: "+e.getMessage());
+                "Não foi possivel o encontrar um Compromisso Medico!: "+e.getMessage());
         }
     }
 
@@ -51,61 +51,61 @@ public class Listar_Compromisso_Medico extends javax.swing.JInternalFrame {
      */
     @SuppressWarnings("unchecked")
     
-    private void CarregarCampos(){
-            jTextField1.setEnabled(false);
-            jTextField2.setEnabled(true);
-            jTextField3.setEnabled(true);
-            jTextField4.setEnabled(true);
-          int setar = jTable1.getSelectedRow();
-          jTextField1.setText(jTable1.getModel().getValueAt(setar, 0).toString());
-          jTextField2.setText(jTable1.getModel().getValueAt(setar, 1).toString());
-          jTextField3.setText(jTable1.getModel().getValueAt(setar, 2).toString());
-          jTextField4.setText(jTable1.getModel().getValueAt(setar, 3).toString());
-          }
+       private void CarregarCampos(){
+       jTextField1.setEnabled(false);
+       jTextField2.setEnabled(true);
+       jTextField3.setEnabled(true);
+       jTextField4.setEnabled(true);
+       int setar = jTable1.getSelectedRow();
+       jTextField1.setText(jTable1.getModel().getValueAt(setar, 0).toString());
+       jTextField2.setText(jTable1.getModel().getValueAt(setar, 1).toString());
+       jTextField3.setText(jTable1.getModel().getValueAt(setar, 2).toString());
+       jTextField4.setText(jTable1.getModel().getValueAt(setar, 3).toString());
+       }
             
             
-            private void LimparDados(){
-            jTextField1.setText("");
-            jTextField2.setText("");
-            jTextField3.setText("");
-            jTextField4.setText("");
-            }
+       private void LimparDados(){
+       jTextField1.setText("");
+       jTextField2.setText("");
+       jTextField3.setText("");
+       jTextField4.setText("");
+      }
             
             
-            private void AlterarCompromissoMedico(){                  
-            int id_comp_medico;
-            String descricao;
-            String h_fim;
-            String h_ini;
+       private void AlterarCompromissoMedico(){                  
+       int id_comp_medico;
+       String descricao;
+       String h_fim;
+       String h_ini;
             
-            id_comp_medico = Integer.valueOf(jTextField1.getText());
-            descricao = jTextField2.getText();
-            h_fim = jTextField3.getText();
-            h_ini = jTextField4.getText();
+       id_comp_medico = Integer.valueOf(jTextField1.getText());
+       descricao = jTextField2.getText();
+       h_fim = jTextField3.getText();
+       h_ini = jTextField4.getText();
             
-            Compromisso_medico objcompromissomedico = new Compromisso_medico();
-            objcompromissomedico.setId_comp_medico(id_comp_medico);
-            objcompromissomedico.setDescricao(descricao);
-            objcompromissomedico.setH_fim(h_fim);
-            objcompromissomedico.setH_ini(h_ini);
+       Compromisso_medico objcompromissomedico = new Compromisso_medico();
+       objcompromissomedico.setId_comp_medico(id_comp_medico);
+       objcompromissomedico.setDescricao(descricao);
+       objcompromissomedico.setH_fim(h_fim);
+       objcompromissomedico.setH_ini(h_ini);
             
            
             
-            Compromisso_medicoDAO objcompromissomedicodao = new Compromisso_medicoDAO(ConexaoDAO.AbrirConexao());
-            objcompromissomedicodao.AlterarCompromissoMedico(objcompromissomedico);
-       }
+       Compromisso_medicoDAO objcompromissomedicodao = new Compromisso_medicoDAO(ConexaoDAO.AbrirConexao());
+       objcompromissomedicodao.AlterarCompromissoMedico(objcompromissomedico);
+      }
             
-            private void ExcluirCompromissoMedico(){
-                int id_comp_medico;
+       private void ExcluirCompromissoMedico(){
+       int id_comp_medico;
                 
-               id_comp_medico = Integer.valueOf(jTextField1.getText());
+       id_comp_medico = Integer.valueOf(jTextField1.getText());
                
-               Compromisso_medico objcompromissomedico = new Compromisso_medico();
-               objcompromissomedico.setId_comp_medico(id_comp_medico);
+       Compromisso_medico objcompromissomedico = new Compromisso_medico();
+       objcompromissomedico.setId_comp_medico(id_comp_medico);
                
-               Compromisso_medicoDAO objcompromissomedicodao = new Compromisso_medicoDAO(ConexaoDAO.AbrirConexao());
-               objcompromissomedicodao.ExcluirCompromissoMedico(objcompromissomedico);
-            }
+       Compromisso_medicoDAO objcompromissomedicodao = new Compromisso_medicoDAO(ConexaoDAO.AbrirConexao());
+       objcompromissomedicodao.ExcluirCompromissoMedico(objcompromissomedico);
+     }
             
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -223,7 +223,7 @@ public class Listar_Compromisso_Medico extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, -1, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/aaa (2).png"))); // NOI18N
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 730, 530));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

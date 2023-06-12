@@ -40,15 +40,15 @@ public class Tela_Colaboradores extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Bebas Kai", 0, 48)); // NOI18N
         jLabel1.setText("COLABORADORES:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 70, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Expressway Rg", 0, 24)); // NOI18N
-        jLabel2.setText("Consultorio médico criado por: ");
+        jLabel2.setText("Consultório médico criado por: ");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, 360, 30));
 
         jLabel3.setFont(new java.awt.Font("Blue Highway D", 0, 14)); // NOI18N
-        jLabel3.setText("- Erika Silva Bianqui -");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(587, 210, 130, -1));
+        jLabel3.setText("- Érika Silva Bianqui -");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(587, 210, 140, -1));
 
         jLabel4.setFont(new java.awt.Font("Blue Highway D", 0, 14)); // NOI18N
         jLabel4.setText("- Francico Lucas de Sousa Machado -");

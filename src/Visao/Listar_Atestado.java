@@ -37,7 +37,7 @@ public class Listar_Atestado extends javax.swing.JInternalFrame {
 
         }catch (Exception e){
             JOptionPane.showMessageDialog(null,
-                "nao foi possivel o encontrar um Atestado!: "+e.getMessage());
+                "Não foi possivel o encontrar um Atestado!: "+e.getMessage());
         }
     }
 
@@ -161,7 +161,7 @@ public class Listar_Atestado extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-     private void CarregarCampos(){
+          private void CarregarCampos(){
           jTextField1.setEnabled(false);
           jTextField2.setEnabled(true);
           int setar = jTable1.getSelectedRow();
@@ -169,14 +169,14 @@ public class Listar_Atestado extends javax.swing.JInternalFrame {
           jTextField2.setText(jTable1.getModel().getValueAt(setar, 1).toString());       
         }
      
-     private void LimparDados(){
+         private void LimparDados(){
          jTextField1.setText("");
          jTextField2.setText("");
      
      }
      
      
-     private void AlterarAtestado(){                  
+            private void AlterarAtestado(){                  
             int id;
             String dias_ausentes;
             
@@ -193,7 +193,7 @@ public class Listar_Atestado extends javax.swing.JInternalFrame {
             objatestadodao.AlterarAtestado(objatestado);
        }
      
-            private void ExcluirAtestado(){
+                private void ExcluirAtestado(){
                 int id;
                 
                 id = Integer.valueOf(jTextField1.getText());

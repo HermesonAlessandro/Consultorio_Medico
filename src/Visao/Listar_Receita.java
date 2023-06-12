@@ -37,7 +37,7 @@ public class Listar_Receita extends javax.swing.JInternalFrame {
 
         }catch (Exception e){
             JOptionPane.showMessageDialog(null,
-                "nao foi possivel o encontrar um Receita!: "+e.getMessage());
+                "Não foi possivel o encontrar um Receita!: "+e.getMessage());
         }
     }
 
@@ -155,10 +155,10 @@ public class Listar_Receita extends javax.swing.JInternalFrame {
             private void CarregarCampos(){
             jTextField1.setEnabled(false);
             jTextField2.setEnabled(true);
-           int setar = jTable1.getSelectedRow();
-          jTextField1.setText(jTable1.getModel().getValueAt(setar, 0).toString());
-          jTextField2.setText(jTable1.getModel().getValueAt(setar, 1).toString());    
-    }
+            int setar = jTable1.getSelectedRow();
+            jTextField1.setText(jTable1.getModel().getValueAt(setar, 0).toString());
+            jTextField2.setText(jTable1.getModel().getValueAt(setar, 1).toString());    
+            }
             
             
             private void LimparDados(){
@@ -179,18 +179,18 @@ public class Listar_Receita extends javax.swing.JInternalFrame {
             
             ReceitaDAO objreceitadao = new ReceitaDAO(ConexaoDAO.AbrirConexao());
             objreceitadao.AlterarReceita(objreceita);
-       }
+            }
             
             private void ExcluirReceita(){
-              int id;
+            int id;
               
-              id = Integer.valueOf(jTextField1.getText());
+            id = Integer.valueOf(jTextField1.getText());
               
-              Receita objreceita = new Receita();
-              objreceita.setId(id);
+            Receita objreceita = new Receita();
+            objreceita.setId(id);
               
-              ReceitaDAO objreceitadao = new ReceitaDAO(ConexaoDAO.AbrirConexao());
-              objreceitadao.ExcluirReceita(objreceita);
+            ReceitaDAO objreceitadao = new ReceitaDAO(ConexaoDAO.AbrirConexao());
+            objreceitadao.ExcluirReceita(objreceita);
             }
     
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

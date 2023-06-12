@@ -88,23 +88,21 @@ public class Marcar_Consulta extends javax.swing.JInternalFrame {
         if(jTextField1.getText().isBlank() || jTextField2.getText().isBlank() || 
                 jTextField3.getText().isBlank() || jTextField4.getText().isBlank()){
         
-           JOptionPane.showMessageDialog(null, "preencha todos os campos!");
+           JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
         }
         
         
         else{
-       String nome_c = jTextField1.getText();
-       String data = jTextField2.getText();
+        String nome_c = jTextField1.getText();
+        String data = jTextField2.getText();
        
        
        
-       Consulta c = new Consulta(0 , nome_c, data,  729566628, 1234589, 8797897);
-       Connection con = ConexaoDAO.AbrirConexao();
-       ConsultaDAO dao = new ConsultaDAO(con);
-       dao.Cadastrar_Consulta(c);
+        Consulta c = new Consulta(0 , nome_c, data,  729566628, 1234589, 8797897);
+        Connection con = ConexaoDAO.AbrirConexao();
+        ConsultaDAO dao = new ConsultaDAO(con);
+        dao.Cadastrar_Consulta(c);
        }
-                                          
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

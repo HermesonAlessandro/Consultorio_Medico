@@ -57,7 +57,7 @@ public class Tela_Cadastro_Adiministrador extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 48)); // NOI18N
         jLabel1.setText("   Cadastro do Administrador");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 789, 88));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 740, 88));
 
         jLabel2.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 14)); // NOI18N
         jLabel2.setText("Rg_a:");
@@ -78,7 +78,7 @@ public class Tela_Cadastro_Adiministrador extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 600, 110, 29));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 530, 110, 29));
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,7 +102,7 @@ public class Tela_Cadastro_Adiministrador extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 700, 110, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 621, 110, 30));
 
         jLabel5.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 14)); // NOI18N
         jLabel5.setText("Sexo:");
@@ -133,15 +133,15 @@ public class Tela_Cadastro_Adiministrador extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F", " " }));
         getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, -1, -1));
 
-        jButton3.setText("Ir Para o Login");
+        jButton3.setText("Ir para o login");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 650, -1, 30));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 580, 110, -1));
 
-        pack();
+        setBounds(0, 0, 809, 718);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -165,6 +165,10 @@ public class Tela_Cadastro_Adiministrador extends javax.swing.JFrame {
        Connection con = ConexaoDAO.AbrirConexao();
        AdministradorDAO dao = new AdministradorDAO(con);
        dao.Cadastrar_Administrador(a);
+       
+       Tela_Login tl = new Tela_Login();
+       tl.setVisible(true);
+       dispose();
 
        
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -178,9 +182,9 @@ public class Tela_Cadastro_Adiministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField6ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       Tela_Login tl = new Tela_Login();
-       tl.setVisible(true);
-       dispose();
+        Tela_Login tl = new Tela_Login();
+        tl.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

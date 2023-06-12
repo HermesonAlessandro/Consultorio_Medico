@@ -113,9 +113,9 @@ public class Tela_Menu_Administrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-    Cadastrar_Infor_Clinica ic = new Cadastrar_Infor_Clinica();
-    ic.setVisible(true);
-    jDesktopPane1.add(ic);
+    Cadastrar_Infor_Clinica cic = new Cadastrar_Infor_Clinica();
+    cic.setVisible(true);
+    jDesktopPane1.add(cic);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

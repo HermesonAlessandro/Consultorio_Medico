@@ -39,7 +39,7 @@ public class Listar_Cid extends javax.swing.JInternalFrame {
 
         }catch (Exception e){
             JOptionPane.showMessageDialog(null,
-                "nao foi possivel o encontrar um Cid!: "+e.getMessage());
+                "Não foi possivel o encontrar um Cid!: "+e.getMessage());
         }
     }
 
@@ -169,11 +169,11 @@ public class Listar_Cid extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-             private void CarregarCampos(){
-             jTextField1.setEnabled(false);
-             jTextField2.setEnabled(true);
-             jTextField3.setEnabled(true);
-             jTextField4.setEnabled(true);
+          private void CarregarCampos(){
+          jTextField1.setEnabled(false);
+          jTextField2.setEnabled(true);
+          jTextField3.setEnabled(true);
+          jTextField4.setEnabled(true);
           int setar = jTable1.getSelectedRow();
           jTextField1.setText(jTable1.getModel().getValueAt(setar, 0).toString());
           jTextField2.setText(jTable1.getModel().getValueAt(setar, 1).toString());
@@ -189,43 +189,43 @@ public class Listar_Cid extends javax.swing.JInternalFrame {
           }
           
           
-            private void AlterarCid(){                  
-            int capitulo;
-            String descricao;
-            String cod_cid_10;
-            int cod;
+          private void AlterarCid(){                  
+          int capitulo;
+          String descricao;
+          String cod_cid_10;
+          int cod;
            
             
-            cod = Integer.valueOf(jTextField1.getText());
-            capitulo = Integer.valueOf(jTextField2.getText());
-            descricao = jTextField3.getText();
-            cod_cid_10 = jTextField4.getText();
+          cod = Integer.valueOf(jTextField1.getText());
+          capitulo = Integer.valueOf(jTextField2.getText());
+          descricao = jTextField3.getText();
+          cod_cid_10 = jTextField4.getText();
             
             
             
-            Cid objcid = new Cid();
-            objcid.setCapitulo(capitulo);
-            objcid.setDescricao(descricao);
-            objcid.setCod_cid_10(cod_cid_10);
-            objcid.setCod(cod);
+          Cid objcid = new Cid();
+          objcid.setCapitulo(capitulo);
+          objcid.setDescricao(descricao);
+          objcid.setCod_cid_10(cod_cid_10);
+          objcid.setCod(cod);
             
       
-            CidDAO objciddao = new CidDAO(ConexaoDAO.AbrirConexao());
-            objciddao.AlterarCid(objcid);
+          CidDAO objciddao = new CidDAO(ConexaoDAO.AbrirConexao());
+          objciddao.AlterarCid(objcid);
        }
             
-            private void ExcluirCid(){
-                int cod;
+           private void ExcluirCid(){
+           int cod;
                 
-               cod = Integer.valueOf(jTextField1.getText());
+           cod = Integer.valueOf(jTextField1.getText());
                
-               Cid objcid = new Cid();
-               objcid.setCod(cod);
+           Cid objcid = new Cid();
+           objcid.setCod(cod);
                
-               CidDAO objciddao = new CidDAO(ConexaoDAO.AbrirConexao());
-               objciddao.ExcluirCid(objcid);
+           CidDAO objciddao = new CidDAO(ConexaoDAO.AbrirConexao());
+           objciddao.ExcluirCid(objcid);
             
-            }
+         }
           
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         CarregarCampos();

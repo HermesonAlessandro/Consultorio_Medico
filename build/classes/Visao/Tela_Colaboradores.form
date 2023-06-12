@@ -34,7 +34,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="520" y="70" width="-1" height="-1"/>
+          <AbsoluteConstraints x="430" y="70" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -43,7 +43,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Expressway Rg" size="24" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Consultorio m&#xe9;dico criado por: "/>
+        <Property name="text" type="java.lang.String" value="Consult&#xf3;rio m&#xe9;dico criado por: "/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -56,11 +56,11 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Blue Highway D" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="- Erika Silva Bianqui -"/>
+        <Property name="text" type="java.lang.String" value="- &#xc9;rika Silva Bianqui -"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="587" y="210" width="130" height="-1"/>
+          <AbsoluteConstraints x="587" y="210" width="140" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>

@@ -140,7 +140,7 @@ public class Cadastrar_Secretaria extends javax.swing.JInternalFrame {
         }
         
         else{   
-        int cpf = Integer.valueOf(jTextField1.getText());
+       int cpf = Integer.valueOf(jTextField1.getText());
        String nome = jTextField2.getText();
        int rg = Integer.valueOf(jTextField3.getText());
        int tel = Integer.valueOf(jTextField4.getText());
@@ -154,7 +154,11 @@ public class Cadastrar_Secretaria extends javax.swing.JInternalFrame {
        Connection con = ConexaoDAO.AbrirConexao();
        SecretariaDAO dao = new SecretariaDAO(con);
        dao.Cadastrar_Secretaria(s);
-                }        
+       }
+        
+        Tela_Login tl = new Tela_Login();
+        tl.setVisible(true);
+        dispose(); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

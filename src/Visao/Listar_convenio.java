@@ -40,7 +40,7 @@ public class Listar_convenio extends javax.swing.JInternalFrame {
 
         }catch (Exception e){
             JOptionPane.showMessageDialog(null,
-                "nao foi possivel o encontrar um Convenio!: "+e.getMessage());
+                "Não foi possivel o encontrar um Convenio!: "+e.getMessage());
         }
     }
 
@@ -175,12 +175,12 @@ public class Listar_convenio extends javax.swing.JInternalFrame {
 
         setBounds(0, 0, 752, 557);
     }// </editor-fold>//GEN-END:initComponents
-            private void CarregarCampos(){
-            jTextField1.setEnabled(false);
-            jTextField2.setEnabled(true);
-            jTextField3.setEnabled(true);
-            jTextField4.setEnabled(true);
-            jTextField5.setEnabled(true);
+          private void CarregarCampos(){
+          jTextField1.setEnabled(false);
+          jTextField2.setEnabled(true);
+          jTextField3.setEnabled(true);
+          jTextField4.setEnabled(true);
+          jTextField5.setEnabled(true);
           int setar = jTable1.getSelectedRow();    
           jTextField1.setText(jTable1.getModel().getValueAt(setar, 0).toString());
           jTextField2.setText(jTable1.getModel().getValueAt(setar, 1).toString());
@@ -190,12 +190,12 @@ public class Listar_convenio extends javax.swing.JInternalFrame {
         }
             
           private void LimparDados(){
-              jTextField1.setText("");
-              jTextField2.setText("");
-              jTextField3.setText("");
-              jTextField4.setText("");
-              jTextField5.setText(""); 
-            }
+          jTextField1.setText("");
+          jTextField2.setText("");
+          jTextField3.setText("");
+          jTextField4.setText("");
+          jTextField5.setText(""); 
+        }
           
           
             private void AlterarConvenio(){ 
@@ -228,17 +228,16 @@ public class Listar_convenio extends javax.swing.JInternalFrame {
             }
             
             private void ExcluirConvenio(){
-                int cnpj;
+            int cnpj;
                 
-                cnpj = Integer.valueOf(jTextField1.getText());
+             cnpj = Integer.valueOf(jTextField1.getText());
                 
-                Convenio objconvenio = new Convenio();
-                objconvenio.setCnpj(cnpj);
+             Convenio objconvenio = new Convenio();
+             objconvenio.setCnpj(cnpj);
                 
-                ConvenioDAO objconveniodao = new ConvenioDAO(ConexaoDAO.AbrirConexao());
-                objconveniodao.ExcluirConvenio(objconvenio);
-      
-            }
+             ConvenioDAO objconveniodao = new ConvenioDAO(ConexaoDAO.AbrirConexao());
+             objconveniodao.ExcluirConvenio(objconvenio);
+          }
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
       CarregarCampos();
     }//GEN-LAST:event_jButton3ActionPerformed

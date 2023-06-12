@@ -43,7 +43,7 @@ public class Listar_Medico extends javax.swing.JInternalFrame {
 
         }catch (Exception e){
             JOptionPane.showMessageDialog(null,
-                "nao foi possivel o encontrar um Medico!: "+e.getMessage());
+                "Não foi possivel o encontrar um Medico!: "+e.getMessage());
         }
     }
 
@@ -90,7 +90,7 @@ public class Listar_Medico extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("Listar Médico");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, -1, -1));
 
         jLabel2.setText("CPF:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, -1, -1));
@@ -206,21 +206,21 @@ public class Listar_Medico extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
         private void CarregarCampos(){
-            jTextField1.setEnabled(false);
-            jTextField2.setEnabled(true);
-            jTextField3.setEnabled(true);
-            jTextField4.setEnabled(true);
-            jTextField5.setEnabled(true);
-            jComboBox1.setEnabled(true);
-            jPasswordField1.setEnabled(true);
-          int setar = jTable1.getSelectedRow();
-          jTextField1.setText(jTable1.getModel().getValueAt(setar, 0).toString());
-          jTextField2.setText(jTable1.getModel().getValueAt(setar, 1).toString());
-          jTextField3.setText(jTable1.getModel().getValueAt(setar, 2).toString());
-          jTextField4.setText(jTable1.getModel().getValueAt(setar, 3).toString());
-          jTextField5.setText(jTable1.getModel().getValueAt(setar, 4).toString());
-          String sexo = jTable1.getModel().getValueAt(setar, 5).toString();
-          jPasswordField1.setText(jTable1.getModel().getValueAt(setar, 6).toString());
+        jTextField1.setEnabled(false);
+        jTextField2.setEnabled(true);
+        jTextField3.setEnabled(true);
+        jTextField4.setEnabled(true);
+        jTextField5.setEnabled(true);
+        jComboBox1.setEnabled(true);
+        jPasswordField1.setEnabled(true);
+        int setar = jTable1.getSelectedRow();
+        jTextField1.setText(jTable1.getModel().getValueAt(setar, 0).toString());
+        jTextField2.setText(jTable1.getModel().getValueAt(setar, 1).toString());
+        jTextField3.setText(jTable1.getModel().getValueAt(setar, 2).toString());
+        jTextField4.setText(jTable1.getModel().getValueAt(setar, 3).toString());
+        jTextField5.setText(jTable1.getModel().getValueAt(setar, 4).toString());
+        String sexo = jTable1.getModel().getValueAt(setar, 5).toString();
+        jPasswordField1.setText(jTable1.getModel().getValueAt(setar, 6).toString());
           
           if("M".equals(sexo)){
              jComboBox1.setSelectedIndex(0);
@@ -274,20 +274,17 @@ public class Listar_Medico extends javax.swing.JInternalFrame {
        }
             
             private void ExcluirMedico(){
-                int cpf;
+            int cpf;
                 
-               cpf = Integer.valueOf(jTextField1.getText());
+            cpf = Integer.valueOf(jTextField1.getText());
                
-               Medico objmedico = new Medico();
-               objmedico.setCpf(cpf);
+            Medico objmedico = new Medico();
+            objmedico.setCpf(cpf);
                
-               MedicoDAO objmedicodao = new MedicoDAO(ConexaoDAO.AbrirConexao());
-               objmedicodao.ExcluirMedico(objmedico);
+            MedicoDAO objmedicodao = new MedicoDAO(ConexaoDAO.AbrirConexao());
+            objmedicodao.ExcluirMedico(objmedico);
             }
-            
-            
-           
-            
+    
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed

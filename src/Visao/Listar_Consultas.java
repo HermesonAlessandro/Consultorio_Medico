@@ -38,7 +38,7 @@ public class Listar_Consultas extends javax.swing.JInternalFrame {
 
         }catch (Exception e){
             JOptionPane.showMessageDialog(null,
-                "nao foi possivel o encontrar um Consulta!: "+e.getMessage());
+                "Não foi possivel o encontrar um Consulta!: "+e.getMessage());
         }
     }
 
@@ -176,13 +176,13 @@ public class Listar_Consultas extends javax.swing.JInternalFrame {
           jTextField1.setText(jTable1.getModel().getValueAt(setar, 0).toString());
           jTextField2.setText(jTable1.getModel().getValueAt(setar, 1).toString());
           jTextField3.setText(jTable1.getModel().getValueAt(setar, 2).toString());     
-    }
+        }
           
           private void LimparDados(){
           jTextField1.setText("");
           jTextField2.setText("");
           jTextField3.setText("");
-          }
+        }
           
           
             private void AlterarConsulta(){                  
@@ -205,18 +205,18 @@ public class Listar_Consultas extends javax.swing.JInternalFrame {
             
             ConsultaDAO objconsultadao = new ConsultaDAO(ConexaoDAO.AbrirConexao());
             objconsultadao.AlterarConsulta(objconsulta);
-       }
+        }
             
             private void ExcluirConsulta(){
-               int id;
+            int id;
                
-               id = Integer.valueOf(jTextField1.getText());
+            id = Integer.valueOf(jTextField1.getText());
                
-               Consulta objconsulta = new Consulta();
-               objconsulta.setId(id);
+            Consulta objconsulta = new Consulta();
+            objconsulta.setId(id);
                
-               ConsultaDAO objconsultadao = new ConsultaDAO(ConexaoDAO.AbrirConexao());
-               objconsultadao.ExcluirConsulta(objconsulta);
+            ConsultaDAO objconsultadao = new ConsultaDAO(ConexaoDAO.AbrirConexao());
+            objconsultadao.ExcluirConsulta(objconsulta);
             }
                 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

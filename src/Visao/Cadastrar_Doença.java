@@ -62,7 +62,7 @@ public class Cadastrar_Doença extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         jLabel1.setText("Cadastrar Doença");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, -1, -1));
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 104, -1, -1));
 
         jLabel3.setText("Capitulo:");
@@ -121,16 +121,16 @@ public class Cadastrar_Doença extends javax.swing.JInternalFrame {
                JOptionPane.showMessageDialog(null, "preencha todos os campos!");
         }
         else{
-      int capitulo = Integer.valueOf(jtxt1.getText());
-      String descricao = jtxt2.getText();
-      String cod_cid_10 = jtxt4.getText();
-      int cod = Integer.valueOf(jtxt3.getText());
+        int capitulo = Integer.valueOf(jtxt1.getText());
+        String descricao = jtxt2.getText();
+        String cod_cid_10 = jtxt4.getText();
+        int cod = Integer.valueOf(jtxt3.getText());
       
-       Cid ci = new Cid(cod, capitulo, descricao, cod_cid_10);
-       Connection con = ConexaoDAO.AbrirConexao();
-       CidDAO dao = new CidDAO(con);
-       dao.Cadastrar_Cid(ci);
-     }
+        Cid ci = new Cid(cod, capitulo, descricao, cod_cid_10);
+        Connection con = ConexaoDAO.AbrirConexao();
+        CidDAO dao = new CidDAO(con);
+        dao.Cadastrar_Cid(ci);
+       }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jtxt3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt3ActionPerformed

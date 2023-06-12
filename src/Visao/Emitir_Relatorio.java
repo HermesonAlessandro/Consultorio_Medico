@@ -56,7 +56,7 @@ public class Emitir_Relatorio extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, -1, -1));
 
         jLabel6.setText("ID:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 170, -1, -1));
@@ -77,7 +77,7 @@ public class Emitir_Relatorio extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/aaa (2).png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -85,7 +85,7 @@ public class Emitir_Relatorio extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(jTextField1.getText().isBlank() || jTextField2.getText().isBlank() ||
             jTextField3.getText().isBlank()){
-            JOptionPane.showMessageDialog(null, "preencha todos os campos!");
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
         }
 
         else{

@@ -42,7 +42,7 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
 
         }catch (Exception e){
             JOptionPane.showMessageDialog(null,
-                "nao foi possivel o encontrar um Administrador!: "+e.getMessage());
+                "Não foi possivel o encontrar um Administrador!: "+e.getMessage());
         }
     }
 
@@ -226,7 +226,7 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, -1, -1));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/aaa (2).png"))); // NOI18N
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, -1));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/aaa (2).png"))); // NOI18N
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(-120, 590, -1, -1));
@@ -237,7 +237,7 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
 
     }//GEN-LAST:event_jTextField1ActionPerformed
-        private void CarregarCampos(){
+          private void CarregarCampos(){
           jTextField1.setEnabled(false);
           jTextField2.setEnabled(true);
           jTextField3.setEnabled(true);
@@ -263,7 +263,7 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
           }      
         }
     
-        private void LimparDados(){
+            private void LimparDados(){
             jTextField1.setText("");
             jTextField2.setText("");
             jTextField3.setText("");
@@ -272,7 +272,7 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
             jPasswordField1.setText("");
         }
         
-        private void AlterarAdministrador(){                  
+            private void AlterarAdministrador(){                  
             int rg_a;
             String nome_func;
             int cpf;
@@ -304,7 +304,7 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
             objadministradordao.AlterarAdministrador(objadministrador);
        }
         
-         private void ExcluirAdministrador(){
+             private void ExcluirAdministrador(){
              int rg_a;
              
              rg_a = Integer.valueOf(jTextField1.getText());

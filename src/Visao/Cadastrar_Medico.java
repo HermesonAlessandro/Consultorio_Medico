@@ -139,31 +139,31 @@ public class Cadastrar_Medico extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(jTextField1.getText().isBlank() || jTextField2.getText().isBlank() || jTextField3.getText().isBlank() 
-                || jTextField4.getText().isBlank() || jTextField5.getText().isBlank() || jPasswordField1.getText().isBlank()){
-            JOptionPane.showMessageDialog(null, "preencha todos os campos!");
+        if(jTextField1.getText().isBlank() || jTextField2.getText().isBlank() 
+                || jTextField3.getText().isBlank() || jTextField4.getText().isBlank() 
+                || jTextField5.getText().isBlank() || jPasswordField1.getText().isBlank()){
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
         }
         
         
         else{
-       int cpf = Integer.valueOf(jTextField1.getText());
-       String nome = jTextField2.getText();
-       int rg = Integer.valueOf(jTextField3.getText());
-       int tel = Integer.valueOf(jTextField4.getText());
-       String end = jTextField5.getText();
-       String sexo = jComboBox1.getSelectedItem().toString();
-       String senha = jPasswordField1.getText();
+        int cpf = Integer.valueOf(jTextField1.getText());
+        String nome = jTextField2.getText();
+        int rg = Integer.valueOf(jTextField3.getText());
+        int tel = Integer.valueOf(jTextField4.getText());
+        String end = jTextField5.getText();
+        String sexo = jComboBox1.getSelectedItem().toString();
+        String senha = jPasswordField1.getText();
        
-       Medico m = new Medico(cpf, nome, rg, tel, end, sexo, senha);
-       Connection con = ConexaoDAO.AbrirConexao();
-       MedicoDAO dao = new MedicoDAO(con);
-       dao.Cadastrar_Medico(m);
+        Medico m = new Medico(cpf, nome, rg, tel, end, sexo, senha);
+        Connection con = ConexaoDAO.AbrirConexao();
+        MedicoDAO dao = new MedicoDAO(con);
+        dao.Cadastrar_Medico(m);
         } 
-      
-       
-   
-                  
-              
+        
+        Tela_Login tl = new Tela_Login();
+        tl.setVisible(true);
+        dispose();      
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed

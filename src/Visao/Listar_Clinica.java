@@ -39,7 +39,7 @@ public class Listar_Clinica extends javax.swing.JInternalFrame {
 
         }catch (Exception e){
             JOptionPane.showMessageDialog(null,
-                "nao foi possivel o encontrar uma Clinica!: "+e.getMessage());
+                "Não foi possivel o encontrar uma Clinica!: "+e.getMessage());
         }
     }
 
@@ -170,7 +170,7 @@ public class Listar_Clinica extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-        private void CarregarCampos(){
+          private void CarregarCampos(){
           jTextField1.setEnabled(false);
           jTextField2.setEnabled(true);
           jTextField3.setEnabled(true);
@@ -180,50 +180,50 @@ public class Listar_Clinica extends javax.swing.JInternalFrame {
           jTextField2.setText(jTable1.getModel().getValueAt(setar, 1).toString());
           jTextField3.setText(jTable1.getModel().getValueAt(setar, 2).toString());
           jTextField4.setText(jTable1.getModel().getValueAt(setar, 3).toString());        
-    }
+         }
         
-        private void LimparDados(){
-        jTextField1.setText("");
-        jTextField2.setText("");
-        jTextField3.setText("");
-        jTextField4.setText("");
-        }
+         private void LimparDados(){
+         jTextField1.setText("");
+         jTextField2.setText("");
+         jTextField3.setText("");
+         jTextField4.setText("");
+         }
         
         
-        private void AlterarClinica(){                  
-            int cnpj;
-            String nome;
-            String end;
-            int tel;
+         private void AlterarClinica(){                  
+         int cnpj;
+         String nome;
+         String end;
+         int tel;
                     
-            cnpj = Integer.valueOf(jTextField1.getText());
-            nome = jTextField2.getText();
-            end = jTextField3.getText();
-            tel = Integer.valueOf(jTextField4.getText());
+         cnpj = Integer.valueOf(jTextField1.getText());
+         nome = jTextField2.getText();
+         end = jTextField3.getText();
+         tel = Integer.valueOf(jTextField4.getText());
             
             
-            Clinica objclinica = new Clinica();
-            objclinica.setCnpj(cnpj);
-            objclinica.setNome(nome);
-            objclinica.setEnd(end);
-            objclinica.setTel(tel);
+         Clinica objclinica = new Clinica();
+         objclinica.setCnpj(cnpj);
+         objclinica.setNome(nome);
+         objclinica.setEnd(end);
+         objclinica.setTel(tel);
             
            
             
-            ClinicaDAO objclinicadao = new ClinicaDAO(ConexaoDAO.AbrirConexao());
-            objclinicadao.AlterarClinica(objclinica);
+         ClinicaDAO objclinicadao = new ClinicaDAO(ConexaoDAO.AbrirConexao());
+         objclinicadao.AlterarClinica(objclinica);
        }
         
         
         private void ExcluirClinica(){
-            int cnpj;
+        int cnpj;
             
-            cnpj = Integer.valueOf(jTextField1.getText());
-            Clinica objclinica = new Clinica();
-            objclinica.setCnpj(cnpj);
+        cnpj = Integer.valueOf(jTextField1.getText());
+        Clinica objclinica = new Clinica();
+        objclinica.setCnpj(cnpj);
             
-            ClinicaDAO objclinicadao = new ClinicaDAO(ConexaoDAO.AbrirConexao());
-            objclinicadao.ExcluirClinica(objclinica);
+        ClinicaDAO objclinicadao = new ClinicaDAO(ConexaoDAO.AbrirConexao());
+        objclinicadao.ExcluirClinica(objclinica);
         }
     
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

@@ -126,30 +126,24 @@ public class Cadastrar_Paciente extends javax.swing.JInternalFrame {
                 jTextField3.getText().isBlank() || jTextField4.getText().isBlank() || 
                 jTextField5.getText().isBlank() || jTextField6.getText().isBlank()){
             
-            JOptionPane.showMessageDialog(null, "preencha todos os campos!");
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
         
         }
         
-        
-        
         else{ 
-       int cpf = Integer.valueOf(jTextField1.getText());
-       String nome = jTextField2.getText();
-       String end = jTextField3.getText();
-       int tel = Integer.valueOf(jTextField4.getText());
-       int rg = Integer.valueOf(jTextField5.getText());
-       String sexo = jComboBox1.getSelectedItem().toString();
-       String convenio = jTextField6.getText();
+        int cpf = Integer.valueOf(jTextField1.getText());
+        String nome = jTextField2.getText();
+        String end = jTextField3.getText();
+        int tel = Integer.valueOf(jTextField4.getText());
+        int rg = Integer.valueOf(jTextField5.getText());
+        String sexo = jComboBox1.getSelectedItem().toString();
+        String convenio = jTextField6.getText();
        
-       Paciente p = new Paciente(cpf, nome, end, tel, rg, sexo, convenio, 1234589, 123456789);
-       Connection con = ConexaoDAO.AbrirConexao();
-       PacienteDAO dao = new PacienteDAO(con);
-       dao.Cadastrar_Paciente(p);
+        Paciente p = new Paciente(cpf, nome, end, tel, rg, sexo, convenio, 1234589, 123456789);
+        Connection con = ConexaoDAO.AbrirConexao();
+        PacienteDAO dao = new PacienteDAO(con);
+        dao.Cadastrar_Paciente(p);
        }
-       
-       
-       
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed

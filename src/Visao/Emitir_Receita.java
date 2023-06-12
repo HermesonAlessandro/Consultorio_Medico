@@ -90,21 +90,20 @@ public class Emitir_Receita extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(jTextField1.getText().isBlank() || jTextField2.getText().isBlank() || jTextField3.getText().isBlank() 
-                || jTextField4.getText().isBlank()){
-            JOptionPane.showMessageDialog(null, "preencha todos os campos!");
+        if(jTextField1.getText().isBlank() || jTextField2.getText().isBlank() 
+                || jTextField3.getText().isBlank() || jTextField4.getText().isBlank()){
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
         }
         
-        
         else{
-       String descricao = jTextField4.getText();
-       int fk_cpf_m = Integer.valueOf(jTextField2.getText());
-       int fk_cpf_p = Integer.valueOf(jTextField3.getText());
+        String descricao = jTextField4.getText();
+        int fk_cpf_m = Integer.valueOf(jTextField2.getText());
+        int fk_cpf_p = Integer.valueOf(jTextField3.getText());
              
-       Receita r = new Receita(0, descricao,729566628,8797897);
-       Connection con = ConexaoDAO.AbrirConexao();
-       ReceitaDAO dao = new ReceitaDAO(con);
-       dao.Cadastrar_Receita(r);
+        Receita r = new Receita(0, descricao,729566628,8797897);
+        Connection con = ConexaoDAO.AbrirConexao();
+        ReceitaDAO dao = new ReceitaDAO(con);
+        dao.Cadastrar_Receita(r);
         } 
     }//GEN-LAST:event_jButton1ActionPerformed
 

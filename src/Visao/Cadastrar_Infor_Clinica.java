@@ -50,7 +50,7 @@ public class Cadastrar_Infor_Clinica extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 24)); // NOI18N
         jLabel1.setText("Cadastrar Informções da Clínica");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 390, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 390, -1));
 
         jLabel2.setText("CNPJ:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 40, 20));
@@ -105,7 +105,7 @@ public class Cadastrar_Infor_Clinica extends javax.swing.JInternalFrame {
         
         if(jTextField1.getText().isBlank() || jTextField2.getText().isBlank()|| 
                 jTextField3.getText().isBlank() || jTextField4.getText().isBlank()){
-        JOptionPane.showMessageDialog(null, "preencha todos os campos!");
+        JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
         
         }
          
@@ -115,12 +115,11 @@ public class Cadastrar_Infor_Clinica extends javax.swing.JInternalFrame {
         String end = jTextField3.getText();
         int tel = Integer.valueOf(jTextField4.getText());
         
-       Clinica cl = new Clinica(cnpj, nome, end, tel, 1234589, 729566628,1234589, 285654);
-       Connection con = ConexaoDAO.AbrirConexao();
-       ClinicaDAO dao = new ClinicaDAO(con);
-       dao.Cadastrar_Clinica(cl);
+        Clinica cl = new Clinica(cnpj, nome, end, tel, 1234589, 729566628,1234589, 285654);
+        Connection con = ConexaoDAO.AbrirConexao();
+        ClinicaDAO dao = new ClinicaDAO(con);
+        dao.Cadastrar_Clinica(cl);
        }  
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed

@@ -98,8 +98,8 @@ public class Marcar_Comp_Medico extends javax.swing.JInternalFrame {
             jtxt3.getText().isBlank() || jtxt4.getText().isBlank() ||
             jtxt5.getText().isBlank() || jTextField6.getText().isBlank()){
 
-            JOptionPane.showMessageDialog(null, "preencha todos os campos!");
-        }
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
+           }
 
         else{
             String descricao = jtxt1.getText();
@@ -109,7 +109,6 @@ public class Marcar_Comp_Medico extends javax.swing.JInternalFrame {
             Connection con = ConexaoDAO.AbrirConexao();
             Compromisso_medicoDAO dao = new Compromisso_medicoDAO(con);
             dao.Marcar_Compromisso_medico(cm);
-
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

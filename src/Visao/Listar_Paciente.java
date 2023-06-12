@@ -44,7 +44,7 @@ public class Listar_Paciente extends javax.swing.JInternalFrame {
 
         }catch (Exception e){
             JOptionPane.showMessageDialog(null,
-                "nao foi possivel o encontrar um Paciente!: "+e.getMessage());
+                "Não foi possivel o encontrar um Paciente!: "+e.getMessage());
         }
     }
 
@@ -214,7 +214,7 @@ public class Listar_Paciente extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-             private void CarregarCampos(){
+          private void CarregarCampos(){
           jTextField1.setEnabled(false);
           jTextField2.setEnabled(true);
           jTextField3.setEnabled(true);
@@ -240,60 +240,60 @@ public class Listar_Paciente extends javax.swing.JInternalFrame {
           }
              }
              
-             private void LimparDados(){
-             jTextField1.setText("");
-             jTextField2.setText("");
-             jTextField3.setText("");
-             jTextField4.setText("");
-             jTextField6.setText("");
-             jTextField7.setText(""); 
-             }
+           private void LimparDados(){
+           jTextField1.setText("");
+           jTextField2.setText("");
+           jTextField3.setText("");
+           jTextField4.setText("");
+           jTextField6.setText("");
+           jTextField7.setText(""); 
+         }
              
              
-            private void AlterarPaciente(){                  
-            int cpf;
-            String nome;
-            String end;
-            int tel;
-            int rg;
-            String sexo;
-            String convenio;
+           private void AlterarPaciente(){                  
+           int cpf;
+           String nome;
+           String end;
+           int tel;
+           int rg;
+           String sexo;
+           String convenio;
             
-            cpf = Integer.valueOf(jTextField1.getText());
-            nome = jTextField2.getText();
-            end = jTextField3.getText();
-            tel = Integer.valueOf(jTextField4.getText());
-            rg = Integer.valueOf(jTextField6.getText());
-            sexo = jComboBox1.getSelectedItem().toString();
+           cpf = Integer.valueOf(jTextField1.getText());
+           nome = jTextField2.getText();
+           end = jTextField3.getText();
+           tel = Integer.valueOf(jTextField4.getText());
+           rg = Integer.valueOf(jTextField6.getText());
+           sexo = jComboBox1.getSelectedItem().toString();
             
-            convenio = jTextField7.getText();
+           convenio = jTextField7.getText();
             
             
-            Paciente objpaciente = new Paciente();
-            objpaciente.setCpf(cpf);
-            objpaciente.setNome(nome);
-            objpaciente.setEnd(end);
-            objpaciente.setTel(tel);
-            objpaciente.setRg(rg);
-            objpaciente.setSexo(sexo);
-            objpaciente.setConvenio(convenio);
+           Paciente objpaciente = new Paciente();
+           objpaciente.setCpf(cpf);
+           objpaciente.setNome(nome);
+           objpaciente.setEnd(end);
+           objpaciente.setTel(tel);
+           objpaciente.setRg(rg);
+           objpaciente.setSexo(sexo);
+           objpaciente.setConvenio(convenio);
            
             
-            PacienteDAO objpacientedao = new PacienteDAO(ConexaoDAO.AbrirConexao());
-            objpacientedao.AlterarPaciente(objpaciente);
+           PacienteDAO objpacientedao = new PacienteDAO(ConexaoDAO.AbrirConexao());
+           objpacientedao.AlterarPaciente(objpaciente);
        }
             
             
-               private void ExcluirPaciente(){
-               int cpf;
+             private void ExcluirPaciente(){
+             int cpf;
                 
-               cpf = Integer.valueOf(jTextField1.getText());
+             cpf = Integer.valueOf(jTextField1.getText());
                
-               Paciente objpaciente = new Paciente();
-               objpaciente.setCpf(cpf);
+             Paciente objpaciente = new Paciente();
+             objpaciente.setCpf(cpf);
                
-               PacienteDAO objpacientedao = new PacienteDAO(ConexaoDAO.AbrirConexao());
-               objpacientedao.ExcluirPaciente(objpaciente);
+             PacienteDAO objpacientedao = new PacienteDAO(ConexaoDAO.AbrirConexao());
+             objpacientedao.ExcluirPaciente(objpaciente);
             }
     
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

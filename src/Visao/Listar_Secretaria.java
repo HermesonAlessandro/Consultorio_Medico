@@ -43,7 +43,7 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
 
         }catch (Exception e){
             JOptionPane.showMessageDialog(null,
-                "nao foi possivel o encontrar uma Secretaria!: "+e.getMessage());
+                "Não foi possivel o encontrar uma Secretaria!: "+e.getMessage());
         }
     }
 
@@ -147,7 +147,7 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setText("Lista Secretaria");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(361, 0, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, -1, -1));
 
         jLabel2.setText("Cpf:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 87, -1, -1));
@@ -225,7 +225,7 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
-    private void CarregarCampos(){
+          private void CarregarCampos(){
           jTextField1.setEnabled(false);
           jTextField2.setEnabled(true);
           jTextField3.setEnabled(true);
@@ -252,7 +252,7 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
           
         }
     
-        private void LimparDados(){
+            private void LimparDados(){
             jTextField1.setText("");
             jTextField2.setText("");
             jTextField3.setText("");
@@ -295,16 +295,16 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
             }
             
             private void ExcluirSecretraria(){
-                int cpf;
+            int cpf;
                 
-               cpf = Integer.valueOf(jTextField1.getText());
+            cpf = Integer.valueOf(jTextField1.getText());
                
-               Secretaria objsecretaria = new Secretaria();
-               objsecretaria.setCpf(cpf);
+            Secretaria objsecretaria = new Secretaria();
+            objsecretaria.setCpf(cpf);
                
-               SecretariaDAO objsecretariadao = new SecretariaDAO(ConexaoDAO.AbrirConexao());
-               objsecretariadao.ExcluirSecretaria(objsecretaria);
-            }
+            SecretariaDAO objsecretariadao = new SecretariaDAO(ConexaoDAO.AbrirConexao());
+            objsecretariadao.ExcluirSecretaria(objsecretaria);
+          }
     
     
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

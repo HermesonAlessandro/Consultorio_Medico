@@ -38,13 +38,13 @@ public class Tela_Apresentacao extends javax.swing.JFrame {
         jLabel1.setText("Bem-vindo ao consultório médico!");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(433, 340, -1, -1));
 
-        jButton1.setText("Entrar");
+        jButton1.setText("Entrar/Cadastre seu Administrador");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 480, 140, 30));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 480, 240, 30));
 
         jButton2.setText("Sair");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -61,8 +61,9 @@ public class Tela_Apresentacao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Tela_Login tl = new Tela_Login();
-          tl.setVisible(true);
+        Tela_Cadastro_Adiministrador tca = new Tela_Cadastro_Adiministrador();
+        tca.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

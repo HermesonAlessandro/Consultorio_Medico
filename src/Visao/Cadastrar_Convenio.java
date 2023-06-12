@@ -109,23 +109,21 @@ public class Cadastrar_Convenio extends javax.swing.JInternalFrame {
                 jTextField3.getText().isBlank() || jTextField4.getText().isBlank() || 
                 jTextField5.getText().isBlank()){
         
-           JOptionPane.showMessageDialog(null, "preencha todos os campos!");
+           JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
         }
         
-        
         else{
-       int cnpj = Integer.valueOf(jTextField1.getText());
-       String nome = jTextField2.getText();
-       int tel = Integer.valueOf(jTextField3.getText());
-       String planos = jTextField4.getText();
-       String end = jTextField5.getText();
+        int cnpj = Integer.valueOf(jTextField1.getText());
+        String nome = jTextField2.getText();
+        int tel = Integer.valueOf(jTextField3.getText());
+        String planos = jTextField4.getText();
+        String end = jTextField5.getText();
        
-       
-       Convenio c = new Convenio(cnpj, nome, tel, planos, end, 1234589);
-       Connection con = ConexaoDAO.AbrirConexao();
-       ConvenioDAO dao = new ConvenioDAO(con);
-       dao.Cadastrar_Convenio(c);
-                }
+        Convenio c = new Convenio(cnpj, nome, tel, planos, end, 1234589);
+        Connection con = ConexaoDAO.AbrirConexao();
+        ConvenioDAO dao = new ConvenioDAO(con);
+        dao.Cadastrar_Convenio(c);
+      }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
