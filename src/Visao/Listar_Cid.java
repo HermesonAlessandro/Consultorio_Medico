@@ -292,6 +292,7 @@ public class Listar_Cid extends javax.swing.JInternalFrame {
                 jTable1.setValueAt(c.getCod_cid_10(), num, 3);
                 num++;
         }
+        JOptionPane.showMessageDialog(null, "Busca feita com sucesso!");
         LimparDados();
     }//GEN-LAST:event_jButton6ActionPerformed
 

@@ -254,6 +254,7 @@ public class Listar_Receita extends javax.swing.JInternalFrame {
                 num++;
         }
         LimparDados();
+        JOptionPane.showMessageDialog(null, "Busca feita com sucesso!");
     }//GEN-LAST:event_jButton6ActionPerformed
 
 

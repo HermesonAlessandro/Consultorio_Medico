@@ -55,7 +55,7 @@ public class AdministradorDAO extends ExecuteSQL{
                 
             
             } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, "AdminstradorDAO " +  e.getMessage());
+                JOptionPane.showMessageDialog(null, "AdminstradorDAO: " +  e.getMessage());
                 return null;
             }
     }
@@ -83,7 +83,7 @@ public class AdministradorDAO extends ExecuteSQL{
                  
              }catch(Exception e) {
                  JOptionPane.showMessageDialog(null,
-                         "nao foi possivel encontrar o administrador: " +e.getMessage());
+                         "Não foi possivel encontrar o administrador: " +e.getMessage());
                  
                     }
            
@@ -113,7 +113,7 @@ public class AdministradorDAO extends ExecuteSQL{
         
     }catch(Exception e){
         
-        JOptionPane.showMessageDialog(null, "Administrador nao alterado!: "+e.getMessage());
+        JOptionPane.showMessageDialog(null, "Administrador não alterado!: "+e.getMessage());
  
     }
    

@@ -1,4 +1,3 @@
-
 package Modelo;
 public class Administrador {
     private int rg_a;

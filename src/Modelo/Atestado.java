@@ -1,6 +1,4 @@
 package Modelo;
-
-
 public class Atestado {
     private int id;
     private String dias_ausentes;

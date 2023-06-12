@@ -37,7 +37,7 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
                 jTable1.setValueAt(a.getSexo(), num, 4);
                 jTable1.setValueAt(a.getClin(), num, 5);
                 jTable1.setValueAt(a.getTel(), num, 6);
-                num++;
+                num++;   
             }
 
         }catch (Exception e){
@@ -399,6 +399,7 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
                 
                 num++;
         }
+        JOptionPane.showMessageDialog(null, "Busca feita com sucesso!");
         LimparDados();
     }//GEN-LAST:event_jButton6ActionPerformed
 

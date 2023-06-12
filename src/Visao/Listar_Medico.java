@@ -361,9 +361,9 @@ public class Listar_Medico extends javax.swing.JInternalFrame {
                 jTable1.setValueAt(m.getEnd(), num, 4);
                 jTable1.setValueAt(m.getSexo(), num, 5);
                 jTable1.setValueAt(m.getSenha(), num, 6);
-                
                 num++;
         }
+        JOptionPane.showMessageDialog(null, "Busca feita com sucesso!");
         LimparDados();
        
     }//GEN-LAST:event_jButton6ActionPerformed

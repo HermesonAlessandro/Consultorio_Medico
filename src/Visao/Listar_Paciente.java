@@ -378,6 +378,7 @@ public class Listar_Paciente extends javax.swing.JInternalFrame {
                 jTable2.setValueAt(p.getConvenio(), num, 6);
                 num++;
         }
+        JOptionPane.showMessageDialog(null, "Busca feita com sucesso!");
         LimparDados();
     }//GEN-LAST:event_jButton6ActionPerformed
 

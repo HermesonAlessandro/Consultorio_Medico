@@ -265,6 +265,7 @@ public class Listar_Atestado extends javax.swing.JInternalFrame {
                 jTable1.setValueAt(a.getDias_ausentes(), num, 1);
                 num++;
         }
+        JOptionPane.showMessageDialog(null, "Busca feita com sucesso!");
         LimparDados();
     }//GEN-LAST:event_jButton6ActionPerformed
 

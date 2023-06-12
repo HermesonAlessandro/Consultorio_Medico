@@ -1,5 +1,4 @@
 package DAO;
-
 import Modelo.Compromisso_medico;
 import java.sql.*;
 import java.sql.PreparedStatement;
@@ -28,9 +27,9 @@ public class Compromisso_medicoDAO extends ExecuteSQL{
            
             
             if(ps.executeUpdate()>0){
-                JOptionPane.showMessageDialog(null, "cadastrado com Sucesso!");
+                JOptionPane.showMessageDialog(null, "Compromisso Medico cadastrado com Sucesso!");
             }else{
-                JOptionPane.showMessageDialog(null, "nao foi possivel o cadastro!");
+                JOptionPane.showMessageDialog(null, "Não foi possivel o cadastrar um Compromisso Medico!");
             }
             
            }catch(Exception e){
@@ -62,7 +61,7 @@ public class Compromisso_medicoDAO extends ExecuteSQL{
                  
              }catch(Exception e) {
                  JOptionPane.showMessageDialog(null,
-                         "nao foi possivel encontrar um compromisso medico" +e.getMessage());
+                         "Não foi possivel encontrar um compromisso medico" +e.getMessage());
                  
                     }
            
@@ -89,7 +88,7 @@ public class Compromisso_medicoDAO extends ExecuteSQL{
         
     }catch(Exception e){
         
-        JOptionPane.showMessageDialog(null, "Compromisso Medico nao alterado!"+e.getMessage());
+        JOptionPane.showMessageDialog(null, "Compromisso Medico não alterado!"+e.getMessage());
     
     
     }
@@ -144,7 +143,7 @@ public class Compromisso_medicoDAO extends ExecuteSQL{
                  
              }catch(Exception e) {
                  JOptionPane.showMessageDialog(null,
-                         "nao foi possivel encontrar o Compromisso Medico: " +e.getMessage());
+                         "Não foi possivel encontrar o Compromisso Medico: " +e.getMessage());
                  
                     }
            

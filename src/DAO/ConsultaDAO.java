@@ -28,9 +28,9 @@ public class ConsultaDAO extends ExecuteSQL{
           
             
             if(ps.executeUpdate()>0){
-                JOptionPane.showMessageDialog(null, "cadastrado com Sucesso!");
+                JOptionPane.showMessageDialog(null, "Consulta cadastrada com Sucesso!");
             }else{
-                JOptionPane.showMessageDialog(null, "nao foi possivel o cadastro!");
+                JOptionPane.showMessageDialog(null, "Não foi possivel o cadastrar uma Consulta!");
             }
             
            }catch(Exception e){
@@ -63,7 +63,7 @@ public class ConsultaDAO extends ExecuteSQL{
                  
              }catch(Exception e) {
                  JOptionPane.showMessageDialog(null,
-                         "nao foi possivel encontrar a consulta" +e.getMessage());
+                         "Não foi possivel encontrar a consulta: " +e.getMessage());
                  
                     }
            
@@ -87,7 +87,7 @@ public class ConsultaDAO extends ExecuteSQL{
         
     }catch(Exception e){
         
-    JOptionPane.showMessageDialog(null, "Consulta nao alterado!"+e.getMessage());
+    JOptionPane.showMessageDialog(null, "Consulta não alterado!"+e.getMessage());
     }
    
    }
@@ -106,7 +106,7 @@ public class ConsultaDAO extends ExecuteSQL{
         JOptionPane.showMessageDialog(null, "Consulta Excluida!");
             
         }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Consulta nao Excluida!"+e.getMessage());
+            JOptionPane.showMessageDialog(null, "Consulta não Excluida!: "+e.getMessage());
             
         }
     }
@@ -139,7 +139,7 @@ public class ConsultaDAO extends ExecuteSQL{
                  
              }catch(Exception e) {
                  JOptionPane.showMessageDialog(null,
-                         "nao foi possivel encontrar um Consulta: " +e.getMessage());
+                         "Não foi possivel encontrar um Consulta: " +e.getMessage());
                  
                     }
            

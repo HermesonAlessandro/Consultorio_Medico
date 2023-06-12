@@ -254,6 +254,7 @@ public class Listar_Relatorio extends javax.swing.JInternalFrame {
                 jTable1.setValueAt(r.getDescricao(), num, 1);
                 num++;
         }
+        JOptionPane.showMessageDialog(null, "Busca feita com sucesso!");
         LimparDados();
     }//GEN-LAST:event_jButton6ActionPerformed
 

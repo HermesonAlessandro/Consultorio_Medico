@@ -214,7 +214,7 @@ public class Listar_Compromisso_Medico extends javax.swing.JInternalFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 80, 20));
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 80, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/desing (2).png"))); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, -1, -1));
@@ -292,6 +292,7 @@ public class Listar_Compromisso_Medico extends javax.swing.JInternalFrame {
             jTable1.setValueAt(cm.getH_ini(), num, 3);
             num++;
         }
+        JOptionPane.showMessageDialog(null, "Busca feita com sucesso!");
         LimparDados();
     }//GEN-LAST:event_jButton6ActionPerformed
 

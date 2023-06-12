@@ -4,7 +4,6 @@ import Modelo.Atestado;
 import java.sql.*;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
-import javax.print.DocFlavor;
 import javax.swing.JOptionPane;
 
 public class AtestadoDAO extends ExecuteSQL{
@@ -27,9 +26,9 @@ public class AtestadoDAO extends ExecuteSQL{
            
             
             if(ps.executeUpdate()>0){
-                JOptionPane.showMessageDialog(null, "cadastrado com Sucesso!");
+                JOptionPane.showMessageDialog(null, "Atestado cadastrado com Sucesso!");
             }else{
-                JOptionPane.showMessageDialog(null, "nao foi possivel o cadastro!");
+                JOptionPane.showMessageDialog(null, "Não foi possivel o cadastrar o Atestado!");
             }
             
            }catch(Exception e){
@@ -58,7 +57,7 @@ public class AtestadoDAO extends ExecuteSQL{
                  
              }catch(Exception e) {
                  JOptionPane.showMessageDialog(null,
-                         "nao foi possivel encontrar um atestado" +e.getMessage());
+                         "Não foi possivel encontrar um Atestado: " +e.getMessage());
                  
                     }
            
@@ -82,7 +81,7 @@ public class AtestadoDAO extends ExecuteSQL{
         
     }catch(Exception e){
         
-        JOptionPane.showMessageDialog(null, "Atestado nao alterado!"+e.getMessage());
+        JOptionPane.showMessageDialog(null, "Atestado não alterado!: "+e.getMessage());
     
     
     }
@@ -135,7 +134,7 @@ public class AtestadoDAO extends ExecuteSQL{
                  
              }catch(Exception e) {
                  JOptionPane.showMessageDialog(null,
-                         "nao foi possivel encontrar o Atestado: " +e.getMessage());
+                         "Não foi possivel encontrar o Atestado: " +e.getMessage());
                  
                     }
            

@@ -31,9 +31,9 @@ public class PacienteDAO extends ExecuteSQL{
             ps.setInt(9,p.getFk_cnpj_convenio());
             
             if(ps.executeUpdate()>0){
-                JOptionPane.showMessageDialog(null, "cadastrado com Sucesso!");
+                JOptionPane.showMessageDialog(null, "Paciente cadastrado com Sucesso!");
             }else{
-                JOptionPane.showMessageDialog(null, "nao foi possivel o cadastro!");
+                JOptionPane.showMessageDialog(null, "Não foi possivel o cadastrar um Paciente!");
             }
             
            }catch(Exception e){
@@ -69,7 +69,7 @@ public class PacienteDAO extends ExecuteSQL{
                  
              }catch(Exception e) {
                  JOptionPane.showMessageDialog(null,
-                         "nao foi possivel encontrar o medico" +e.getMessage());
+                         "Não foi possivel encontrar o Paciente: " +e.getMessage());
                  
                     }
            
@@ -100,7 +100,7 @@ public class PacienteDAO extends ExecuteSQL{
         
     }catch(Exception e){
         
-        JOptionPane.showMessageDialog(null, "Paciente nao alterado!"+e.getMessage());
+        JOptionPane.showMessageDialog(null, "Paciente não alterado!: "+e.getMessage());
     
     
     }
@@ -122,7 +122,7 @@ public class PacienteDAO extends ExecuteSQL{
         
         }catch(Exception e){
             
-        JOptionPane.showMessageDialog(null, "Paciente não Excluido!"+e.getMessage());
+        JOptionPane.showMessageDialog(null, "Paciente não Excluido!: "+e.getMessage());
         
         }
         }

@@ -37,9 +37,9 @@ public class MedicoDAO extends ExecuteSQL{
             
         
                 if(ps.executeUpdate()>0){
-                JOptionPane.showMessageDialog(null, "cadastrado com Sucesso!");
+                JOptionPane.showMessageDialog(null, "Medico cadastrado com Sucesso!");
             }else{
-                JOptionPane.showMessageDialog(null, "nao foi possivel o cadastro!");
+                JOptionPane.showMessageDialog(null, "Não foi possivel o cadastrar um Medico!");
             }
             
            }catch(Exception e){
@@ -64,7 +64,7 @@ public class MedicoDAO extends ExecuteSQL{
                 
             
             } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, "MedicoDAO " +  e);
+                JOptionPane.showMessageDialog(null, "MedicoDAO: " +  e.getMessage());
                 return null;
             }
             }
@@ -96,7 +96,7 @@ public class MedicoDAO extends ExecuteSQL{
                  
              }catch(Exception e) {
                  JOptionPane.showMessageDialog(null,
-                         "nao foi possivel encontrar o medico" +e.getMessage());
+                         "Não foi possivel encontrar o Medico: " +e.getMessage());
                  
                     }
            
@@ -121,11 +121,11 @@ public class MedicoDAO extends ExecuteSQL{
         pstm.execute();
         pstm.close();
         
-        JOptionPane.showMessageDialog(null, "medico alterado com sucesso!");
+        JOptionPane.showMessageDialog(null, "Medico alterado com sucesso!");
         
     }catch(Exception e){
         
-        JOptionPane.showMessageDialog(null, "Medico nao alterado!"+e.getMessage());
+        JOptionPane.showMessageDialog(null, "Medico não alterado!: "+e.getMessage());
     
     
     }
@@ -147,7 +147,7 @@ public class MedicoDAO extends ExecuteSQL{
         
         }catch(Exception e){
             
-        JOptionPane.showMessageDialog(null, "Medico não excluido!"+e.getMessage());
+        JOptionPane.showMessageDialog(null, "Medico não excluido!: "+e.getMessage());
         
         }
     }
@@ -183,7 +183,7 @@ public class MedicoDAO extends ExecuteSQL{
                  
              }catch(Exception e) {
                  JOptionPane.showMessageDialog(null,
-                         "nao foi possivel encontrar um Medico: " +e.getMessage());
+                         "Não foi possivel encontrar um Medico: " +e.getMessage());
                  
                     }
            

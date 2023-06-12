@@ -31,9 +31,9 @@ public class CidDAO extends ExecuteSQL{
             
             
             if(ps.executeUpdate()>0){
-                JOptionPane.showMessageDialog(null, "cadastrado com Sucesso!");
+                JOptionPane.showMessageDialog(null, "Cid cadastrado com Sucesso!");
             }else{
-                JOptionPane.showMessageDialog(null, "nao foi possivel o cadastro!");
+                JOptionPane.showMessageDialog(null, "Não foi possivel o cadastrar Cid!");
             }
             
            }catch(Exception e){
@@ -64,7 +64,7 @@ public class CidDAO extends ExecuteSQL{
                  
              }catch(Exception e) {
                  JOptionPane.showMessageDialog(null,
-                         "nao foi possivel encontrar uma doença" +e.getMessage());
+                         "nao foi possivel encontrar um Cid: " +e.getMessage());
                  
                     }
            
@@ -90,7 +90,7 @@ public class CidDAO extends ExecuteSQL{
         
     }catch(Exception e){
         
-        JOptionPane.showMessageDialog(null, "Cid nao alterado!"+e.getMessage());
+        JOptionPane.showMessageDialog(null, "Cid nao alterado!: "+e.getMessage());
     
     
     }
@@ -112,7 +112,7 @@ public class CidDAO extends ExecuteSQL{
             
         }catch (Exception e){
             
-            JOptionPane.showMessageDialog(null, "Cid não Excluido!"+e.getMessage());
+            JOptionPane.showMessageDialog(null, "Cid não Excluido!: "+e.getMessage());
        }
     
     }

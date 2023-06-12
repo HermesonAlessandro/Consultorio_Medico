@@ -286,6 +286,7 @@ public class Listar_Consultas extends javax.swing.JInternalFrame {
                 
                 num++;
         }
+        JOptionPane.showMessageDialog(null, "Busca feita com sucesso!");
         LimparDados();
     }//GEN-LAST:event_jButton6ActionPerformed
 

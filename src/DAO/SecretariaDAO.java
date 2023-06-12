@@ -31,9 +31,9 @@ public class SecretariaDAO extends ExecuteSQL{
             ps.setInt(8, s.getRg_adm());
             
             if(ps.executeUpdate()>0){
-                JOptionPane.showMessageDialog(null, "cadastrado com Sucesso!");
+                JOptionPane.showMessageDialog(null, "Secretaria cadastrado com Sucesso!");
             }else{
-                JOptionPane.showMessageDialog(null, "nao foi possivel o cadastro!");
+                JOptionPane.showMessageDialog(null, "Não foi possivel o cadastrar uma Secretaria!");
             }
             
            }catch(Exception e){
@@ -59,7 +59,7 @@ public class SecretariaDAO extends ExecuteSQL{
                 
             
             } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, "SecretariaDAO " +  e);
+                JOptionPane.showMessageDialog(null, "SecretariaDAO: " +  e.getMessage());
                 return null;
             }
     }
@@ -92,7 +92,7 @@ public class SecretariaDAO extends ExecuteSQL{
                  
              }catch(Exception e) {
                  JOptionPane.showMessageDialog(null,
-                         "nao foi possivel encontrar o medico" +e.getMessage());
+                         "nao foi possivel encontrar o Secretaria: " +e.getMessage());
                  
                     }
            
@@ -122,7 +122,7 @@ public class SecretariaDAO extends ExecuteSQL{
         
     }catch(Exception e){
         
-        JOptionPane.showMessageDialog(null, "Secretaria nao alterado!"+e.getMessage());
+        JOptionPane.showMessageDialog(null, "Secretaria nao alterado!: "+e.getMessage());
     
     
     }
@@ -144,7 +144,7 @@ public class SecretariaDAO extends ExecuteSQL{
             JOptionPane.showMessageDialog(null, "Secretaria Excluida!");
            
        } catch (Exception e) {
-        JOptionPane.showMessageDialog(null, "Secretaria não Excluida"+e.getMessage());
+        JOptionPane.showMessageDialog(null, "Secretaria não Excluida!: "+e.getMessage());
            
        }
    }

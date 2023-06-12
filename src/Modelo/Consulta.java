@@ -1,9 +1,4 @@
 package Modelo;
-
-import java.util.Date;
-import javax.swing.JSpinner;
-
-
 public class Consulta {
     private int id;
     private String nome_c;

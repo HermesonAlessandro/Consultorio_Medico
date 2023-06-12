@@ -1,6 +1,4 @@
 package Modelo;
-
-
 public class Convenio {
     private int cnpj;
     private String nome;

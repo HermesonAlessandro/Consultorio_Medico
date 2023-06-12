@@ -1,6 +1,6 @@
 package DTO;
-
 public class AdministradorDTO {
+    
     private int rg_adm;
     private String senha_adm;
 

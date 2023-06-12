@@ -382,6 +382,7 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
                 
                 num++;
         }
+        JOptionPane.showMessageDialog(null, "Busca feita com sucesso!");
         LimparDados();
     }//GEN-LAST:event_jButton6ActionPerformed
 

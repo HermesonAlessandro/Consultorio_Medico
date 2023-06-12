@@ -1,7 +1,6 @@
-
 package DTO;
-
 public class MedicoDTO {
+    
     private int rg;
     private String senha;
 

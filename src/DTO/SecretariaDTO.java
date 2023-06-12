@@ -1,7 +1,6 @@
-
 package DTO;
-
 public class SecretariaDTO {
+    
     private int rg_sec;
     private String senha_sec;
 

@@ -1,7 +1,6 @@
 package DAO;
 
 import Modelo.Convenio;
-import java.net.ConnectException;
 import java.sql.*;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
@@ -31,9 +30,9 @@ public class ConvenioDAO extends ExecuteSQL{;
             
             
             if(ps.executeUpdate()>0){
-                JOptionPane.showMessageDialog(null, "cadastrado com Sucesso!");
+                JOptionPane.showMessageDialog(null, "Convenio cadastrado com Sucesso!");
             }else{
-                JOptionPane.showMessageDialog(null, "nao foi possivel o cadastro!");
+                JOptionPane.showMessageDialog(null, "Não foi possivel o cadastrar um Convenio!");
             }
             
            }catch(Exception e){
@@ -66,7 +65,7 @@ public class ConvenioDAO extends ExecuteSQL{;
                  
              }catch(Exception e) {
                  JOptionPane.showMessageDialog(null,
-                         "nao foi possivel encontrar o convenio" +e.getMessage());
+                         "Não foi possivel encontrar o Convenio: " +e.getMessage());
                  
                     }
            
@@ -95,7 +94,7 @@ public class ConvenioDAO extends ExecuteSQL{;
         
     }catch(Exception e){
         
-        JOptionPane.showMessageDialog(null, "Convenio nao alterado!"+e.getMessage());
+        JOptionPane.showMessageDialog(null, "Convenio não alterado!: "+e.getMessage());
     
     
     }

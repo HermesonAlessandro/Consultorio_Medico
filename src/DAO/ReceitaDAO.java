@@ -26,9 +26,9 @@ public class ReceitaDAO extends ExecuteSQL{
             
             
             if(ps.executeUpdate()>0){
-                JOptionPane.showMessageDialog(null, "cadastrado com Sucesso!");
+                JOptionPane.showMessageDialog(null, "Receita cadastrado com Sucesso!");
             }else{
-                JOptionPane.showMessageDialog(null, "nao foi possivel o cadastro!");
+                JOptionPane.showMessageDialog(null, "Não foi possivel o cadastrar uma Receita!");
             }
             
            }catch(Exception e){
@@ -58,7 +58,7 @@ public class ReceitaDAO extends ExecuteSQL{
                  
              }catch(Exception e) {
                  JOptionPane.showMessageDialog(null,
-                         "nao foi possivel encontrar a receita" +e.getMessage());
+                         "Não foi possivel encontrar a receita: " +e.getMessage());
                  
                     }
            
@@ -82,7 +82,7 @@ public class ReceitaDAO extends ExecuteSQL{
         
     }catch(Exception e){
         
-        JOptionPane.showMessageDialog(null, "Receita nao alterado!"+e.getMessage());
+        JOptionPane.showMessageDialog(null, "Receita não alterado!: "+e.getMessage());
     
     
     }
@@ -103,7 +103,7 @@ public class ReceitaDAO extends ExecuteSQL{
             JOptionPane.showMessageDialog(null, "Receita Excluida!");
             
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Receita não Excluida!"+e.getMessage());
+            JOptionPane.showMessageDialog(null, "Receita não Excluida!: "+e.getMessage());
             
         }
     }

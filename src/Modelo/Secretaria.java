@@ -1,6 +1,4 @@
 package Modelo;
-
-
 public class Secretaria {
     private int cpf;
     private String nome;

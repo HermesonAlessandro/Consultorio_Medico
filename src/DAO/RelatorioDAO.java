@@ -25,9 +25,9 @@ public class RelatorioDAO extends ExecuteSQL{
             
             
             if(ps.executeUpdate()>0){
-                JOptionPane.showMessageDialog(null, "cadastrado com Sucesso!");
+                JOptionPane.showMessageDialog(null, "Relatorio cadastrado com Sucesso!");
             }else{
-                JOptionPane.showMessageDialog(null, "nao foi possivel o cadastro!");
+                JOptionPane.showMessageDialog(null, "Não foi possivel o cadastrar um Relatorio: !");
             }
             
            }catch(Exception e){
@@ -57,7 +57,7 @@ public class RelatorioDAO extends ExecuteSQL{
                  
              }catch(Exception e) {
                  JOptionPane.showMessageDialog(null,
-                         "nao foi possivel encontrar o relatorio" +e.getMessage());
+                         "Não foi possivel encontrar o relatorio: " +e.getMessage());
                  
                     }
            
@@ -65,77 +65,77 @@ public class RelatorioDAO extends ExecuteSQL{
         
   }
             
-    public void AlterarRelatorio(Relatorio objrelatorio){
-    String sql = "update relatorio set descricao = ? where id = ?";
-    Connection con = ConexaoDAO.AbrirConexao();
-    
-    try{
-        PreparedStatement pstm = con.prepareStatement(sql);
-        pstm.setString(1, objrelatorio.getDescricao());
-        pstm.setInt(2, objrelatorio.getId());
-    
-        pstm.execute();
-        pstm.close();
-        
-        JOptionPane.showMessageDialog(null, "Relatorio alterado com sucesso!");
-        
-    }catch(Exception e){
-        
-        JOptionPane.showMessageDialog(null, "Relatorio nao alterado!"+e.getMessage());
-    
-    
-    }
-   
-   }
-    
-    public void ExcluirRelatorio(Relatorio objrelatorio){
-        String sql = "delete from relatorio where id = ?";
+        public void AlterarRelatorio(Relatorio objrelatorio){
+        String sql = "update relatorio set descricao = ? where id = ?";
         Connection con = ConexaoDAO.AbrirConexao();
-        
-        try {
-            ps = con.prepareStatement(sql);
-            ps.setInt(1, objrelatorio.getId());
-            
-            ps.execute();
-            ps.close();
-            
-        JOptionPane.showMessageDialog(null, "Relatorio Excluido!");
-            
-        } catch (Exception e) {
-            
-            JOptionPane.showMessageDialog(null, "Relatorio não excluido!"+e.getMessage());
+
+        try{
+            PreparedStatement pstm = con.prepareStatement(sql);
+            pstm.setString(1, objrelatorio.getDescricao());
+            pstm.setInt(2, objrelatorio.getId());
+
+            pstm.execute();
+            pstm.close();
+
+            JOptionPane.showMessageDialog(null, "Relatorio alterado com sucesso!");
+
+        }catch(Exception e){
+
+            JOptionPane.showMessageDialog(null, "Relatorio nao alterado!: "+e.getMessage());
+
+
+        }
+
+       }
+
+        public void ExcluirRelatorio(Relatorio objrelatorio){
+            String sql = "delete from relatorio where id = ?";
+            Connection con = ConexaoDAO.AbrirConexao();
+
+            try {
+                ps = con.prepareStatement(sql);
+                ps.setInt(1, objrelatorio.getId());
+
+                ps.execute();
+                ps.close();
+
+            JOptionPane.showMessageDialog(null, "Relatorio Excluido!");
+
+            } catch (Exception e) {
+
+                JOptionPane.showMessageDialog(null, "Relatorio não excluido!: "+e.getMessage());
+            }
+        }
+        public ArrayList<Relatorio>BuscarRelatorio(int id){
+            String sql ="";
+            if(id == 0){
+                sql = "select * from relatorio";
+            }else{
+                 sql = "select * from relatorio where id = "+id;
+
+            }
+            Connection con = ConexaoDAO.AbrirConexao();
+
+
+                 try {
+                     ps = con.prepareStatement(sql);
+                     rs = ps.executeQuery();
+
+                     while(rs.next()){
+                        Relatorio objrelatorio = new Relatorio();
+                        objrelatorio.setId(rs.getInt("id"));
+                        objrelatorio.setDescricao(rs.getString("descricao"));
+
+                      lista.add(objrelatorio);
+
+                     }
+
+                 }catch(Exception e) {
+                     JOptionPane.showMessageDialog(null,
+                             "nao foi possivel encontrar um Relatorio: " +e.getMessage());
+
+                        }
+
+             return lista;    
         }
     }
-    public ArrayList<Relatorio>BuscarRelatorio(int id){
-        String sql ="";
-        if(id == 0){
-            sql = "select * from relatorio";
-        }else{
-             sql = "select * from relatorio where id = "+id;
-            
-        }
-        Connection con = ConexaoDAO.AbrirConexao();
-             
-             
-             try {
-                 ps = con.prepareStatement(sql);
-                 rs = ps.executeQuery();
-                 
-                 while(rs.next()){
-                    Relatorio objrelatorio = new Relatorio();
-                    objrelatorio.setId(rs.getInt("id"));
-                    objrelatorio.setDescricao(rs.getString("descricao"));
-           
-                  lista.add(objrelatorio);
-        
-                 }
-                 
-             }catch(Exception e) {
-                 JOptionPane.showMessageDialog(null,
-                         "nao foi possivel encontrar um Relatorio: " +e.getMessage());
-                 
-                    }
-           
-         return lista;    
-    }
-}
