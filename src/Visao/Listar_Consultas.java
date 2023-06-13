@@ -74,9 +74,9 @@ public class Listar_Consultas extends javax.swing.JInternalFrame {
         setMaximizable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 24)); // NOI18N
-        jLabel1.setText("Listar Consultas");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, -1, -1));
+        jLabel1.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 36)); // NOI18N
+        jLabel1.setText("Listar Consulta");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, -1, -1));
 
         jLabel2.setText("ID:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, -1, -1));
@@ -202,7 +202,6 @@ public class Listar_Consultas extends javax.swing.JInternalFrame {
             objconsulta.setId(id);
             
            
-            
             ConsultaDAO objconsultadao = new ConsultaDAO(ConexaoDAO.AbrirConexao());
             objconsultadao.AlterarConsulta(objconsulta);
         }

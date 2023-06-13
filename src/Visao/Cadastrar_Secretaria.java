@@ -58,9 +58,9 @@ public class Cadastrar_Secretaria extends javax.swing.JInternalFrame {
         setTitle("Cadastrar_Secretaria");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 36)); // NOI18N
         jLabel1.setText("Cadastrar Secretária");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, -1, -1));
 
         jLabel2.setText("CPF:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, -1, -1));
@@ -130,8 +130,7 @@ public class Cadastrar_Secretaria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
-        if(jTextField1.getText().isBlank() || jTextField2.getText().isBlank() || 
+         if(jTextField1.getText().isBlank() || jTextField2.getText().isBlank() || 
                 jTextField3.getText().isBlank() || jTextField4.getText().isBlank() 
                 || jPasswordField1.getText().isBlank()){
             
@@ -158,7 +157,6 @@ public class Cadastrar_Secretaria extends javax.swing.JInternalFrame {
         
         Tela_Login tl = new Tela_Login();
         tl.setVisible(true);
-        dispose(); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

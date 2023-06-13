@@ -111,9 +111,9 @@ public class Cadastrar_Medico extends javax.swing.JInternalFrame {
         jLabel7.setText("Sexo:");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(441, 369, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 24)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 36)); // NOI18N
         jLabel8.setText("Cadastro Médico");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 70, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, -1, -1));
         getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 365, 112, -1));
 
         jButton2.setText("Ir para Login");
@@ -162,8 +162,7 @@ public class Cadastrar_Medico extends javax.swing.JInternalFrame {
         } 
         
         Tela_Login tl = new Tela_Login();
-        tl.setVisible(true);
-        dispose();      
+        tl.setVisible(true);     
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed

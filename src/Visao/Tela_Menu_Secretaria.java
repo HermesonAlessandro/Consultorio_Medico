@@ -37,16 +37,12 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem15 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem14 = new javax.swing.JMenuItem();
-        jMenuItem16 = new javax.swing.JMenuItem();
         jMenuItem17 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenuItem12 = new javax.swing.JMenuItem();
         jMenuItem13 = new javax.swing.JMenuItem();
@@ -57,10 +53,10 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
 
         jDesktopPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 100)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Secretaria");
-        jDesktopPane1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 180, 310, 90));
+        jLabel2.setText("Menu Secretária");
+        jDesktopPane1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 790, 90));
 
         jButton2.setText("Sair");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -68,7 +64,7 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jDesktopPane1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, 160, 40));
+        jDesktopPane1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 440, 210, 40));
 
         jButton1.setText("Voltar Para Tela de Login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -76,10 +72,10 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jDesktopPane1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, 160, 40));
+        jDesktopPane1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 370, 210, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/def.png"))); // NOI18N
-        jDesktopPane1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 60, 950, 550));
+        jDesktopPane1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, 1080, 700));
 
         jMenu1.setText("Cadastra");
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
@@ -121,15 +117,7 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem4.setText("Medico");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem4);
-
-        jMenuItem5.setText("Pacientes ");
+        jMenuItem5.setText("Paciente ");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem5ActionPerformed(evt);
@@ -137,7 +125,7 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem5);
 
-        jMenuItem6.setText("Convenios");
+        jMenuItem6.setText("Convenio");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem6ActionPerformed(evt);
@@ -145,37 +133,13 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem6);
 
-        jMenuItem7.setText("Consultas");
+        jMenuItem7.setText("Consulta");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem7ActionPerformed(evt);
             }
         });
         jMenu2.add(jMenuItem7);
-
-        jMenuItem15.setText("Administrador");
-        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem15ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem15);
-
-        jMenuItem8.setText("Secretaria");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem8);
-
-        jMenuItem9.setText("Clinica");
-        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem9ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem9);
 
         jMenuItem14.setText("Relatorio");
         jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
@@ -185,14 +149,6 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem14);
 
-        jMenuItem16.setText("Receita");
-        jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem16ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem16);
-
         jMenuItem17.setText("Compromisso Medico");
         jMenuItem17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,6 +156,9 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
             }
         });
         jMenu2.add(jMenuItem17);
+
+        jMenuItem11.setText("Medico");
+        jMenu2.add(jMenuItem11);
 
         jMenuBar1.add(jMenu2);
 
@@ -213,7 +172,7 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
         });
         jMenu6.add(jMenuItem12);
 
-        jMenuItem13.setText("Comp_medico");
+        jMenuItem13.setText("Compromisso Medico");
         jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem13ActionPerformed(evt);
@@ -321,12 +280,29 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      Tela_Login tl = new Tela_Login();
+      tl.setVisible(true);
+      dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
         Listar_Administrador la = new Listar_Administrador();
         la.setVisible(true);
         jDesktopPane1.add(la);
-
     }//GEN-LAST:event_jMenu2ActionPerformed
+
+    private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
+        Listar_Compromisso_Medico lcm = new Listar_Compromisso_Medico();
+        lcm.setVisible(true);
+        jDesktopPane1.add(lcm);
+    }//GEN-LAST:event_jMenuItem17ActionPerformed
+
+    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
+        Listar_Relatorio lr = new Listar_Relatorio();
+        lr.setVisible(true);
+        jDesktopPane1.add(lr);
+    }//GEN-LAST:event_jMenuItem14ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         Listar_Consultas lc = new Listar_Consultas();
@@ -345,55 +321,6 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
         lp.setVisible(true);
         jDesktopPane1.add(lp);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
-
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        Listar_Medico lm = new Listar_Medico();
-        lm.setVisible(true);
-        jDesktopPane1.add(lm);
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
-
-    private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
-        Listar_Administrador la = new Listar_Administrador();
-        la.setVisible(true);
-        jDesktopPane1.add(la);
-    }//GEN-LAST:event_jMenuItem15ActionPerformed
-
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-        Listar_Secretaria ls = new Listar_Secretaria();
-        ls.setVisible(true);
-        jDesktopPane1.add(ls);
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
-
-    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-        Listar_Clinica lc = new Listar_Clinica();
-        lc.setVisible(true);
-        jDesktopPane1.add(lc);
-    }//GEN-LAST:event_jMenuItem9ActionPerformed
-
-    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
-        Listar_Relatorio lr = new Listar_Relatorio();
-        lr.setVisible(true);
-        jDesktopPane1.add(lr);
-    }//GEN-LAST:event_jMenuItem14ActionPerformed
-
-    private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
-        Listar_Receita lr = new Listar_Receita();
-        lr.setVisible(true);
-        jDesktopPane1.add(lr);
-               
-    }//GEN-LAST:event_jMenuItem16ActionPerformed
-
-    private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
-        Listar_Compromisso_Medico lcm = new Listar_Compromisso_Medico();
-        lcm.setVisible(true);
-        jDesktopPane1.add(lcm);
-    }//GEN-LAST:event_jMenuItem17ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      Tela_Login tl = new Tela_Login();
-      tl.setVisible(true);
-      dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -446,19 +373,15 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
-    private javax.swing.JMenuItem jMenuItem15;
-    private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItem17;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
 }

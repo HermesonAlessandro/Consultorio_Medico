@@ -53,9 +53,9 @@ public class Cadastrar_Paciente extends javax.swing.JInternalFrame {
         setTitle("Cadastrar_Paciente");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 36)); // NOI18N
         jLabel1.setText("Cadastrar Paciente");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, -1, -1));
 
         jLabel2.setText("CPF:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 120, -1, -1));
@@ -121,8 +121,7 @@ public class Cadastrar_Paciente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextField6ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     
-        if(jTextField1.getText().isBlank() || jTextField2.getText().isBlank() || 
+            if(jTextField1.getText().isBlank() || jTextField2.getText().isBlank() || 
                 jTextField3.getText().isBlank() || jTextField4.getText().isBlank() || 
                 jTextField5.getText().isBlank() || jTextField6.getText().isBlank()){
             

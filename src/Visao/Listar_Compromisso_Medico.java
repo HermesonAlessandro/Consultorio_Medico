@@ -89,8 +89,7 @@ public class Listar_Compromisso_Medico extends javax.swing.JInternalFrame {
        objcompromissomedico.setH_fim(h_fim);
        objcompromissomedico.setH_ini(h_ini);
             
-           
-            
+ 
        Compromisso_medicoDAO objcompromissomedicodao = new Compromisso_medicoDAO(ConexaoDAO.AbrirConexao());
        objcompromissomedicodao.AlterarCompromissoMedico(objcompromissomedico);
       }
@@ -137,7 +136,7 @@ public class Listar_Compromisso_Medico extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setText("Listar Compromisso Medico");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(164, 0, -1, 40));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, -1, 40));
 
         jLabel2.setText("Id_CompMedico");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, -1, 20));

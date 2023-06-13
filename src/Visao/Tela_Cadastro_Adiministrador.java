@@ -77,7 +77,6 @@ public class Tela_Cadastro_Adiministrador extends javax.swing.JFrame {
         jLabel4.setText("Cpf:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, -1, -1));
 
-        jButton1.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 12)); // NOI18N
         jButton1.setText("Cadastrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,7 +100,6 @@ public class Tela_Cadastro_Adiministrador extends javax.swing.JFrame {
         });
         getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 480, -1));
 
-        jButton2.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 12)); // NOI18N
         jButton2.setText("Sair");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

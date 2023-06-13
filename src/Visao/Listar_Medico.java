@@ -88,9 +88,9 @@ public class Listar_Medico extends javax.swing.JInternalFrame {
         setMaximizable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setText("Listar Médico");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, -1, -1));
 
         jLabel2.setText("CPF:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, -1, -1));
@@ -203,7 +203,7 @@ public class Listar_Medico extends javax.swing.JInternalFrame {
         jLabel8.setToolTipText("");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(-280, 67, -1, 1090));
 
-        pack();
+        setBounds(0, 0, 751, 712);
     }// </editor-fold>//GEN-END:initComponents
         private void CarregarCampos(){
         jTextField1.setEnabled(false);

@@ -78,7 +78,7 @@ public class Listar_Clinica extends javax.swing.JInternalFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel1.setText("Lista Clinica");
+        jLabel1.setText("Lista Clínica");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 241, -1));
 
         jLabel2.setText("Cnpj:");
@@ -208,8 +208,7 @@ public class Listar_Clinica extends javax.swing.JInternalFrame {
          objclinica.setEnd(end);
          objclinica.setTel(tel);
             
-           
-            
+         
          ClinicaDAO objclinicadao = new ClinicaDAO(ConexaoDAO.AbrirConexao());
          objclinicadao.AlterarClinica(objclinica);
        }

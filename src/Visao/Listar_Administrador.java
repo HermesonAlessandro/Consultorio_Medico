@@ -150,9 +150,9 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
         jLabel9.setText("Senha:");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, -1, 34));
 
-        jLabel1.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 36)); // NOI18N
         jLabel1.setText("Listar Administrador");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 560, 88));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 560, 88));
 
         jPasswordField1.setEnabled(false);
         getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 479, -1));
@@ -231,7 +231,7 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/aaa (2).png"))); // NOI18N
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(-120, 590, -1, -1));
 
-        pack();
+        setBounds(0, 0, 760, 772);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -297,8 +297,6 @@ public class Listar_Administrador extends javax.swing.JInternalFrame {
             objadministrador.setSexo(sexo);
             objadministrador.setClin(clin);
             objadministrador.setTel(tel);
-            
-           
             
             AdministradorDAO objadministradordao = new AdministradorDAO(ConexaoDAO.AbrirConexao());
             objadministradordao.AlterarAdministrador(objadministrador);

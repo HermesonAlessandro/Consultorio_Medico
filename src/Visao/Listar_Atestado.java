@@ -188,7 +188,6 @@ public class Listar_Atestado extends javax.swing.JInternalFrame {
             objatestado.setId(id);
             objatestado.setDias_ausentes(dias_ausentes);
                        
-            
             AtestadoDAO objatestadodao = new AtestadoDAO(ConexaoDAO.AbrirConexao());
             objatestadodao.AlterarAtestado(objatestado);
        }

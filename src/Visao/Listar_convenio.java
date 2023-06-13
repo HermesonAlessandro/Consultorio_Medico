@@ -80,9 +80,9 @@ public class Listar_convenio extends javax.swing.JInternalFrame {
         setMaximizable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 0, 36)); // NOI18N
         jLabel1.setText("Listar Convênios");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
         jLabel2.setText("CNPJ:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 51, -1, -1));
@@ -222,7 +222,6 @@ public class Listar_convenio extends javax.swing.JInternalFrame {
             objconvenio.setEnd(end);
             
           
-            
             ConvenioDAO objconveniodao = new ConvenioDAO(ConexaoDAO.AbrirConexao());
             objconveniodao.AlterarConvenio(objconvenio);
             }
