@@ -158,6 +158,11 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
         jMenu2.add(jMenuItem17);
 
         jMenuItem11.setText("Medico");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem11);
 
         jMenuBar1.add(jMenu2);
@@ -321,6 +326,12 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
         lp.setVisible(true);
         jDesktopPane1.add(lp);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        Listar_Medico lm = new Listar_Medico();
+        lm.setVisible(true);
+        jDesktopPane1.add(lm);
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     /**
      * @param args the command line arguments
