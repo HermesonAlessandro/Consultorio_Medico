@@ -219,7 +219,7 @@ public class Listar_Secretaria extends javax.swing.JInternalFrame {
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/aaa (2).png"))); // NOI18N
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 280, -1, -1));
 
-        setBounds(0, 0, 1047, 708);
+        setBounds(0, 0, 984, 708);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed

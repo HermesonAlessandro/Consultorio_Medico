@@ -149,7 +149,7 @@ public class Listar_Receita extends javax.swing.JInternalFrame {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/aaa (2).png"))); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 520));
 
-        pack();
+        setBounds(0, 0, 750, 556);
     }// </editor-fold>//GEN-END:initComponents
 
             private void CarregarCampos(){

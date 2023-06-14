@@ -212,7 +212,7 @@ public class Listar_Paciente extends javax.swing.JInternalFrame {
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/aaa (2).png"))); // NOI18N
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 520));
 
-        pack();
+        setBounds(0, 0, 751, 553);
     }// </editor-fold>//GEN-END:initComponents
           private void CarregarCampos(){
           jTextField1.setEnabled(false);

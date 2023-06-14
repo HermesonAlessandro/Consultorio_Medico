@@ -101,7 +101,7 @@ public class Cadastrar_Convenio extends javax.swing.JInternalFrame {
         jLabel7.setText("jLabel7");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 520));
 
-        pack();
+        setBounds(0, 0, 751, 554);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

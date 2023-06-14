@@ -122,7 +122,7 @@ public class Cadastrar_Secretaria extends javax.swing.JInternalFrame {
         jLabel12.setText("jLabel12");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 750, 530));
 
-        pack();
+        setBounds(0, 0, 751, 557);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed

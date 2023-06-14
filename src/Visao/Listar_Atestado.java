@@ -158,7 +158,7 @@ public class Listar_Atestado extends javax.swing.JInternalFrame {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Visao/aaa (2).png"))); // NOI18N
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 520));
 
-        pack();
+        setBounds(0, 0, 749, 555);
     }// </editor-fold>//GEN-END:initComponents
 
           private void CarregarCampos(){

@@ -43,6 +43,7 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
         jMenuItem14 = new javax.swing.JMenuItem();
         jMenuItem17 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenuItem12 = new javax.swing.JMenuItem();
         jMenuItem13 = new javax.swing.JMenuItem();
@@ -84,7 +85,7 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem1.setText("Medico");
+        jMenuItem1.setText("Médico");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -100,7 +101,7 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem2);
 
-        jMenuItem3.setText("Convenio");
+        jMenuItem3.setText("Convênio");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -125,7 +126,7 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem5);
 
-        jMenuItem6.setText("Convenio");
+        jMenuItem6.setText("Convênio");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem6ActionPerformed(evt);
@@ -141,7 +142,7 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem7);
 
-        jMenuItem14.setText("Relatorio");
+        jMenuItem14.setText("Relátorio");
         jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem14ActionPerformed(evt);
@@ -149,7 +150,7 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem14);
 
-        jMenuItem17.setText("Compromisso Medico");
+        jMenuItem17.setText("Compromisso Médico");
         jMenuItem17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem17ActionPerformed(evt);
@@ -157,7 +158,7 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem17);
 
-        jMenuItem11.setText("Medico");
+        jMenuItem11.setText("Médico");
         jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem11ActionPerformed(evt);
@@ -165,11 +166,19 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem11);
 
+        jMenuItem4.setText("Relatório");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem4);
+
         jMenuBar1.add(jMenu2);
 
         jMenu6.setText("Marcar");
 
-        jMenuItem12.setText("Consultas");
+        jMenuItem12.setText("Consulta");
         jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem12ActionPerformed(evt);
@@ -177,7 +186,7 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
         });
         jMenu6.add(jMenuItem12);
 
-        jMenuItem13.setText("Compromisso Medico");
+        jMenuItem13.setText("Compromisso Médico");
         jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem13ActionPerformed(evt);
@@ -210,7 +219,7 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1080, Short.MAX_VALUE)
+            .addComponent(jDesktopPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,9 +255,6 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
     Marcar_Consulta mc = new Marcar_Consulta();
     mc.setVisible(true);
     jDesktopPane1.add(mc);
-    
-    
-    
     }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
@@ -333,6 +339,12 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
         jDesktopPane1.add(lm);
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        Listar_Relatorio lr = new Listar_Relatorio();
+        lr.setVisible(true);
+        jDesktopPane1.add(lr);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -391,6 +403,7 @@ public class Tela_Menu_Secretaria extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem17;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;

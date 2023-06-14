@@ -131,7 +131,7 @@ public class Cadastrar_Medico extends javax.swing.JInternalFrame {
         jLabel10.setText("jLabel10");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 0, 770, 520));
 
-        pack();
+        setBounds(0, 0, 750, 554);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed

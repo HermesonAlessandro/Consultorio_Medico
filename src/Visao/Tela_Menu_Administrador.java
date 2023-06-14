@@ -76,7 +76,7 @@ public class Tela_Menu_Administrador extends javax.swing.JFrame {
 
         jMenu1.setText("Cadastrar");
 
-        jMenuItem1.setText("Secretaria");
+        jMenuItem1.setText("Secretária");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -84,7 +84,7 @@ public class Tela_Menu_Administrador extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem2.setText("Infor_Clinica");
+        jMenuItem2.setText("Informações da Clínica");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
@@ -96,7 +96,7 @@ public class Tela_Menu_Administrador extends javax.swing.JFrame {
 
         jMenu2.setText("Buscar");
 
-        jMenuItem3.setText("Secretaria");
+        jMenuItem3.setText("Secretária");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -104,7 +104,7 @@ public class Tela_Menu_Administrador extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem3);
 
-        jMenuItem4.setText("Medico");
+        jMenuItem4.setText("Médico");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem4ActionPerformed(evt);
@@ -120,7 +120,7 @@ public class Tela_Menu_Administrador extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem5);
 
-        jMenuItem6.setText("Clinica");
+        jMenuItem6.setText("Clínica");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem6ActionPerformed(evt);

@@ -106,7 +106,7 @@ public class Tela_Menu_Medico extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem5);
 
-        jMenuItem1.setText("consulta");
+        jMenuItem1.setText("Consulta");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -134,7 +134,7 @@ public class Tela_Menu_Medico extends javax.swing.JFrame {
         });
         jMenu5.add(jMenuItem7);
 
-        jMenuItem2.setText("Relatorio");
+        jMenuItem2.setText("Relatório");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
